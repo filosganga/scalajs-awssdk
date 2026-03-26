@@ -22,12 +22,20 @@ class DeleteObjectsTest
       for {
         _ <- client.sendIO(
           PutObjectCommand(
-            PutObjectCommandInput(Bucket = bucketName, Key = "a.txt", Body = "a")
+            PutObjectCommandInput(
+              Bucket = bucketName,
+              Key = "a.txt",
+              Body = "a"
+            )
           )
         )
         _ <- client.sendIO(
           PutObjectCommand(
-            PutObjectCommandInput(Bucket = bucketName, Key = "b.txt", Body = "b")
+            PutObjectCommandInput(
+              Bucket = bucketName,
+              Key = "b.txt",
+              Body = "b"
+            )
           )
         )
         result <- client.sendIO(

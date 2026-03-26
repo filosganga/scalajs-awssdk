@@ -9,11 +9,17 @@ import scalajs.js.annotation.JSImport
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "AbortMultipartUploadCommand")
-class AbortMultipartUploadCommand(override val input: AbortMultipartUploadCommandInput)
-    extends Command[AbortMultipartUploadCommandInput, AbortMultipartUploadCommandOutput]
+class AbortMultipartUploadCommand(
+    override val input: AbortMultipartUploadCommandInput
+) extends Command[
+      AbortMultipartUploadCommandInput,
+      AbortMultipartUploadCommandOutput
+    ]
 
 object AbortMultipartUploadCommand {
-  def apply(input: AbortMultipartUploadCommandInput): AbortMultipartUploadCommand =
+  def apply(
+      input: AbortMultipartUploadCommandInput
+  ): AbortMultipartUploadCommand =
     new AbortMultipartUploadCommand(
       input
     )
@@ -21,11 +27,17 @@ object AbortMultipartUploadCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "CompleteMultipartUploadCommand")
-class CompleteMultipartUploadCommand(override val input: CompleteMultipartUploadCommandInput)
-    extends Command[CompleteMultipartUploadCommandInput, CompleteMultipartUploadCommandOutput]
+class CompleteMultipartUploadCommand(
+    override val input: CompleteMultipartUploadCommandInput
+) extends Command[
+      CompleteMultipartUploadCommandInput,
+      CompleteMultipartUploadCommandOutput
+    ]
 
 object CompleteMultipartUploadCommand {
-  def apply(input: CompleteMultipartUploadCommandInput): CompleteMultipartUploadCommand =
+  def apply(
+      input: CompleteMultipartUploadCommandInput
+  ): CompleteMultipartUploadCommand =
     new CompleteMultipartUploadCommand(
       input
     )
@@ -57,11 +69,17 @@ object CreateBucketCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "CreateBucketMetadataConfigurationCommand")
-class CreateBucketMetadataConfigurationCommand(override val input: CreateBucketMetadataConfigurationCommandInput)
-    extends Command[CreateBucketMetadataConfigurationCommandInput, CreateBucketMetadataConfigurationCommandOutput]
+class CreateBucketMetadataConfigurationCommand(
+    override val input: CreateBucketMetadataConfigurationCommandInput
+) extends Command[
+      CreateBucketMetadataConfigurationCommandInput,
+      CreateBucketMetadataConfigurationCommandOutput
+    ]
 
 object CreateBucketMetadataConfigurationCommand {
-  def apply(input: CreateBucketMetadataConfigurationCommandInput): CreateBucketMetadataConfigurationCommand =
+  def apply(
+      input: CreateBucketMetadataConfigurationCommandInput
+  ): CreateBucketMetadataConfigurationCommand =
     new CreateBucketMetadataConfigurationCommand(
       input
     )
@@ -69,11 +87,17 @@ object CreateBucketMetadataConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "CreateBucketMetadataTableConfigurationCommand")
-class CreateBucketMetadataTableConfigurationCommand(override val input: CreateBucketMetadataTableConfigurationCommandInput)
-    extends Command[CreateBucketMetadataTableConfigurationCommandInput, CreateBucketMetadataTableConfigurationCommandOutput]
+class CreateBucketMetadataTableConfigurationCommand(
+    override val input: CreateBucketMetadataTableConfigurationCommandInput
+) extends Command[
+      CreateBucketMetadataTableConfigurationCommandInput,
+      CreateBucketMetadataTableConfigurationCommandOutput
+    ]
 
 object CreateBucketMetadataTableConfigurationCommand {
-  def apply(input: CreateBucketMetadataTableConfigurationCommandInput): CreateBucketMetadataTableConfigurationCommand =
+  def apply(
+      input: CreateBucketMetadataTableConfigurationCommandInput
+  ): CreateBucketMetadataTableConfigurationCommand =
     new CreateBucketMetadataTableConfigurationCommand(
       input
     )
@@ -81,11 +105,17 @@ object CreateBucketMetadataTableConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "CreateMultipartUploadCommand")
-class CreateMultipartUploadCommand(override val input: CreateMultipartUploadCommandInput)
-    extends Command[CreateMultipartUploadCommandInput, CreateMultipartUploadCommandOutput]
+class CreateMultipartUploadCommand(
+    override val input: CreateMultipartUploadCommandInput
+) extends Command[
+      CreateMultipartUploadCommandInput,
+      CreateMultipartUploadCommandOutput
+    ]
 
 object CreateMultipartUploadCommand {
-  def apply(input: CreateMultipartUploadCommandInput): CreateMultipartUploadCommand =
+  def apply(
+      input: CreateMultipartUploadCommandInput
+  ): CreateMultipartUploadCommand =
     new CreateMultipartUploadCommand(
       input
     )
@@ -105,11 +135,17 @@ object CreateSessionCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeleteBucketAnalyticsConfigurationCommand")
-class DeleteBucketAnalyticsConfigurationCommand(override val input: DeleteBucketAnalyticsConfigurationCommandInput)
-    extends Command[DeleteBucketAnalyticsConfigurationCommandInput, DeleteBucketAnalyticsConfigurationCommandOutput]
+class DeleteBucketAnalyticsConfigurationCommand(
+    override val input: DeleteBucketAnalyticsConfigurationCommandInput
+) extends Command[
+      DeleteBucketAnalyticsConfigurationCommandInput,
+      DeleteBucketAnalyticsConfigurationCommandOutput
+    ]
 
 object DeleteBucketAnalyticsConfigurationCommand {
-  def apply(input: DeleteBucketAnalyticsConfigurationCommandInput): DeleteBucketAnalyticsConfigurationCommand =
+  def apply(
+      input: DeleteBucketAnalyticsConfigurationCommandInput
+  ): DeleteBucketAnalyticsConfigurationCommand =
     new DeleteBucketAnalyticsConfigurationCommand(
       input
     )
@@ -141,23 +177,38 @@ object DeleteBucketCorsCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeleteBucketEncryptionCommand")
-class DeleteBucketEncryptionCommand(override val input: DeleteBucketEncryptionCommandInput)
-    extends Command[DeleteBucketEncryptionCommandInput, DeleteBucketEncryptionCommandOutput]
+class DeleteBucketEncryptionCommand(
+    override val input: DeleteBucketEncryptionCommandInput
+) extends Command[
+      DeleteBucketEncryptionCommandInput,
+      DeleteBucketEncryptionCommandOutput
+    ]
 
 object DeleteBucketEncryptionCommand {
-  def apply(input: DeleteBucketEncryptionCommandInput): DeleteBucketEncryptionCommand =
+  def apply(
+      input: DeleteBucketEncryptionCommandInput
+  ): DeleteBucketEncryptionCommand =
     new DeleteBucketEncryptionCommand(
       input
     )
 }
 
 @js.native
-@JSImport("@aws-sdk/client-s3", "DeleteBucketIntelligentTieringConfigurationCommand")
-class DeleteBucketIntelligentTieringConfigurationCommand(override val input: DeleteBucketIntelligentTieringConfigurationCommandInput)
-    extends Command[DeleteBucketIntelligentTieringConfigurationCommandInput, DeleteBucketIntelligentTieringConfigurationCommandOutput]
+@JSImport(
+  "@aws-sdk/client-s3",
+  "DeleteBucketIntelligentTieringConfigurationCommand"
+)
+class DeleteBucketIntelligentTieringConfigurationCommand(
+    override val input: DeleteBucketIntelligentTieringConfigurationCommandInput
+) extends Command[
+      DeleteBucketIntelligentTieringConfigurationCommandInput,
+      DeleteBucketIntelligentTieringConfigurationCommandOutput
+    ]
 
 object DeleteBucketIntelligentTieringConfigurationCommand {
-  def apply(input: DeleteBucketIntelligentTieringConfigurationCommandInput): DeleteBucketIntelligentTieringConfigurationCommand =
+  def apply(
+      input: DeleteBucketIntelligentTieringConfigurationCommandInput
+  ): DeleteBucketIntelligentTieringConfigurationCommand =
     new DeleteBucketIntelligentTieringConfigurationCommand(
       input
     )
@@ -165,11 +216,17 @@ object DeleteBucketIntelligentTieringConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeleteBucketInventoryConfigurationCommand")
-class DeleteBucketInventoryConfigurationCommand(override val input: DeleteBucketInventoryConfigurationCommandInput)
-    extends Command[DeleteBucketInventoryConfigurationCommandInput, DeleteBucketInventoryConfigurationCommandOutput]
+class DeleteBucketInventoryConfigurationCommand(
+    override val input: DeleteBucketInventoryConfigurationCommandInput
+) extends Command[
+      DeleteBucketInventoryConfigurationCommandInput,
+      DeleteBucketInventoryConfigurationCommandOutput
+    ]
 
 object DeleteBucketInventoryConfigurationCommand {
-  def apply(input: DeleteBucketInventoryConfigurationCommandInput): DeleteBucketInventoryConfigurationCommand =
+  def apply(
+      input: DeleteBucketInventoryConfigurationCommandInput
+  ): DeleteBucketInventoryConfigurationCommand =
     new DeleteBucketInventoryConfigurationCommand(
       input
     )
@@ -177,11 +234,17 @@ object DeleteBucketInventoryConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeleteBucketLifecycleCommand")
-class DeleteBucketLifecycleCommand(override val input: DeleteBucketLifecycleCommandInput)
-    extends Command[DeleteBucketLifecycleCommandInput, DeleteBucketLifecycleCommandOutput]
+class DeleteBucketLifecycleCommand(
+    override val input: DeleteBucketLifecycleCommandInput
+) extends Command[
+      DeleteBucketLifecycleCommandInput,
+      DeleteBucketLifecycleCommandOutput
+    ]
 
 object DeleteBucketLifecycleCommand {
-  def apply(input: DeleteBucketLifecycleCommandInput): DeleteBucketLifecycleCommand =
+  def apply(
+      input: DeleteBucketLifecycleCommandInput
+  ): DeleteBucketLifecycleCommand =
     new DeleteBucketLifecycleCommand(
       input
     )
@@ -189,11 +252,17 @@ object DeleteBucketLifecycleCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeleteBucketMetadataConfigurationCommand")
-class DeleteBucketMetadataConfigurationCommand(override val input: DeleteBucketMetadataConfigurationCommandInput)
-    extends Command[DeleteBucketMetadataConfigurationCommandInput, DeleteBucketMetadataConfigurationCommandOutput]
+class DeleteBucketMetadataConfigurationCommand(
+    override val input: DeleteBucketMetadataConfigurationCommandInput
+) extends Command[
+      DeleteBucketMetadataConfigurationCommandInput,
+      DeleteBucketMetadataConfigurationCommandOutput
+    ]
 
 object DeleteBucketMetadataConfigurationCommand {
-  def apply(input: DeleteBucketMetadataConfigurationCommandInput): DeleteBucketMetadataConfigurationCommand =
+  def apply(
+      input: DeleteBucketMetadataConfigurationCommandInput
+  ): DeleteBucketMetadataConfigurationCommand =
     new DeleteBucketMetadataConfigurationCommand(
       input
     )
@@ -201,11 +270,17 @@ object DeleteBucketMetadataConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeleteBucketMetadataTableConfigurationCommand")
-class DeleteBucketMetadataTableConfigurationCommand(override val input: DeleteBucketMetadataTableConfigurationCommandInput)
-    extends Command[DeleteBucketMetadataTableConfigurationCommandInput, DeleteBucketMetadataTableConfigurationCommandOutput]
+class DeleteBucketMetadataTableConfigurationCommand(
+    override val input: DeleteBucketMetadataTableConfigurationCommandInput
+) extends Command[
+      DeleteBucketMetadataTableConfigurationCommandInput,
+      DeleteBucketMetadataTableConfigurationCommandOutput
+    ]
 
 object DeleteBucketMetadataTableConfigurationCommand {
-  def apply(input: DeleteBucketMetadataTableConfigurationCommandInput): DeleteBucketMetadataTableConfigurationCommand =
+  def apply(
+      input: DeleteBucketMetadataTableConfigurationCommandInput
+  ): DeleteBucketMetadataTableConfigurationCommand =
     new DeleteBucketMetadataTableConfigurationCommand(
       input
     )
@@ -213,11 +288,17 @@ object DeleteBucketMetadataTableConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeleteBucketMetricsConfigurationCommand")
-class DeleteBucketMetricsConfigurationCommand(override val input: DeleteBucketMetricsConfigurationCommandInput)
-    extends Command[DeleteBucketMetricsConfigurationCommandInput, DeleteBucketMetricsConfigurationCommandOutput]
+class DeleteBucketMetricsConfigurationCommand(
+    override val input: DeleteBucketMetricsConfigurationCommandInput
+) extends Command[
+      DeleteBucketMetricsConfigurationCommandInput,
+      DeleteBucketMetricsConfigurationCommandOutput
+    ]
 
 object DeleteBucketMetricsConfigurationCommand {
-  def apply(input: DeleteBucketMetricsConfigurationCommandInput): DeleteBucketMetricsConfigurationCommand =
+  def apply(
+      input: DeleteBucketMetricsConfigurationCommandInput
+  ): DeleteBucketMetricsConfigurationCommand =
     new DeleteBucketMetricsConfigurationCommand(
       input
     )
@@ -225,11 +306,17 @@ object DeleteBucketMetricsConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeleteBucketOwnershipControlsCommand")
-class DeleteBucketOwnershipControlsCommand(override val input: DeleteBucketOwnershipControlsCommandInput)
-    extends Command[DeleteBucketOwnershipControlsCommandInput, DeleteBucketOwnershipControlsCommandOutput]
+class DeleteBucketOwnershipControlsCommand(
+    override val input: DeleteBucketOwnershipControlsCommandInput
+) extends Command[
+      DeleteBucketOwnershipControlsCommandInput,
+      DeleteBucketOwnershipControlsCommandOutput
+    ]
 
 object DeleteBucketOwnershipControlsCommand {
-  def apply(input: DeleteBucketOwnershipControlsCommandInput): DeleteBucketOwnershipControlsCommand =
+  def apply(
+      input: DeleteBucketOwnershipControlsCommandInput
+  ): DeleteBucketOwnershipControlsCommand =
     new DeleteBucketOwnershipControlsCommand(
       input
     )
@@ -237,8 +324,12 @@ object DeleteBucketOwnershipControlsCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeleteBucketPolicyCommand")
-class DeleteBucketPolicyCommand(override val input: DeleteBucketPolicyCommandInput)
-    extends Command[DeleteBucketPolicyCommandInput, DeleteBucketPolicyCommandOutput]
+class DeleteBucketPolicyCommand(
+    override val input: DeleteBucketPolicyCommandInput
+) extends Command[
+      DeleteBucketPolicyCommandInput,
+      DeleteBucketPolicyCommandOutput
+    ]
 
 object DeleteBucketPolicyCommand {
   def apply(input: DeleteBucketPolicyCommandInput): DeleteBucketPolicyCommand =
@@ -249,11 +340,17 @@ object DeleteBucketPolicyCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeleteBucketReplicationCommand")
-class DeleteBucketReplicationCommand(override val input: DeleteBucketReplicationCommandInput)
-    extends Command[DeleteBucketReplicationCommandInput, DeleteBucketReplicationCommandOutput]
+class DeleteBucketReplicationCommand(
+    override val input: DeleteBucketReplicationCommandInput
+) extends Command[
+      DeleteBucketReplicationCommandInput,
+      DeleteBucketReplicationCommandOutput
+    ]
 
 object DeleteBucketReplicationCommand {
-  def apply(input: DeleteBucketReplicationCommandInput): DeleteBucketReplicationCommand =
+  def apply(
+      input: DeleteBucketReplicationCommandInput
+  ): DeleteBucketReplicationCommand =
     new DeleteBucketReplicationCommand(
       input
     )
@@ -261,11 +358,17 @@ object DeleteBucketReplicationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeleteBucketTaggingCommand")
-class DeleteBucketTaggingCommand(override val input: DeleteBucketTaggingCommandInput)
-    extends Command[DeleteBucketTaggingCommandInput, DeleteBucketTaggingCommandOutput]
+class DeleteBucketTaggingCommand(
+    override val input: DeleteBucketTaggingCommandInput
+) extends Command[
+      DeleteBucketTaggingCommandInput,
+      DeleteBucketTaggingCommandOutput
+    ]
 
 object DeleteBucketTaggingCommand {
-  def apply(input: DeleteBucketTaggingCommandInput): DeleteBucketTaggingCommand =
+  def apply(
+      input: DeleteBucketTaggingCommandInput
+  ): DeleteBucketTaggingCommand =
     new DeleteBucketTaggingCommand(
       input
     )
@@ -273,11 +376,17 @@ object DeleteBucketTaggingCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeleteBucketWebsiteCommand")
-class DeleteBucketWebsiteCommand(override val input: DeleteBucketWebsiteCommandInput)
-    extends Command[DeleteBucketWebsiteCommandInput, DeleteBucketWebsiteCommandOutput]
+class DeleteBucketWebsiteCommand(
+    override val input: DeleteBucketWebsiteCommandInput
+) extends Command[
+      DeleteBucketWebsiteCommandInput,
+      DeleteBucketWebsiteCommandOutput
+    ]
 
 object DeleteBucketWebsiteCommand {
-  def apply(input: DeleteBucketWebsiteCommandInput): DeleteBucketWebsiteCommand =
+  def apply(
+      input: DeleteBucketWebsiteCommandInput
+  ): DeleteBucketWebsiteCommand =
     new DeleteBucketWebsiteCommand(
       input
     )
@@ -297,11 +406,17 @@ object DeleteObjectCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeleteObjectTaggingCommand")
-class DeleteObjectTaggingCommand(override val input: DeleteObjectTaggingCommandInput)
-    extends Command[DeleteObjectTaggingCommandInput, DeleteObjectTaggingCommandOutput]
+class DeleteObjectTaggingCommand(
+    override val input: DeleteObjectTaggingCommandInput
+) extends Command[
+      DeleteObjectTaggingCommandInput,
+      DeleteObjectTaggingCommandOutput
+    ]
 
 object DeleteObjectTaggingCommand {
-  def apply(input: DeleteObjectTaggingCommandInput): DeleteObjectTaggingCommand =
+  def apply(
+      input: DeleteObjectTaggingCommandInput
+  ): DeleteObjectTaggingCommand =
     new DeleteObjectTaggingCommand(
       input
     )
@@ -321,11 +436,17 @@ object DeleteObjectsCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "DeletePublicAccessBlockCommand")
-class DeletePublicAccessBlockCommand(override val input: DeletePublicAccessBlockCommandInput)
-    extends Command[DeletePublicAccessBlockCommandInput, DeletePublicAccessBlockCommandOutput]
+class DeletePublicAccessBlockCommand(
+    override val input: DeletePublicAccessBlockCommandInput
+) extends Command[
+      DeletePublicAccessBlockCommandInput,
+      DeletePublicAccessBlockCommandOutput
+    ]
 
 object DeletePublicAccessBlockCommand {
-  def apply(input: DeletePublicAccessBlockCommandInput): DeletePublicAccessBlockCommand =
+  def apply(
+      input: DeletePublicAccessBlockCommandInput
+  ): DeletePublicAccessBlockCommand =
     new DeletePublicAccessBlockCommand(
       input
     )
@@ -345,11 +466,17 @@ object GetBucketAbacCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketAccelerateConfigurationCommand")
-class GetBucketAccelerateConfigurationCommand(override val input: GetBucketAccelerateConfigurationCommandInput)
-    extends Command[GetBucketAccelerateConfigurationCommandInput, GetBucketAccelerateConfigurationCommandOutput]
+class GetBucketAccelerateConfigurationCommand(
+    override val input: GetBucketAccelerateConfigurationCommandInput
+) extends Command[
+      GetBucketAccelerateConfigurationCommandInput,
+      GetBucketAccelerateConfigurationCommandOutput
+    ]
 
 object GetBucketAccelerateConfigurationCommand {
-  def apply(input: GetBucketAccelerateConfigurationCommandInput): GetBucketAccelerateConfigurationCommand =
+  def apply(
+      input: GetBucketAccelerateConfigurationCommandInput
+  ): GetBucketAccelerateConfigurationCommand =
     new GetBucketAccelerateConfigurationCommand(
       input
     )
@@ -369,11 +496,17 @@ object GetBucketAclCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketAnalyticsConfigurationCommand")
-class GetBucketAnalyticsConfigurationCommand(override val input: GetBucketAnalyticsConfigurationCommandInput)
-    extends Command[GetBucketAnalyticsConfigurationCommandInput, GetBucketAnalyticsConfigurationCommandOutput]
+class GetBucketAnalyticsConfigurationCommand(
+    override val input: GetBucketAnalyticsConfigurationCommandInput
+) extends Command[
+      GetBucketAnalyticsConfigurationCommandInput,
+      GetBucketAnalyticsConfigurationCommandOutput
+    ]
 
 object GetBucketAnalyticsConfigurationCommand {
-  def apply(input: GetBucketAnalyticsConfigurationCommandInput): GetBucketAnalyticsConfigurationCommand =
+  def apply(
+      input: GetBucketAnalyticsConfigurationCommandInput
+  ): GetBucketAnalyticsConfigurationCommand =
     new GetBucketAnalyticsConfigurationCommand(
       input
     )
@@ -393,23 +526,38 @@ object GetBucketCorsCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketEncryptionCommand")
-class GetBucketEncryptionCommand(override val input: GetBucketEncryptionCommandInput)
-    extends Command[GetBucketEncryptionCommandInput, GetBucketEncryptionCommandOutput]
+class GetBucketEncryptionCommand(
+    override val input: GetBucketEncryptionCommandInput
+) extends Command[
+      GetBucketEncryptionCommandInput,
+      GetBucketEncryptionCommandOutput
+    ]
 
 object GetBucketEncryptionCommand {
-  def apply(input: GetBucketEncryptionCommandInput): GetBucketEncryptionCommand =
+  def apply(
+      input: GetBucketEncryptionCommandInput
+  ): GetBucketEncryptionCommand =
     new GetBucketEncryptionCommand(
       input
     )
 }
 
 @js.native
-@JSImport("@aws-sdk/client-s3", "GetBucketIntelligentTieringConfigurationCommand")
-class GetBucketIntelligentTieringConfigurationCommand(override val input: GetBucketIntelligentTieringConfigurationCommandInput)
-    extends Command[GetBucketIntelligentTieringConfigurationCommandInput, GetBucketIntelligentTieringConfigurationCommandOutput]
+@JSImport(
+  "@aws-sdk/client-s3",
+  "GetBucketIntelligentTieringConfigurationCommand"
+)
+class GetBucketIntelligentTieringConfigurationCommand(
+    override val input: GetBucketIntelligentTieringConfigurationCommandInput
+) extends Command[
+      GetBucketIntelligentTieringConfigurationCommandInput,
+      GetBucketIntelligentTieringConfigurationCommandOutput
+    ]
 
 object GetBucketIntelligentTieringConfigurationCommand {
-  def apply(input: GetBucketIntelligentTieringConfigurationCommandInput): GetBucketIntelligentTieringConfigurationCommand =
+  def apply(
+      input: GetBucketIntelligentTieringConfigurationCommandInput
+  ): GetBucketIntelligentTieringConfigurationCommand =
     new GetBucketIntelligentTieringConfigurationCommand(
       input
     )
@@ -417,11 +565,17 @@ object GetBucketIntelligentTieringConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketInventoryConfigurationCommand")
-class GetBucketInventoryConfigurationCommand(override val input: GetBucketInventoryConfigurationCommandInput)
-    extends Command[GetBucketInventoryConfigurationCommandInput, GetBucketInventoryConfigurationCommandOutput]
+class GetBucketInventoryConfigurationCommand(
+    override val input: GetBucketInventoryConfigurationCommandInput
+) extends Command[
+      GetBucketInventoryConfigurationCommandInput,
+      GetBucketInventoryConfigurationCommandOutput
+    ]
 
 object GetBucketInventoryConfigurationCommand {
-  def apply(input: GetBucketInventoryConfigurationCommandInput): GetBucketInventoryConfigurationCommand =
+  def apply(
+      input: GetBucketInventoryConfigurationCommandInput
+  ): GetBucketInventoryConfigurationCommand =
     new GetBucketInventoryConfigurationCommand(
       input
     )
@@ -429,11 +583,17 @@ object GetBucketInventoryConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketLifecycleConfigurationCommand")
-class GetBucketLifecycleConfigurationCommand(override val input: GetBucketLifecycleConfigurationCommandInput)
-    extends Command[GetBucketLifecycleConfigurationCommandInput, GetBucketLifecycleConfigurationCommandOutput]
+class GetBucketLifecycleConfigurationCommand(
+    override val input: GetBucketLifecycleConfigurationCommandInput
+) extends Command[
+      GetBucketLifecycleConfigurationCommandInput,
+      GetBucketLifecycleConfigurationCommandOutput
+    ]
 
 object GetBucketLifecycleConfigurationCommand {
-  def apply(input: GetBucketLifecycleConfigurationCommandInput): GetBucketLifecycleConfigurationCommand =
+  def apply(
+      input: GetBucketLifecycleConfigurationCommandInput
+  ): GetBucketLifecycleConfigurationCommand =
     new GetBucketLifecycleConfigurationCommand(
       input
     )
@@ -441,8 +601,9 @@ object GetBucketLifecycleConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketLocationCommand")
-class GetBucketLocationCommand(override val input: GetBucketLocationCommandInput)
-    extends Command[GetBucketLocationCommandInput, GetBucketLocationCommandOutput]
+class GetBucketLocationCommand(
+    override val input: GetBucketLocationCommandInput
+) extends Command[GetBucketLocationCommandInput, GetBucketLocationCommandOutput]
 
 object GetBucketLocationCommand {
   def apply(input: GetBucketLocationCommandInput): GetBucketLocationCommand =
@@ -465,11 +626,17 @@ object GetBucketLoggingCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketMetadataConfigurationCommand")
-class GetBucketMetadataConfigurationCommand(override val input: GetBucketMetadataConfigurationCommandInput)
-    extends Command[GetBucketMetadataConfigurationCommandInput, GetBucketMetadataConfigurationCommandOutput]
+class GetBucketMetadataConfigurationCommand(
+    override val input: GetBucketMetadataConfigurationCommandInput
+) extends Command[
+      GetBucketMetadataConfigurationCommandInput,
+      GetBucketMetadataConfigurationCommandOutput
+    ]
 
 object GetBucketMetadataConfigurationCommand {
-  def apply(input: GetBucketMetadataConfigurationCommandInput): GetBucketMetadataConfigurationCommand =
+  def apply(
+      input: GetBucketMetadataConfigurationCommandInput
+  ): GetBucketMetadataConfigurationCommand =
     new GetBucketMetadataConfigurationCommand(
       input
     )
@@ -477,11 +644,17 @@ object GetBucketMetadataConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketMetadataTableConfigurationCommand")
-class GetBucketMetadataTableConfigurationCommand(override val input: GetBucketMetadataTableConfigurationCommandInput)
-    extends Command[GetBucketMetadataTableConfigurationCommandInput, GetBucketMetadataTableConfigurationCommandOutput]
+class GetBucketMetadataTableConfigurationCommand(
+    override val input: GetBucketMetadataTableConfigurationCommandInput
+) extends Command[
+      GetBucketMetadataTableConfigurationCommandInput,
+      GetBucketMetadataTableConfigurationCommandOutput
+    ]
 
 object GetBucketMetadataTableConfigurationCommand {
-  def apply(input: GetBucketMetadataTableConfigurationCommandInput): GetBucketMetadataTableConfigurationCommand =
+  def apply(
+      input: GetBucketMetadataTableConfigurationCommandInput
+  ): GetBucketMetadataTableConfigurationCommand =
     new GetBucketMetadataTableConfigurationCommand(
       input
     )
@@ -489,11 +662,17 @@ object GetBucketMetadataTableConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketMetricsConfigurationCommand")
-class GetBucketMetricsConfigurationCommand(override val input: GetBucketMetricsConfigurationCommandInput)
-    extends Command[GetBucketMetricsConfigurationCommandInput, GetBucketMetricsConfigurationCommandOutput]
+class GetBucketMetricsConfigurationCommand(
+    override val input: GetBucketMetricsConfigurationCommandInput
+) extends Command[
+      GetBucketMetricsConfigurationCommandInput,
+      GetBucketMetricsConfigurationCommandOutput
+    ]
 
 object GetBucketMetricsConfigurationCommand {
-  def apply(input: GetBucketMetricsConfigurationCommandInput): GetBucketMetricsConfigurationCommand =
+  def apply(
+      input: GetBucketMetricsConfigurationCommandInput
+  ): GetBucketMetricsConfigurationCommand =
     new GetBucketMetricsConfigurationCommand(
       input
     )
@@ -501,11 +680,17 @@ object GetBucketMetricsConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketNotificationConfigurationCommand")
-class GetBucketNotificationConfigurationCommand(override val input: GetBucketNotificationConfigurationCommandInput)
-    extends Command[GetBucketNotificationConfigurationCommandInput, GetBucketNotificationConfigurationCommandOutput]
+class GetBucketNotificationConfigurationCommand(
+    override val input: GetBucketNotificationConfigurationCommandInput
+) extends Command[
+      GetBucketNotificationConfigurationCommandInput,
+      GetBucketNotificationConfigurationCommandOutput
+    ]
 
 object GetBucketNotificationConfigurationCommand {
-  def apply(input: GetBucketNotificationConfigurationCommandInput): GetBucketNotificationConfigurationCommand =
+  def apply(
+      input: GetBucketNotificationConfigurationCommandInput
+  ): GetBucketNotificationConfigurationCommand =
     new GetBucketNotificationConfigurationCommand(
       input
     )
@@ -513,11 +698,17 @@ object GetBucketNotificationConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketOwnershipControlsCommand")
-class GetBucketOwnershipControlsCommand(override val input: GetBucketOwnershipControlsCommandInput)
-    extends Command[GetBucketOwnershipControlsCommandInput, GetBucketOwnershipControlsCommandOutput]
+class GetBucketOwnershipControlsCommand(
+    override val input: GetBucketOwnershipControlsCommandInput
+) extends Command[
+      GetBucketOwnershipControlsCommandInput,
+      GetBucketOwnershipControlsCommandOutput
+    ]
 
 object GetBucketOwnershipControlsCommand {
-  def apply(input: GetBucketOwnershipControlsCommandInput): GetBucketOwnershipControlsCommand =
+  def apply(
+      input: GetBucketOwnershipControlsCommandInput
+  ): GetBucketOwnershipControlsCommand =
     new GetBucketOwnershipControlsCommand(
       input
     )
@@ -537,11 +728,17 @@ object GetBucketPolicyCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketPolicyStatusCommand")
-class GetBucketPolicyStatusCommand(override val input: GetBucketPolicyStatusCommandInput)
-    extends Command[GetBucketPolicyStatusCommandInput, GetBucketPolicyStatusCommandOutput]
+class GetBucketPolicyStatusCommand(
+    override val input: GetBucketPolicyStatusCommandInput
+) extends Command[
+      GetBucketPolicyStatusCommandInput,
+      GetBucketPolicyStatusCommandOutput
+    ]
 
 object GetBucketPolicyStatusCommand {
-  def apply(input: GetBucketPolicyStatusCommandInput): GetBucketPolicyStatusCommand =
+  def apply(
+      input: GetBucketPolicyStatusCommandInput
+  ): GetBucketPolicyStatusCommand =
     new GetBucketPolicyStatusCommand(
       input
     )
@@ -549,11 +746,17 @@ object GetBucketPolicyStatusCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketReplicationCommand")
-class GetBucketReplicationCommand(override val input: GetBucketReplicationCommandInput)
-    extends Command[GetBucketReplicationCommandInput, GetBucketReplicationCommandOutput]
+class GetBucketReplicationCommand(
+    override val input: GetBucketReplicationCommandInput
+) extends Command[
+      GetBucketReplicationCommandInput,
+      GetBucketReplicationCommandOutput
+    ]
 
 object GetBucketReplicationCommand {
-  def apply(input: GetBucketReplicationCommandInput): GetBucketReplicationCommand =
+  def apply(
+      input: GetBucketReplicationCommandInput
+  ): GetBucketReplicationCommand =
     new GetBucketReplicationCommand(
       input
     )
@@ -561,11 +764,17 @@ object GetBucketReplicationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketRequestPaymentCommand")
-class GetBucketRequestPaymentCommand(override val input: GetBucketRequestPaymentCommandInput)
-    extends Command[GetBucketRequestPaymentCommandInput, GetBucketRequestPaymentCommandOutput]
+class GetBucketRequestPaymentCommand(
+    override val input: GetBucketRequestPaymentCommandInput
+) extends Command[
+      GetBucketRequestPaymentCommandInput,
+      GetBucketRequestPaymentCommandOutput
+    ]
 
 object GetBucketRequestPaymentCommand {
-  def apply(input: GetBucketRequestPaymentCommandInput): GetBucketRequestPaymentCommand =
+  def apply(
+      input: GetBucketRequestPaymentCommandInput
+  ): GetBucketRequestPaymentCommand =
     new GetBucketRequestPaymentCommand(
       input
     )
@@ -585,11 +794,17 @@ object GetBucketTaggingCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetBucketVersioningCommand")
-class GetBucketVersioningCommand(override val input: GetBucketVersioningCommandInput)
-    extends Command[GetBucketVersioningCommandInput, GetBucketVersioningCommandOutput]
+class GetBucketVersioningCommand(
+    override val input: GetBucketVersioningCommandInput
+) extends Command[
+      GetBucketVersioningCommandInput,
+      GetBucketVersioningCommandOutput
+    ]
 
 object GetBucketVersioningCommand {
-  def apply(input: GetBucketVersioningCommandInput): GetBucketVersioningCommand =
+  def apply(
+      input: GetBucketVersioningCommandInput
+  ): GetBucketVersioningCommand =
     new GetBucketVersioningCommand(
       input
     )
@@ -621,11 +836,17 @@ object GetObjectAclCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetObjectAttributesCommand")
-class GetObjectAttributesCommand(override val input: GetObjectAttributesCommandInput)
-    extends Command[GetObjectAttributesCommandInput, GetObjectAttributesCommandOutput]
+class GetObjectAttributesCommand(
+    override val input: GetObjectAttributesCommandInput
+) extends Command[
+      GetObjectAttributesCommandInput,
+      GetObjectAttributesCommandOutput
+    ]
 
 object GetObjectAttributesCommand {
-  def apply(input: GetObjectAttributesCommandInput): GetObjectAttributesCommand =
+  def apply(
+      input: GetObjectAttributesCommandInput
+  ): GetObjectAttributesCommand =
     new GetObjectAttributesCommand(
       input
     )
@@ -645,8 +866,12 @@ object GetObjectCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetObjectLegalHoldCommand")
-class GetObjectLegalHoldCommand(override val input: GetObjectLegalHoldCommandInput)
-    extends Command[GetObjectLegalHoldCommandInput, GetObjectLegalHoldCommandOutput]
+class GetObjectLegalHoldCommand(
+    override val input: GetObjectLegalHoldCommandInput
+) extends Command[
+      GetObjectLegalHoldCommandInput,
+      GetObjectLegalHoldCommandOutput
+    ]
 
 object GetObjectLegalHoldCommand {
   def apply(input: GetObjectLegalHoldCommandInput): GetObjectLegalHoldCommand =
@@ -657,11 +882,17 @@ object GetObjectLegalHoldCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetObjectLockConfigurationCommand")
-class GetObjectLockConfigurationCommand(override val input: GetObjectLockConfigurationCommandInput)
-    extends Command[GetObjectLockConfigurationCommandInput, GetObjectLockConfigurationCommandOutput]
+class GetObjectLockConfigurationCommand(
+    override val input: GetObjectLockConfigurationCommandInput
+) extends Command[
+      GetObjectLockConfigurationCommandInput,
+      GetObjectLockConfigurationCommandOutput
+    ]
 
 object GetObjectLockConfigurationCommand {
-  def apply(input: GetObjectLockConfigurationCommandInput): GetObjectLockConfigurationCommand =
+  def apply(
+      input: GetObjectLockConfigurationCommandInput
+  ): GetObjectLockConfigurationCommand =
     new GetObjectLockConfigurationCommand(
       input
     )
@@ -669,8 +900,12 @@ object GetObjectLockConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetObjectRetentionCommand")
-class GetObjectRetentionCommand(override val input: GetObjectRetentionCommandInput)
-    extends Command[GetObjectRetentionCommandInput, GetObjectRetentionCommandOutput]
+class GetObjectRetentionCommand(
+    override val input: GetObjectRetentionCommandInput
+) extends Command[
+      GetObjectRetentionCommandInput,
+      GetObjectRetentionCommandOutput
+    ]
 
 object GetObjectRetentionCommand {
   def apply(input: GetObjectRetentionCommandInput): GetObjectRetentionCommand =
@@ -705,11 +940,17 @@ object GetObjectTorrentCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "GetPublicAccessBlockCommand")
-class GetPublicAccessBlockCommand(override val input: GetPublicAccessBlockCommandInput)
-    extends Command[GetPublicAccessBlockCommandInput, GetPublicAccessBlockCommandOutput]
+class GetPublicAccessBlockCommand(
+    override val input: GetPublicAccessBlockCommandInput
+) extends Command[
+      GetPublicAccessBlockCommandInput,
+      GetPublicAccessBlockCommandOutput
+    ]
 
 object GetPublicAccessBlockCommand {
-  def apply(input: GetPublicAccessBlockCommandInput): GetPublicAccessBlockCommand =
+  def apply(
+      input: GetPublicAccessBlockCommandInput
+  ): GetPublicAccessBlockCommand =
     new GetPublicAccessBlockCommand(
       input
     )
@@ -741,23 +982,38 @@ object HeadObjectCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "ListBucketAnalyticsConfigurationsCommand")
-class ListBucketAnalyticsConfigurationsCommand(override val input: ListBucketAnalyticsConfigurationsCommandInput)
-    extends Command[ListBucketAnalyticsConfigurationsCommandInput, ListBucketAnalyticsConfigurationsCommandOutput]
+class ListBucketAnalyticsConfigurationsCommand(
+    override val input: ListBucketAnalyticsConfigurationsCommandInput
+) extends Command[
+      ListBucketAnalyticsConfigurationsCommandInput,
+      ListBucketAnalyticsConfigurationsCommandOutput
+    ]
 
 object ListBucketAnalyticsConfigurationsCommand {
-  def apply(input: ListBucketAnalyticsConfigurationsCommandInput): ListBucketAnalyticsConfigurationsCommand =
+  def apply(
+      input: ListBucketAnalyticsConfigurationsCommandInput
+  ): ListBucketAnalyticsConfigurationsCommand =
     new ListBucketAnalyticsConfigurationsCommand(
       input
     )
 }
 
 @js.native
-@JSImport("@aws-sdk/client-s3", "ListBucketIntelligentTieringConfigurationsCommand")
-class ListBucketIntelligentTieringConfigurationsCommand(override val input: ListBucketIntelligentTieringConfigurationsCommandInput)
-    extends Command[ListBucketIntelligentTieringConfigurationsCommandInput, ListBucketIntelligentTieringConfigurationsCommandOutput]
+@JSImport(
+  "@aws-sdk/client-s3",
+  "ListBucketIntelligentTieringConfigurationsCommand"
+)
+class ListBucketIntelligentTieringConfigurationsCommand(
+    override val input: ListBucketIntelligentTieringConfigurationsCommandInput
+) extends Command[
+      ListBucketIntelligentTieringConfigurationsCommandInput,
+      ListBucketIntelligentTieringConfigurationsCommandOutput
+    ]
 
 object ListBucketIntelligentTieringConfigurationsCommand {
-  def apply(input: ListBucketIntelligentTieringConfigurationsCommandInput): ListBucketIntelligentTieringConfigurationsCommand =
+  def apply(
+      input: ListBucketIntelligentTieringConfigurationsCommandInput
+  ): ListBucketIntelligentTieringConfigurationsCommand =
     new ListBucketIntelligentTieringConfigurationsCommand(
       input
     )
@@ -765,11 +1021,17 @@ object ListBucketIntelligentTieringConfigurationsCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "ListBucketInventoryConfigurationsCommand")
-class ListBucketInventoryConfigurationsCommand(override val input: ListBucketInventoryConfigurationsCommandInput)
-    extends Command[ListBucketInventoryConfigurationsCommandInput, ListBucketInventoryConfigurationsCommandOutput]
+class ListBucketInventoryConfigurationsCommand(
+    override val input: ListBucketInventoryConfigurationsCommandInput
+) extends Command[
+      ListBucketInventoryConfigurationsCommandInput,
+      ListBucketInventoryConfigurationsCommandOutput
+    ]
 
 object ListBucketInventoryConfigurationsCommand {
-  def apply(input: ListBucketInventoryConfigurationsCommandInput): ListBucketInventoryConfigurationsCommand =
+  def apply(
+      input: ListBucketInventoryConfigurationsCommandInput
+  ): ListBucketInventoryConfigurationsCommand =
     new ListBucketInventoryConfigurationsCommand(
       input
     )
@@ -777,11 +1039,17 @@ object ListBucketInventoryConfigurationsCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "ListBucketMetricsConfigurationsCommand")
-class ListBucketMetricsConfigurationsCommand(override val input: ListBucketMetricsConfigurationsCommandInput)
-    extends Command[ListBucketMetricsConfigurationsCommandInput, ListBucketMetricsConfigurationsCommandOutput]
+class ListBucketMetricsConfigurationsCommand(
+    override val input: ListBucketMetricsConfigurationsCommandInput
+) extends Command[
+      ListBucketMetricsConfigurationsCommandInput,
+      ListBucketMetricsConfigurationsCommandOutput
+    ]
 
 object ListBucketMetricsConfigurationsCommand {
-  def apply(input: ListBucketMetricsConfigurationsCommandInput): ListBucketMetricsConfigurationsCommand =
+  def apply(
+      input: ListBucketMetricsConfigurationsCommandInput
+  ): ListBucketMetricsConfigurationsCommand =
     new ListBucketMetricsConfigurationsCommand(
       input
     )
@@ -801,11 +1069,17 @@ object ListBucketsCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "ListDirectoryBucketsCommand")
-class ListDirectoryBucketsCommand(override val input: ListDirectoryBucketsCommandInput)
-    extends Command[ListDirectoryBucketsCommandInput, ListDirectoryBucketsCommandOutput]
+class ListDirectoryBucketsCommand(
+    override val input: ListDirectoryBucketsCommandInput
+) extends Command[
+      ListDirectoryBucketsCommandInput,
+      ListDirectoryBucketsCommandOutput
+    ]
 
 object ListDirectoryBucketsCommand {
-  def apply(input: ListDirectoryBucketsCommandInput): ListDirectoryBucketsCommand =
+  def apply(
+      input: ListDirectoryBucketsCommandInput
+  ): ListDirectoryBucketsCommand =
     new ListDirectoryBucketsCommand(
       input
     )
@@ -813,11 +1087,17 @@ object ListDirectoryBucketsCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "ListMultipartUploadsCommand")
-class ListMultipartUploadsCommand(override val input: ListMultipartUploadsCommandInput)
-    extends Command[ListMultipartUploadsCommandInput, ListMultipartUploadsCommandOutput]
+class ListMultipartUploadsCommand(
+    override val input: ListMultipartUploadsCommandInput
+) extends Command[
+      ListMultipartUploadsCommandInput,
+      ListMultipartUploadsCommandOutput
+    ]
 
 object ListMultipartUploadsCommand {
-  def apply(input: ListMultipartUploadsCommandInput): ListMultipartUploadsCommand =
+  def apply(
+      input: ListMultipartUploadsCommandInput
+  ): ListMultipartUploadsCommand =
     new ListMultipartUploadsCommand(
       input
     )
@@ -825,8 +1105,12 @@ object ListMultipartUploadsCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "ListObjectVersionsCommand")
-class ListObjectVersionsCommand(override val input: ListObjectVersionsCommandInput)
-    extends Command[ListObjectVersionsCommandInput, ListObjectVersionsCommandOutput]
+class ListObjectVersionsCommand(
+    override val input: ListObjectVersionsCommandInput
+) extends Command[
+      ListObjectVersionsCommandInput,
+      ListObjectVersionsCommandOutput
+    ]
 
 object ListObjectVersionsCommand {
   def apply(input: ListObjectVersionsCommandInput): ListObjectVersionsCommand =
@@ -885,11 +1169,17 @@ object PutBucketAbacCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutBucketAccelerateConfigurationCommand")
-class PutBucketAccelerateConfigurationCommand(override val input: PutBucketAccelerateConfigurationCommandInput)
-    extends Command[PutBucketAccelerateConfigurationCommandInput, PutBucketAccelerateConfigurationCommandOutput]
+class PutBucketAccelerateConfigurationCommand(
+    override val input: PutBucketAccelerateConfigurationCommandInput
+) extends Command[
+      PutBucketAccelerateConfigurationCommandInput,
+      PutBucketAccelerateConfigurationCommandOutput
+    ]
 
 object PutBucketAccelerateConfigurationCommand {
-  def apply(input: PutBucketAccelerateConfigurationCommandInput): PutBucketAccelerateConfigurationCommand =
+  def apply(
+      input: PutBucketAccelerateConfigurationCommandInput
+  ): PutBucketAccelerateConfigurationCommand =
     new PutBucketAccelerateConfigurationCommand(
       input
     )
@@ -909,11 +1199,17 @@ object PutBucketAclCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutBucketAnalyticsConfigurationCommand")
-class PutBucketAnalyticsConfigurationCommand(override val input: PutBucketAnalyticsConfigurationCommandInput)
-    extends Command[PutBucketAnalyticsConfigurationCommandInput, PutBucketAnalyticsConfigurationCommandOutput]
+class PutBucketAnalyticsConfigurationCommand(
+    override val input: PutBucketAnalyticsConfigurationCommandInput
+) extends Command[
+      PutBucketAnalyticsConfigurationCommandInput,
+      PutBucketAnalyticsConfigurationCommandOutput
+    ]
 
 object PutBucketAnalyticsConfigurationCommand {
-  def apply(input: PutBucketAnalyticsConfigurationCommandInput): PutBucketAnalyticsConfigurationCommand =
+  def apply(
+      input: PutBucketAnalyticsConfigurationCommandInput
+  ): PutBucketAnalyticsConfigurationCommand =
     new PutBucketAnalyticsConfigurationCommand(
       input
     )
@@ -933,23 +1229,38 @@ object PutBucketCorsCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutBucketEncryptionCommand")
-class PutBucketEncryptionCommand(override val input: PutBucketEncryptionCommandInput)
-    extends Command[PutBucketEncryptionCommandInput, PutBucketEncryptionCommandOutput]
+class PutBucketEncryptionCommand(
+    override val input: PutBucketEncryptionCommandInput
+) extends Command[
+      PutBucketEncryptionCommandInput,
+      PutBucketEncryptionCommandOutput
+    ]
 
 object PutBucketEncryptionCommand {
-  def apply(input: PutBucketEncryptionCommandInput): PutBucketEncryptionCommand =
+  def apply(
+      input: PutBucketEncryptionCommandInput
+  ): PutBucketEncryptionCommand =
     new PutBucketEncryptionCommand(
       input
     )
 }
 
 @js.native
-@JSImport("@aws-sdk/client-s3", "PutBucketIntelligentTieringConfigurationCommand")
-class PutBucketIntelligentTieringConfigurationCommand(override val input: PutBucketIntelligentTieringConfigurationCommandInput)
-    extends Command[PutBucketIntelligentTieringConfigurationCommandInput, PutBucketIntelligentTieringConfigurationCommandOutput]
+@JSImport(
+  "@aws-sdk/client-s3",
+  "PutBucketIntelligentTieringConfigurationCommand"
+)
+class PutBucketIntelligentTieringConfigurationCommand(
+    override val input: PutBucketIntelligentTieringConfigurationCommandInput
+) extends Command[
+      PutBucketIntelligentTieringConfigurationCommandInput,
+      PutBucketIntelligentTieringConfigurationCommandOutput
+    ]
 
 object PutBucketIntelligentTieringConfigurationCommand {
-  def apply(input: PutBucketIntelligentTieringConfigurationCommandInput): PutBucketIntelligentTieringConfigurationCommand =
+  def apply(
+      input: PutBucketIntelligentTieringConfigurationCommandInput
+  ): PutBucketIntelligentTieringConfigurationCommand =
     new PutBucketIntelligentTieringConfigurationCommand(
       input
     )
@@ -957,11 +1268,17 @@ object PutBucketIntelligentTieringConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutBucketInventoryConfigurationCommand")
-class PutBucketInventoryConfigurationCommand(override val input: PutBucketInventoryConfigurationCommandInput)
-    extends Command[PutBucketInventoryConfigurationCommandInput, PutBucketInventoryConfigurationCommandOutput]
+class PutBucketInventoryConfigurationCommand(
+    override val input: PutBucketInventoryConfigurationCommandInput
+) extends Command[
+      PutBucketInventoryConfigurationCommandInput,
+      PutBucketInventoryConfigurationCommandOutput
+    ]
 
 object PutBucketInventoryConfigurationCommand {
-  def apply(input: PutBucketInventoryConfigurationCommandInput): PutBucketInventoryConfigurationCommand =
+  def apply(
+      input: PutBucketInventoryConfigurationCommandInput
+  ): PutBucketInventoryConfigurationCommand =
     new PutBucketInventoryConfigurationCommand(
       input
     )
@@ -969,11 +1286,17 @@ object PutBucketInventoryConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutBucketLifecycleConfigurationCommand")
-class PutBucketLifecycleConfigurationCommand(override val input: PutBucketLifecycleConfigurationCommandInput)
-    extends Command[PutBucketLifecycleConfigurationCommandInput, PutBucketLifecycleConfigurationCommandOutput]
+class PutBucketLifecycleConfigurationCommand(
+    override val input: PutBucketLifecycleConfigurationCommandInput
+) extends Command[
+      PutBucketLifecycleConfigurationCommandInput,
+      PutBucketLifecycleConfigurationCommandOutput
+    ]
 
 object PutBucketLifecycleConfigurationCommand {
-  def apply(input: PutBucketLifecycleConfigurationCommandInput): PutBucketLifecycleConfigurationCommand =
+  def apply(
+      input: PutBucketLifecycleConfigurationCommandInput
+  ): PutBucketLifecycleConfigurationCommand =
     new PutBucketLifecycleConfigurationCommand(
       input
     )
@@ -993,11 +1316,17 @@ object PutBucketLoggingCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutBucketMetricsConfigurationCommand")
-class PutBucketMetricsConfigurationCommand(override val input: PutBucketMetricsConfigurationCommandInput)
-    extends Command[PutBucketMetricsConfigurationCommandInput, PutBucketMetricsConfigurationCommandOutput]
+class PutBucketMetricsConfigurationCommand(
+    override val input: PutBucketMetricsConfigurationCommandInput
+) extends Command[
+      PutBucketMetricsConfigurationCommandInput,
+      PutBucketMetricsConfigurationCommandOutput
+    ]
 
 object PutBucketMetricsConfigurationCommand {
-  def apply(input: PutBucketMetricsConfigurationCommandInput): PutBucketMetricsConfigurationCommand =
+  def apply(
+      input: PutBucketMetricsConfigurationCommandInput
+  ): PutBucketMetricsConfigurationCommand =
     new PutBucketMetricsConfigurationCommand(
       input
     )
@@ -1005,11 +1334,17 @@ object PutBucketMetricsConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutBucketNotificationConfigurationCommand")
-class PutBucketNotificationConfigurationCommand(override val input: PutBucketNotificationConfigurationCommandInput)
-    extends Command[PutBucketNotificationConfigurationCommandInput, PutBucketNotificationConfigurationCommandOutput]
+class PutBucketNotificationConfigurationCommand(
+    override val input: PutBucketNotificationConfigurationCommandInput
+) extends Command[
+      PutBucketNotificationConfigurationCommandInput,
+      PutBucketNotificationConfigurationCommandOutput
+    ]
 
 object PutBucketNotificationConfigurationCommand {
-  def apply(input: PutBucketNotificationConfigurationCommandInput): PutBucketNotificationConfigurationCommand =
+  def apply(
+      input: PutBucketNotificationConfigurationCommandInput
+  ): PutBucketNotificationConfigurationCommand =
     new PutBucketNotificationConfigurationCommand(
       input
     )
@@ -1017,11 +1352,17 @@ object PutBucketNotificationConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutBucketOwnershipControlsCommand")
-class PutBucketOwnershipControlsCommand(override val input: PutBucketOwnershipControlsCommandInput)
-    extends Command[PutBucketOwnershipControlsCommandInput, PutBucketOwnershipControlsCommandOutput]
+class PutBucketOwnershipControlsCommand(
+    override val input: PutBucketOwnershipControlsCommandInput
+) extends Command[
+      PutBucketOwnershipControlsCommandInput,
+      PutBucketOwnershipControlsCommandOutput
+    ]
 
 object PutBucketOwnershipControlsCommand {
-  def apply(input: PutBucketOwnershipControlsCommandInput): PutBucketOwnershipControlsCommand =
+  def apply(
+      input: PutBucketOwnershipControlsCommandInput
+  ): PutBucketOwnershipControlsCommand =
     new PutBucketOwnershipControlsCommand(
       input
     )
@@ -1041,11 +1382,17 @@ object PutBucketPolicyCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutBucketReplicationCommand")
-class PutBucketReplicationCommand(override val input: PutBucketReplicationCommandInput)
-    extends Command[PutBucketReplicationCommandInput, PutBucketReplicationCommandOutput]
+class PutBucketReplicationCommand(
+    override val input: PutBucketReplicationCommandInput
+) extends Command[
+      PutBucketReplicationCommandInput,
+      PutBucketReplicationCommandOutput
+    ]
 
 object PutBucketReplicationCommand {
-  def apply(input: PutBucketReplicationCommandInput): PutBucketReplicationCommand =
+  def apply(
+      input: PutBucketReplicationCommandInput
+  ): PutBucketReplicationCommand =
     new PutBucketReplicationCommand(
       input
     )
@@ -1053,11 +1400,17 @@ object PutBucketReplicationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutBucketRequestPaymentCommand")
-class PutBucketRequestPaymentCommand(override val input: PutBucketRequestPaymentCommandInput)
-    extends Command[PutBucketRequestPaymentCommandInput, PutBucketRequestPaymentCommandOutput]
+class PutBucketRequestPaymentCommand(
+    override val input: PutBucketRequestPaymentCommandInput
+) extends Command[
+      PutBucketRequestPaymentCommandInput,
+      PutBucketRequestPaymentCommandOutput
+    ]
 
 object PutBucketRequestPaymentCommand {
-  def apply(input: PutBucketRequestPaymentCommandInput): PutBucketRequestPaymentCommand =
+  def apply(
+      input: PutBucketRequestPaymentCommandInput
+  ): PutBucketRequestPaymentCommand =
     new PutBucketRequestPaymentCommand(
       input
     )
@@ -1077,11 +1430,17 @@ object PutBucketTaggingCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutBucketVersioningCommand")
-class PutBucketVersioningCommand(override val input: PutBucketVersioningCommandInput)
-    extends Command[PutBucketVersioningCommandInput, PutBucketVersioningCommandOutput]
+class PutBucketVersioningCommand(
+    override val input: PutBucketVersioningCommandInput
+) extends Command[
+      PutBucketVersioningCommandInput,
+      PutBucketVersioningCommandOutput
+    ]
 
 object PutBucketVersioningCommand {
-  def apply(input: PutBucketVersioningCommandInput): PutBucketVersioningCommand =
+  def apply(
+      input: PutBucketVersioningCommandInput
+  ): PutBucketVersioningCommand =
     new PutBucketVersioningCommand(
       input
     )
@@ -1125,8 +1484,12 @@ object PutObjectCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutObjectLegalHoldCommand")
-class PutObjectLegalHoldCommand(override val input: PutObjectLegalHoldCommandInput)
-    extends Command[PutObjectLegalHoldCommandInput, PutObjectLegalHoldCommandOutput]
+class PutObjectLegalHoldCommand(
+    override val input: PutObjectLegalHoldCommandInput
+) extends Command[
+      PutObjectLegalHoldCommandInput,
+      PutObjectLegalHoldCommandOutput
+    ]
 
 object PutObjectLegalHoldCommand {
   def apply(input: PutObjectLegalHoldCommandInput): PutObjectLegalHoldCommand =
@@ -1137,11 +1500,17 @@ object PutObjectLegalHoldCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutObjectLockConfigurationCommand")
-class PutObjectLockConfigurationCommand(override val input: PutObjectLockConfigurationCommandInput)
-    extends Command[PutObjectLockConfigurationCommandInput, PutObjectLockConfigurationCommandOutput]
+class PutObjectLockConfigurationCommand(
+    override val input: PutObjectLockConfigurationCommandInput
+) extends Command[
+      PutObjectLockConfigurationCommandInput,
+      PutObjectLockConfigurationCommandOutput
+    ]
 
 object PutObjectLockConfigurationCommand {
-  def apply(input: PutObjectLockConfigurationCommandInput): PutObjectLockConfigurationCommand =
+  def apply(
+      input: PutObjectLockConfigurationCommandInput
+  ): PutObjectLockConfigurationCommand =
     new PutObjectLockConfigurationCommand(
       input
     )
@@ -1149,8 +1518,12 @@ object PutObjectLockConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutObjectRetentionCommand")
-class PutObjectRetentionCommand(override val input: PutObjectRetentionCommandInput)
-    extends Command[PutObjectRetentionCommandInput, PutObjectRetentionCommandOutput]
+class PutObjectRetentionCommand(
+    override val input: PutObjectRetentionCommandInput
+) extends Command[
+      PutObjectRetentionCommandInput,
+      PutObjectRetentionCommandOutput
+    ]
 
 object PutObjectRetentionCommand {
   def apply(input: PutObjectRetentionCommandInput): PutObjectRetentionCommand =
@@ -1173,11 +1546,17 @@ object PutObjectTaggingCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "PutPublicAccessBlockCommand")
-class PutPublicAccessBlockCommand(override val input: PutPublicAccessBlockCommandInput)
-    extends Command[PutPublicAccessBlockCommandInput, PutPublicAccessBlockCommandOutput]
+class PutPublicAccessBlockCommand(
+    override val input: PutPublicAccessBlockCommandInput
+) extends Command[
+      PutPublicAccessBlockCommandInput,
+      PutPublicAccessBlockCommandOutput
+    ]
 
 object PutPublicAccessBlockCommand {
-  def apply(input: PutPublicAccessBlockCommandInput): PutPublicAccessBlockCommand =
+  def apply(
+      input: PutPublicAccessBlockCommandInput
+  ): PutPublicAccessBlockCommand =
     new PutPublicAccessBlockCommand(
       input
     )
@@ -1209,35 +1588,59 @@ object RestoreObjectCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "SelectObjectContentCommand")
-class SelectObjectContentCommand(override val input: SelectObjectContentCommandInput)
-    extends Command[SelectObjectContentCommandInput, SelectObjectContentCommandOutput]
+class SelectObjectContentCommand(
+    override val input: SelectObjectContentCommandInput
+) extends Command[
+      SelectObjectContentCommandInput,
+      SelectObjectContentCommandOutput
+    ]
 
 object SelectObjectContentCommand {
-  def apply(input: SelectObjectContentCommandInput): SelectObjectContentCommand =
+  def apply(
+      input: SelectObjectContentCommandInput
+  ): SelectObjectContentCommand =
     new SelectObjectContentCommand(
       input
     )
 }
 
 @js.native
-@JSImport("@aws-sdk/client-s3", "UpdateBucketMetadataInventoryTableConfigurationCommand")
-class UpdateBucketMetadataInventoryTableConfigurationCommand(override val input: UpdateBucketMetadataInventoryTableConfigurationCommandInput)
-    extends Command[UpdateBucketMetadataInventoryTableConfigurationCommandInput, UpdateBucketMetadataInventoryTableConfigurationCommandOutput]
+@JSImport(
+  "@aws-sdk/client-s3",
+  "UpdateBucketMetadataInventoryTableConfigurationCommand"
+)
+class UpdateBucketMetadataInventoryTableConfigurationCommand(
+    override val input: UpdateBucketMetadataInventoryTableConfigurationCommandInput
+) extends Command[
+      UpdateBucketMetadataInventoryTableConfigurationCommandInput,
+      UpdateBucketMetadataInventoryTableConfigurationCommandOutput
+    ]
 
 object UpdateBucketMetadataInventoryTableConfigurationCommand {
-  def apply(input: UpdateBucketMetadataInventoryTableConfigurationCommandInput): UpdateBucketMetadataInventoryTableConfigurationCommand =
+  def apply(
+      input: UpdateBucketMetadataInventoryTableConfigurationCommandInput
+  ): UpdateBucketMetadataInventoryTableConfigurationCommand =
     new UpdateBucketMetadataInventoryTableConfigurationCommand(
       input
     )
 }
 
 @js.native
-@JSImport("@aws-sdk/client-s3", "UpdateBucketMetadataJournalTableConfigurationCommand")
-class UpdateBucketMetadataJournalTableConfigurationCommand(override val input: UpdateBucketMetadataJournalTableConfigurationCommandInput)
-    extends Command[UpdateBucketMetadataJournalTableConfigurationCommandInput, UpdateBucketMetadataJournalTableConfigurationCommandOutput]
+@JSImport(
+  "@aws-sdk/client-s3",
+  "UpdateBucketMetadataJournalTableConfigurationCommand"
+)
+class UpdateBucketMetadataJournalTableConfigurationCommand(
+    override val input: UpdateBucketMetadataJournalTableConfigurationCommandInput
+) extends Command[
+      UpdateBucketMetadataJournalTableConfigurationCommandInput,
+      UpdateBucketMetadataJournalTableConfigurationCommandOutput
+    ]
 
 object UpdateBucketMetadataJournalTableConfigurationCommand {
-  def apply(input: UpdateBucketMetadataJournalTableConfigurationCommandInput): UpdateBucketMetadataJournalTableConfigurationCommand =
+  def apply(
+      input: UpdateBucketMetadataJournalTableConfigurationCommandInput
+  ): UpdateBucketMetadataJournalTableConfigurationCommand =
     new UpdateBucketMetadataJournalTableConfigurationCommand(
       input
     )
@@ -1245,11 +1648,17 @@ object UpdateBucketMetadataJournalTableConfigurationCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "UpdateObjectEncryptionCommand")
-class UpdateObjectEncryptionCommand(override val input: UpdateObjectEncryptionCommandInput)
-    extends Command[UpdateObjectEncryptionCommandInput, UpdateObjectEncryptionCommandOutput]
+class UpdateObjectEncryptionCommand(
+    override val input: UpdateObjectEncryptionCommandInput
+) extends Command[
+      UpdateObjectEncryptionCommandInput,
+      UpdateObjectEncryptionCommandOutput
+    ]
 
 object UpdateObjectEncryptionCommand {
-  def apply(input: UpdateObjectEncryptionCommandInput): UpdateObjectEncryptionCommand =
+  def apply(
+      input: UpdateObjectEncryptionCommandInput
+  ): UpdateObjectEncryptionCommand =
     new UpdateObjectEncryptionCommand(
       input
     )
@@ -1281,11 +1690,17 @@ object UploadPartCopyCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "WriteGetObjectResponseCommand")
-class WriteGetObjectResponseCommand(override val input: WriteGetObjectResponseCommandInput)
-    extends Command[WriteGetObjectResponseCommandInput, WriteGetObjectResponseCommandOutput]
+class WriteGetObjectResponseCommand(
+    override val input: WriteGetObjectResponseCommandInput
+) extends Command[
+      WriteGetObjectResponseCommandInput,
+      WriteGetObjectResponseCommandOutput
+    ]
 
 object WriteGetObjectResponseCommand {
-  def apply(input: WriteGetObjectResponseCommandInput): WriteGetObjectResponseCommand =
+  def apply(
+      input: WriteGetObjectResponseCommandInput
+  ): WriteGetObjectResponseCommand =
     new WriteGetObjectResponseCommand(
       input
     )

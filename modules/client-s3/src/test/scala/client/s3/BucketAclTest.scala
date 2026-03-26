@@ -15,18 +15,17 @@ class BucketAclTest
       client <- clientR
       bucketName <- bucketR(client)
     } yield (client, bucketName)
-  }.test("GetBucketAcl should return ACL") {
-    case (client, bucketName) =>
-      for {
-        result <- client.sendIO(
-          GetBucketAclCommand(
-            GetBucketAclCommandInput(Bucket = bucketName)
-          )
+  }.test("GetBucketAcl should return ACL") { case (client, bucketName) =>
+    for {
+      result <- client.sendIO(
+        GetBucketAclCommand(
+          GetBucketAclCommandInput(Bucket = bucketName)
         )
-      } yield {
-        assert(result.Owner.isDefined)
-        assert(result.Grants.isDefined)
-      }
+      )
+    } yield {
+      assert(result.Owner.isDefined)
+      assert(result.Grants.isDefined)
+    }
   }
 
 }

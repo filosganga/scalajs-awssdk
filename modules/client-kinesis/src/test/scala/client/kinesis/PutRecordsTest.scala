@@ -8,9 +8,7 @@ import commands._
 import scalajs.js
 import scalajs.js.JSConverters._
 
-class PutRecordsTest
-    extends munit.CatsEffectSuite
-    with KinesisFixtures {
+class PutRecordsTest extends munit.CatsEffectSuite with KinesisFixtures {
 
   ResourceFunFixture {
     for {

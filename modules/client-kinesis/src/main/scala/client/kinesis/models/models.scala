@@ -192,7 +192,8 @@ object ListStreamsCommandInput {
     js.Dynamic
       .literal(
         Limit = Limit.asInstanceOf[js.Any],
-        ExclusiveStartStreamName = ExclusiveStartStreamName.asInstanceOf[js.Any],
+        ExclusiveStartStreamName =
+          ExclusiveStartStreamName.asInstanceOf[js.Any],
         NextToken = NextToken.asInstanceOf[js.Any]
       )
       .asInstanceOf[ListStreamsCommandInput]
@@ -510,7 +511,8 @@ object PutRecordCommandInput {
         Data = Data.asInstanceOf[js.Any],
         PartitionKey = PartitionKey.asInstanceOf[js.Any],
         ExplicitHashKey = ExplicitHashKey.asInstanceOf[js.Any],
-        SequenceNumberForOrdering = SequenceNumberForOrdering.asInstanceOf[js.Any],
+        SequenceNumberForOrdering =
+          SequenceNumberForOrdering.asInstanceOf[js.Any],
         StreamARN = StreamARN.asInstanceOf[js.Any]
       )
       .asInstanceOf[PutRecordCommandInput]
@@ -821,11 +823,14 @@ object MetricsName {
   val ALL = "ALL".asInstanceOf[MetricsName]
   val INCOMING_BYTES = "IncomingBytes".asInstanceOf[MetricsName]
   val INCOMING_RECORDS = "IncomingRecords".asInstanceOf[MetricsName]
-  val ITERATOR_AGE_MILLISECONDS = "IteratorAgeMilliseconds".asInstanceOf[MetricsName]
+  val ITERATOR_AGE_MILLISECONDS =
+    "IteratorAgeMilliseconds".asInstanceOf[MetricsName]
   val OUTGOING_BYTES = "OutgoingBytes".asInstanceOf[MetricsName]
   val OUTGOING_RECORDS = "OutgoingRecords".asInstanceOf[MetricsName]
-  val READ_PROVISIONED_THROUGHPUT_EXCEEDED = "ReadProvisionedThroughputExceeded".asInstanceOf[MetricsName]
-  val WRITE_PROVISIONED_THROUGHPUT_EXCEEDED = "WriteProvisionedThroughputExceeded".asInstanceOf[MetricsName]
+  val READ_PROVISIONED_THROUGHPUT_EXCEEDED =
+    "ReadProvisionedThroughputExceeded".asInstanceOf[MetricsName]
+  val WRITE_PROVISIONED_THROUGHPUT_EXCEEDED =
+    "WriteProvisionedThroughputExceeded".asInstanceOf[MetricsName]
 }
 
 sealed trait StreamStatus extends js.Any

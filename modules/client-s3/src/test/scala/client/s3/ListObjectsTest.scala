@@ -20,12 +20,20 @@ class ListObjectsTest
       for {
         _ <- client.sendIO(
           PutObjectCommand(
-            PutObjectCommandInput(Bucket = bucketName, Key = "file1.txt", Body = "a")
+            PutObjectCommandInput(
+              Bucket = bucketName,
+              Key = "file1.txt",
+              Body = "a"
+            )
           )
         )
         _ <- client.sendIO(
           PutObjectCommand(
-            PutObjectCommandInput(Bucket = bucketName, Key = "file2.txt", Body = "b")
+            PutObjectCommandInput(
+              Bucket = bucketName,
+              Key = "file2.txt",
+              Body = "b"
+            )
           )
         )
         result <- client.sendIO(

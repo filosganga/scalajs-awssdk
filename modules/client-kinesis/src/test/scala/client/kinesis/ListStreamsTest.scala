@@ -7,9 +7,7 @@ import cats.effect._
 import models._
 import commands._
 
-class ListStreamsTest
-    extends munit.CatsEffectSuite
-    with KinesisFixtures {
+class ListStreamsTest extends munit.CatsEffectSuite with KinesisFixtures {
 
   ResourceFunFixture {
     for {
@@ -35,18 +33,17 @@ class ListStreamsTest
       client <- clientR
       streamName <- streamR(client)
     } yield (client, streamName)
-  }.test("ListStreams should respect Limit") {
-    case (client, streamName) =>
-      for {
-        result <- client.sendIO(
-          ListStreamsCommand(
-            ListStreamsCommandInput(Limit = 1)
-          )
+  }.test("ListStreams should respect Limit") { case (client, streamName) =>
+    for {
+      result <- client.sendIO(
+        ListStreamsCommand(
+          ListStreamsCommandInput(Limit = 1)
         )
-      } yield {
-        assert(result.StreamNames.isDefined)
-        assert(result.StreamNames.get.length <= 1)
-      }
+      )
+    } yield {
+      assert(result.StreamNames.isDefined)
+      assert(result.StreamNames.get.length <= 1)
+    }
   }
 
 }

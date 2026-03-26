@@ -7,9 +7,7 @@ import cats.effect._
 import models._
 import commands._
 
-class DescribeStreamTest
-    extends munit.CatsEffectSuite
-    with KinesisFixtures {
+class DescribeStreamTest extends munit.CatsEffectSuite with KinesisFixtures {
 
   ResourceFunFixture {
     for {

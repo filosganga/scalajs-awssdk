@@ -117,38 +117,37 @@ class GetObjectTest
       client <- clientR
       bucketName <- bucketR(client)
     } yield (client, bucketName)
-  }.test("GetObject should return metadata") {
-    case (client, bucketName) =>
-      val key = "test-metadata.txt"
-      val content = "metadata test"
+  }.test("GetObject should return metadata") { case (client, bucketName) =>
+    val key = "test-metadata.txt"
+    val content = "metadata test"
 
-      for {
-        _ <- client.sendIO(
-          PutObjectCommand(
-            PutObjectCommandInput(
-              Bucket = bucketName,
-              Key = key,
-              Body = content,
-              ContentType = "text/plain",
-              Metadata = js.Dictionary("custom-key" -> "custom-value")
-            )
+    for {
+      _ <- client.sendIO(
+        PutObjectCommand(
+          PutObjectCommandInput(
+            Bucket = bucketName,
+            Key = key,
+            Body = content,
+            ContentType = "text/plain",
+            Metadata = js.Dictionary("custom-key" -> "custom-value")
           )
         )
-        getResult <- client.sendIO(
-          GetObjectCommand(
-            GetObjectCommandInput(
-              Bucket = bucketName,
-              Key = key
-            )
+      )
+      getResult <- client.sendIO(
+        GetObjectCommand(
+          GetObjectCommandInput(
+            Bucket = bucketName,
+            Key = key
           )
         )
-      } yield {
-        assertEquals(getResult.ContentType.toOption, Some("text/plain"))
-        assertEquals(
-          getResult.Metadata.get("custom-key"),
-          "custom-value"
-        )
-      }
+      )
+    } yield {
+      assertEquals(getResult.ContentType.toOption, Some("text/plain"))
+      assertEquals(
+        getResult.Metadata.get("custom-key"),
+        "custom-value"
+      )
+    }
   }
 
 }

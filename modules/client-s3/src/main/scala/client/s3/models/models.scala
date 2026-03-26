@@ -9,7 +9,9 @@ import scalajs.js
 @js.native
 trait SdkStream extends js.Object {
   def transformToByteArray(): js.Promise[js.typedarray.Uint8Array] = js.native
-  def transformToString(encoding: js.UndefOr[String] = js.undefined): js.Promise[String] = js.native
+  def transformToString(
+      encoding: js.UndefOr[String] = js.undefined
+  ): js.Promise[String] = js.native
 }
 
 @js.native
@@ -63,7 +65,8 @@ trait AnalyticsAndOperator extends js.Object {
 trait NotificationConfiguration extends js.Object {
   val TopicConfigurations: js.UndefOr[js.Array[TopicConfiguration]] = js.native
   val QueueConfigurations: js.UndefOr[js.Array[QueueConfiguration]] = js.native
-  val LambdaFunctionConfigurations: js.UndefOr[js.Array[LambdaFunctionConfiguration]] = js.native
+  val LambdaFunctionConfigurations
+      : js.UndefOr[js.Array[LambdaFunctionConfiguration]] = js.native
   val EventBridgeConfiguration: js.UndefOr[EventBridgeConfiguration] = js.native
 }
 
@@ -240,7 +243,8 @@ trait CopyObjectCommandInput extends js.Object {
   val Tagging: js.UndefOr[String] = js.native
   val ObjectLockMode: js.UndefOr[ObjectLockMode] = js.native
   val ObjectLockRetainUntilDate: js.UndefOr[js.Date] = js.native
-  val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] = js.native
+  val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] =
+    js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
   val ExpectedSourceBucketOwner: js.UndefOr[String] = js.native
 }
@@ -287,7 +291,8 @@ object CopyObjectCommandInput {
       Tagging: js.UndefOr[String] = js.undefined,
       ObjectLockMode: js.UndefOr[ObjectLockMode] = js.undefined,
       ObjectLockRetainUntilDate: js.UndefOr[js.Date] = js.undefined,
-      ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] = js.undefined,
+      ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] =
+        js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined,
       ExpectedSourceBucketOwner: js.UndefOr[String] = js.undefined
   ): CopyObjectCommandInput = {
@@ -303,9 +308,11 @@ object CopyObjectCommandInput {
         ContentType = ContentType.asInstanceOf[js.Any],
         CopySource = CopySource.asInstanceOf[js.Any],
         CopySourceIfMatch = CopySourceIfMatch.asInstanceOf[js.Any],
-        CopySourceIfModifiedSince = CopySourceIfModifiedSince.asInstanceOf[js.Any],
+        CopySourceIfModifiedSince =
+          CopySourceIfModifiedSince.asInstanceOf[js.Any],
         CopySourceIfNoneMatch = CopySourceIfNoneMatch.asInstanceOf[js.Any],
-        CopySourceIfUnmodifiedSince = CopySourceIfUnmodifiedSince.asInstanceOf[js.Any],
+        CopySourceIfUnmodifiedSince =
+          CopySourceIfUnmodifiedSince.asInstanceOf[js.Any],
         Expires = Expires.asInstanceOf[js.Any],
         GrantFullControl = GrantFullControl.asInstanceOf[js.Any],
         GrantRead = GrantRead.asInstanceOf[js.Any],
@@ -326,16 +333,22 @@ object CopyObjectCommandInput {
         SSEKMSKeyId = SSEKMSKeyId.asInstanceOf[js.Any],
         SSEKMSEncryptionContext = SSEKMSEncryptionContext.asInstanceOf[js.Any],
         BucketKeyEnabled = BucketKeyEnabled.asInstanceOf[js.Any],
-        CopySourceSSECustomerAlgorithm = CopySourceSSECustomerAlgorithm.asInstanceOf[js.Any],
-        CopySourceSSECustomerKey = CopySourceSSECustomerKey.asInstanceOf[js.Any],
-        CopySourceSSECustomerKeyMD5 = CopySourceSSECustomerKeyMD5.asInstanceOf[js.Any],
+        CopySourceSSECustomerAlgorithm =
+          CopySourceSSECustomerAlgorithm.asInstanceOf[js.Any],
+        CopySourceSSECustomerKey =
+          CopySourceSSECustomerKey.asInstanceOf[js.Any],
+        CopySourceSSECustomerKeyMD5 =
+          CopySourceSSECustomerKeyMD5.asInstanceOf[js.Any],
         RequestPayer = RequestPayer.asInstanceOf[js.Any],
         Tagging = Tagging.asInstanceOf[js.Any],
         ObjectLockMode = ObjectLockMode.asInstanceOf[js.Any],
-        ObjectLockRetainUntilDate = ObjectLockRetainUntilDate.asInstanceOf[js.Any],
-        ObjectLockLegalHoldStatus = ObjectLockLegalHoldStatus.asInstanceOf[js.Any],
+        ObjectLockRetainUntilDate =
+          ObjectLockRetainUntilDate.asInstanceOf[js.Any],
+        ObjectLockLegalHoldStatus =
+          ObjectLockLegalHoldStatus.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any],
-        ExpectedSourceBucketOwner = ExpectedSourceBucketOwner.asInstanceOf[js.Any]
+        ExpectedSourceBucketOwner =
+          ExpectedSourceBucketOwner.asInstanceOf[js.Any]
       )
       .asInstanceOf[CopyObjectCommandInput]
   }
@@ -360,7 +373,8 @@ trait CopyObjectCommandOutput extends MetadataBearer {
 trait CreateBucketCommandInput extends js.Object {
   val ACL: js.UndefOr[BucketCannedACL] = js.native
   val Bucket: js.UndefOr[String] = js.native
-  val CreateBucketConfiguration: js.UndefOr[CreateBucketConfiguration] = js.native
+  val CreateBucketConfiguration: js.UndefOr[CreateBucketConfiguration] =
+    js.native
   val GrantFullControl: js.UndefOr[String] = js.native
   val GrantRead: js.UndefOr[String] = js.native
   val GrantReadACP: js.UndefOr[String] = js.native
@@ -375,7 +389,8 @@ object CreateBucketCommandInput {
   def apply(
       ACL: js.UndefOr[BucketCannedACL] = js.undefined,
       Bucket: js.UndefOr[String] = js.undefined,
-      CreateBucketConfiguration: js.UndefOr[CreateBucketConfiguration] = js.undefined,
+      CreateBucketConfiguration: js.UndefOr[CreateBucketConfiguration] =
+        js.undefined,
       GrantFullControl: js.UndefOr[String] = js.undefined,
       GrantRead: js.UndefOr[String] = js.undefined,
       GrantReadACP: js.UndefOr[String] = js.undefined,
@@ -389,13 +404,15 @@ object CreateBucketCommandInput {
       .literal(
         ACL = ACL.asInstanceOf[js.Any],
         Bucket = Bucket.asInstanceOf[js.Any],
-        CreateBucketConfiguration = CreateBucketConfiguration.asInstanceOf[js.Any],
+        CreateBucketConfiguration =
+          CreateBucketConfiguration.asInstanceOf[js.Any],
         GrantFullControl = GrantFullControl.asInstanceOf[js.Any],
         GrantRead = GrantRead.asInstanceOf[js.Any],
         GrantReadACP = GrantReadACP.asInstanceOf[js.Any],
         GrantWrite = GrantWrite.asInstanceOf[js.Any],
         GrantWriteACP = GrantWriteACP.asInstanceOf[js.Any],
-        ObjectLockEnabledForBucket = ObjectLockEnabledForBucket.asInstanceOf[js.Any],
+        ObjectLockEnabledForBucket =
+          ObjectLockEnabledForBucket.asInstanceOf[js.Any],
         ObjectOwnership = ObjectOwnership.asInstanceOf[js.Any],
         BucketNamespace = BucketNamespace.asInstanceOf[js.Any]
       )
@@ -446,7 +463,8 @@ trait CreateBucketMetadataTableConfigurationCommandInput extends js.Object {
   val Bucket: js.UndefOr[String] = js.native
   val ContentMD5: js.UndefOr[String] = js.native
   val ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.native
-  val MetadataTableConfiguration: js.UndefOr[MetadataTableConfiguration] = js.native
+  val MetadataTableConfiguration: js.UndefOr[MetadataTableConfiguration] =
+    js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
 }
 
@@ -455,7 +473,8 @@ object CreateBucketMetadataTableConfigurationCommandInput {
       Bucket: js.UndefOr[String] = js.undefined,
       ContentMD5: js.UndefOr[String] = js.undefined,
       ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.undefined,
-      MetadataTableConfiguration: js.UndefOr[MetadataTableConfiguration] = js.undefined,
+      MetadataTableConfiguration: js.UndefOr[MetadataTableConfiguration] =
+        js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined
   ): CreateBucketMetadataTableConfigurationCommandInput = {
     js.Dynamic
@@ -463,7 +482,8 @@ object CreateBucketMetadataTableConfigurationCommandInput {
         Bucket = Bucket.asInstanceOf[js.Any],
         ContentMD5 = ContentMD5.asInstanceOf[js.Any],
         ChecksumAlgorithm = ChecksumAlgorithm.asInstanceOf[js.Any],
-        MetadataTableConfiguration = MetadataTableConfiguration.asInstanceOf[js.Any],
+        MetadataTableConfiguration =
+          MetadataTableConfiguration.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any]
       )
       .asInstanceOf[CreateBucketMetadataTableConfigurationCommandInput]
@@ -502,7 +522,8 @@ trait CreateMultipartUploadCommandInput extends js.Object {
   val Tagging: js.UndefOr[String] = js.native
   val ObjectLockMode: js.UndefOr[ObjectLockMode] = js.native
   val ObjectLockRetainUntilDate: js.UndefOr[js.Date] = js.native
-  val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] = js.native
+  val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] =
+    js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
   val ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.native
   val ChecksumType: js.UndefOr[ChecksumType] = js.native
@@ -537,7 +558,8 @@ object CreateMultipartUploadCommandInput {
       Tagging: js.UndefOr[String] = js.undefined,
       ObjectLockMode: js.UndefOr[ObjectLockMode] = js.undefined,
       ObjectLockRetainUntilDate: js.UndefOr[js.Date] = js.undefined,
-      ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] = js.undefined,
+      ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] =
+        js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined,
       ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.undefined,
       ChecksumType: js.UndefOr[ChecksumType] = js.undefined
@@ -570,8 +592,10 @@ object CreateMultipartUploadCommandInput {
         RequestPayer = RequestPayer.asInstanceOf[js.Any],
         Tagging = Tagging.asInstanceOf[js.Any],
         ObjectLockMode = ObjectLockMode.asInstanceOf[js.Any],
-        ObjectLockRetainUntilDate = ObjectLockRetainUntilDate.asInstanceOf[js.Any],
-        ObjectLockLegalHoldStatus = ObjectLockLegalHoldStatus.asInstanceOf[js.Any],
+        ObjectLockRetainUntilDate =
+          ObjectLockRetainUntilDate.asInstanceOf[js.Any],
+        ObjectLockLegalHoldStatus =
+          ObjectLockLegalHoldStatus.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any],
         ChecksumAlgorithm = ChecksumAlgorithm.asInstanceOf[js.Any],
         ChecksumType = ChecksumType.asInstanceOf[js.Any]
@@ -735,7 +759,8 @@ object DeleteBucketEncryptionCommandInput {
 trait DeleteBucketEncryptionCommandOutput extends MetadataBearer
 
 @js.native
-trait DeleteBucketIntelligentTieringConfigurationCommandInput extends js.Object {
+trait DeleteBucketIntelligentTieringConfigurationCommandInput
+    extends js.Object {
   val Bucket: js.UndefOr[String] = js.native
   val Id: js.UndefOr[String] = js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
@@ -758,7 +783,8 @@ object DeleteBucketIntelligentTieringConfigurationCommandInput {
 }
 
 @js.native
-trait DeleteBucketIntelligentTieringConfigurationCommandOutput extends MetadataBearer
+trait DeleteBucketIntelligentTieringConfigurationCommandOutput
+    extends MetadataBearer
 
 @js.native
 trait DeleteBucketInventoryConfigurationCommandInput extends js.Object {
@@ -1030,7 +1056,8 @@ object DeleteObjectCommandInput {
         MFA = MFA.asInstanceOf[js.Any],
         VersionId = VersionId.asInstanceOf[js.Any],
         RequestPayer = RequestPayer.asInstanceOf[js.Any],
-        BypassGovernanceRetention = BypassGovernanceRetention.asInstanceOf[js.Any],
+        BypassGovernanceRetention =
+          BypassGovernanceRetention.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any],
         IfMatch = IfMatch.asInstanceOf[js.Any],
         IfMatchLastModifiedTime = IfMatchLastModifiedTime.asInstanceOf[js.Any],
@@ -1105,7 +1132,8 @@ object DeleteObjectsCommandInput {
         Delete = Delete.asInstanceOf[js.Any],
         MFA = MFA.asInstanceOf[js.Any],
         RequestPayer = RequestPayer.asInstanceOf[js.Any],
-        BypassGovernanceRetention = BypassGovernanceRetention.asInstanceOf[js.Any],
+        BypassGovernanceRetention =
+          BypassGovernanceRetention.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any],
         ChecksumAlgorithm = ChecksumAlgorithm.asInstanceOf[js.Any]
       )
@@ -1298,7 +1326,8 @@ object GetBucketEncryptionCommandInput {
 
 @js.native
 trait GetBucketEncryptionCommandOutput extends MetadataBearer {
-  val ServerSideEncryptionConfiguration: js.UndefOr[ServerSideEncryptionConfiguration] = js.native
+  val ServerSideEncryptionConfiguration
+      : js.UndefOr[ServerSideEncryptionConfiguration] = js.native
 }
 
 @js.native
@@ -1325,8 +1354,10 @@ object GetBucketIntelligentTieringConfigurationCommandInput {
 }
 
 @js.native
-trait GetBucketIntelligentTieringConfigurationCommandOutput extends MetadataBearer {
-  val IntelligentTieringConfiguration: js.UndefOr[IntelligentTieringConfiguration] = js.native
+trait GetBucketIntelligentTieringConfigurationCommandOutput
+    extends MetadataBearer {
+  val IntelligentTieringConfiguration
+      : js.UndefOr[IntelligentTieringConfiguration] = js.native
 }
 
 @js.native
@@ -1380,7 +1411,8 @@ object GetBucketLifecycleConfigurationCommandInput {
 @js.native
 trait GetBucketLifecycleConfigurationCommandOutput extends MetadataBearer {
   val Rules: js.UndefOr[js.Array[LifecycleRule]] = js.native
-  val TransitionDefaultMinimumObjectSize: js.UndefOr[TransitionDefaultMinimumObjectSize] = js.native
+  val TransitionDefaultMinimumObjectSize
+      : js.UndefOr[TransitionDefaultMinimumObjectSize] = js.native
 }
 
 @js.native
@@ -1455,7 +1487,8 @@ object GetBucketMetadataConfigurationCommandInput {
 
 @js.native
 trait GetBucketMetadataConfigurationCommandOutput extends MetadataBearer {
-  val GetBucketMetadataConfigurationResult: js.UndefOr[GetBucketMetadataConfigurationResult] = js.native
+  val GetBucketMetadataConfigurationResult
+      : js.UndefOr[GetBucketMetadataConfigurationResult] = js.native
 }
 
 @js.native
@@ -1480,7 +1513,8 @@ object GetBucketMetadataTableConfigurationCommandInput {
 
 @js.native
 trait GetBucketMetadataTableConfigurationCommandOutput extends MetadataBearer {
-  val GetBucketMetadataTableConfigurationResult: js.UndefOr[GetBucketMetadataTableConfigurationResult] = js.native
+  val GetBucketMetadataTableConfigurationResult
+      : js.UndefOr[GetBucketMetadataTableConfigurationResult] = js.native
 }
 
 @js.native
@@ -1535,7 +1569,8 @@ object GetBucketNotificationConfigurationCommandInput {
 trait GetBucketNotificationConfigurationCommandOutput extends MetadataBearer {
   val TopicConfigurations: js.UndefOr[js.Array[TopicConfiguration]] = js.native
   val QueueConfigurations: js.UndefOr[js.Array[QueueConfiguration]] = js.native
-  val LambdaFunctionConfigurations: js.UndefOr[js.Array[LambdaFunctionConfiguration]] = js.native
+  val LambdaFunctionConfigurations
+      : js.UndefOr[js.Array[LambdaFunctionConfiguration]] = js.native
   val EventBridgeConfiguration: js.UndefOr[EventBridgeConfiguration] = js.native
 }
 
@@ -1898,7 +1933,8 @@ object GetObjectCommandInput {
         Key = Key.asInstanceOf[js.Any],
         Range = Range.asInstanceOf[js.Any],
         ResponseCacheControl = ResponseCacheControl.asInstanceOf[js.Any],
-        ResponseContentDisposition = ResponseContentDisposition.asInstanceOf[js.Any],
+        ResponseContentDisposition =
+          ResponseContentDisposition.asInstanceOf[js.Any],
         ResponseContentEncoding = ResponseContentEncoding.asInstanceOf[js.Any],
         ResponseContentLanguage = ResponseContentLanguage.asInstanceOf[js.Any],
         ResponseContentType = ResponseContentType.asInstanceOf[js.Any],
@@ -1956,7 +1992,8 @@ trait GetObjectCommandOutput extends MetadataBearer {
   val TagCount: js.UndefOr[Int] = js.native
   val ObjectLockMode: js.UndefOr[ObjectLockMode] = js.native
   val ObjectLockRetainUntilDate: js.UndefOr[js.Date] = js.native
-  val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] = js.native
+  val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] =
+    js.native
   val Body: js.UndefOr[SdkStream] = js.native
 }
 
@@ -2143,7 +2180,8 @@ object GetPublicAccessBlockCommandInput {
 
 @js.native
 trait GetPublicAccessBlockCommandOutput extends MetadataBearer {
-  val PublicAccessBlockConfiguration: js.UndefOr[PublicAccessBlockConfiguration] = js.native
+  val PublicAccessBlockConfiguration
+      : js.UndefOr[PublicAccessBlockConfiguration] = js.native
 }
 
 @js.native
@@ -2234,7 +2272,8 @@ object HeadObjectCommandInput {
         Key = Key.asInstanceOf[js.Any],
         Range = Range.asInstanceOf[js.Any],
         ResponseCacheControl = ResponseCacheControl.asInstanceOf[js.Any],
-        ResponseContentDisposition = ResponseContentDisposition.asInstanceOf[js.Any],
+        ResponseContentDisposition =
+          ResponseContentDisposition.asInstanceOf[js.Any],
         ResponseContentEncoding = ResponseContentEncoding.asInstanceOf[js.Any],
         ResponseContentLanguage = ResponseContentLanguage.asInstanceOf[js.Any],
         ResponseContentType = ResponseContentType.asInstanceOf[js.Any],
@@ -2292,7 +2331,8 @@ trait HeadObjectCommandOutput extends MetadataBearer {
   val TagCount: js.UndefOr[Int] = js.native
   val ObjectLockMode: js.UndefOr[ObjectLockMode] = js.native
   val ObjectLockRetainUntilDate: js.UndefOr[js.Date] = js.native
-  val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] = js.native
+  val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] =
+    js.native
 }
 
 @js.native
@@ -2323,7 +2363,8 @@ trait ListBucketAnalyticsConfigurationsCommandOutput extends MetadataBearer {
   val IsTruncated: js.UndefOr[Boolean] = js.native
   val ContinuationToken: js.UndefOr[String] = js.native
   val NextContinuationToken: js.UndefOr[String] = js.native
-  val AnalyticsConfigurationList: js.UndefOr[js.Array[AnalyticsConfiguration]] = js.native
+  val AnalyticsConfigurationList: js.UndefOr[js.Array[AnalyticsConfiguration]] =
+    js.native
 }
 
 @js.native
@@ -2350,11 +2391,13 @@ object ListBucketIntelligentTieringConfigurationsCommandInput {
 }
 
 @js.native
-trait ListBucketIntelligentTieringConfigurationsCommandOutput extends MetadataBearer {
+trait ListBucketIntelligentTieringConfigurationsCommandOutput
+    extends MetadataBearer {
   val IsTruncated: js.UndefOr[Boolean] = js.native
   val ContinuationToken: js.UndefOr[String] = js.native
   val NextContinuationToken: js.UndefOr[String] = js.native
-  val IntelligentTieringConfigurationList: js.UndefOr[js.Array[IntelligentTieringConfiguration]] = js.native
+  val IntelligentTieringConfigurationList
+      : js.UndefOr[js.Array[IntelligentTieringConfiguration]] = js.native
 }
 
 @js.native
@@ -2383,7 +2426,8 @@ object ListBucketInventoryConfigurationsCommandInput {
 @js.native
 trait ListBucketInventoryConfigurationsCommandOutput extends MetadataBearer {
   val ContinuationToken: js.UndefOr[String] = js.native
-  val InventoryConfigurationList: js.UndefOr[js.Array[InventoryConfiguration]] = js.native
+  val InventoryConfigurationList: js.UndefOr[js.Array[InventoryConfiguration]] =
+    js.native
   val IsTruncated: js.UndefOr[Boolean] = js.native
   val NextContinuationToken: js.UndefOr[String] = js.native
 }
@@ -2416,7 +2460,8 @@ trait ListBucketMetricsConfigurationsCommandOutput extends MetadataBearer {
   val IsTruncated: js.UndefOr[Boolean] = js.native
   val ContinuationToken: js.UndefOr[String] = js.native
   val NextContinuationToken: js.UndefOr[String] = js.native
-  val MetricsConfigurationList: js.UndefOr[js.Array[MetricsConfiguration]] = js.native
+  val MetricsConfigurationList: js.UndefOr[js.Array[MetricsConfiguration]] =
+    js.native
 }
 
 @js.native
@@ -2548,7 +2593,8 @@ trait ListObjectVersionsCommandInput extends js.Object {
   val VersionIdMarker: js.UndefOr[String] = js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
   val RequestPayer: js.UndefOr[RequestPayer] = js.native
-  val OptionalObjectAttributes: js.UndefOr[js.Array[OptionalObjectAttributes]] = js.native
+  val OptionalObjectAttributes: js.UndefOr[js.Array[OptionalObjectAttributes]] =
+    js.native
 }
 
 object ListObjectVersionsCommandInput {
@@ -2562,7 +2608,8 @@ object ListObjectVersionsCommandInput {
       VersionIdMarker: js.UndefOr[String] = js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined,
       RequestPayer: js.UndefOr[RequestPayer] = js.undefined,
-      OptionalObjectAttributes: js.UndefOr[js.Array[OptionalObjectAttributes]] = js.undefined
+      OptionalObjectAttributes: js.UndefOr[js.Array[OptionalObjectAttributes]] =
+        js.undefined
   ): ListObjectVersionsCommandInput = {
     js.Dynamic
       .literal(
@@ -2609,7 +2656,8 @@ trait ListObjectsCommandInput extends js.Object {
   val Prefix: js.UndefOr[String] = js.native
   val RequestPayer: js.UndefOr[RequestPayer] = js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
-  val OptionalObjectAttributes: js.UndefOr[js.Array[OptionalObjectAttributes]] = js.native
+  val OptionalObjectAttributes: js.UndefOr[js.Array[OptionalObjectAttributes]] =
+    js.native
 }
 
 object ListObjectsCommandInput {
@@ -2622,7 +2670,8 @@ object ListObjectsCommandInput {
       Prefix: js.UndefOr[String] = js.undefined,
       RequestPayer: js.UndefOr[RequestPayer] = js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined,
-      OptionalObjectAttributes: js.UndefOr[js.Array[OptionalObjectAttributes]] = js.undefined
+      OptionalObjectAttributes: js.UndefOr[js.Array[OptionalObjectAttributes]] =
+        js.undefined
   ): ListObjectsCommandInput = {
     js.Dynamic
       .literal(
@@ -2667,7 +2716,8 @@ trait ListObjectsV2CommandInput extends js.Object {
   val StartAfter: js.UndefOr[String] = js.native
   val RequestPayer: js.UndefOr[RequestPayer] = js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
-  val OptionalObjectAttributes: js.UndefOr[js.Array[OptionalObjectAttributes]] = js.native
+  val OptionalObjectAttributes: js.UndefOr[js.Array[OptionalObjectAttributes]] =
+    js.native
 }
 
 object ListObjectsV2CommandInput {
@@ -2682,7 +2732,8 @@ object ListObjectsV2CommandInput {
       StartAfter: js.UndefOr[String] = js.undefined,
       RequestPayer: js.UndefOr[RequestPayer] = js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined,
-      OptionalObjectAttributes: js.UndefOr[js.Array[OptionalObjectAttributes]] = js.undefined
+      OptionalObjectAttributes: js.UndefOr[js.Array[OptionalObjectAttributes]] =
+        js.undefined
   ): ListObjectsV2CommandInput = {
     js.Dynamic
       .literal(
@@ -2826,7 +2877,8 @@ trait PutBucketAccelerateConfigurationCommandInput extends js.Object {
 object PutBucketAccelerateConfigurationCommandInput {
   def apply(
       Bucket: js.UndefOr[String] = js.undefined,
-      AccelerateConfiguration: js.UndefOr[AccelerateConfiguration] = js.undefined,
+      AccelerateConfiguration: js.UndefOr[AccelerateConfiguration] =
+        js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined,
       ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.undefined
   ): PutBucketAccelerateConfigurationCommandInput = {
@@ -2960,7 +3012,8 @@ trait PutBucketEncryptionCommandInput extends js.Object {
   val Bucket: js.UndefOr[String] = js.native
   val ContentMD5: js.UndefOr[String] = js.native
   val ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.native
-  val ServerSideEncryptionConfiguration: js.UndefOr[ServerSideEncryptionConfiguration] = js.native
+  val ServerSideEncryptionConfiguration
+      : js.UndefOr[ServerSideEncryptionConfiguration] = js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
 }
 
@@ -2969,7 +3022,9 @@ object PutBucketEncryptionCommandInput {
       Bucket: js.UndefOr[String] = js.undefined,
       ContentMD5: js.UndefOr[String] = js.undefined,
       ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.undefined,
-      ServerSideEncryptionConfiguration: js.UndefOr[ServerSideEncryptionConfiguration] = js.undefined,
+      ServerSideEncryptionConfiguration: js.UndefOr[
+        ServerSideEncryptionConfiguration
+      ] = js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined
   ): PutBucketEncryptionCommandInput = {
     js.Dynamic
@@ -2977,7 +3032,8 @@ object PutBucketEncryptionCommandInput {
         Bucket = Bucket.asInstanceOf[js.Any],
         ContentMD5 = ContentMD5.asInstanceOf[js.Any],
         ChecksumAlgorithm = ChecksumAlgorithm.asInstanceOf[js.Any],
-        ServerSideEncryptionConfiguration = ServerSideEncryptionConfiguration.asInstanceOf[js.Any],
+        ServerSideEncryptionConfiguration =
+          ServerSideEncryptionConfiguration.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any]
       )
       .asInstanceOf[PutBucketEncryptionCommandInput]
@@ -2992,7 +3048,8 @@ trait PutBucketIntelligentTieringConfigurationCommandInput extends js.Object {
   val Bucket: js.UndefOr[String] = js.native
   val Id: js.UndefOr[String] = js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
-  val IntelligentTieringConfiguration: js.UndefOr[IntelligentTieringConfiguration] = js.native
+  val IntelligentTieringConfiguration
+      : js.UndefOr[IntelligentTieringConfiguration] = js.native
 }
 
 object PutBucketIntelligentTieringConfigurationCommandInput {
@@ -3000,21 +3057,25 @@ object PutBucketIntelligentTieringConfigurationCommandInput {
       Bucket: js.UndefOr[String] = js.undefined,
       Id: js.UndefOr[String] = js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined,
-      IntelligentTieringConfiguration: js.UndefOr[IntelligentTieringConfiguration] = js.undefined
+      IntelligentTieringConfiguration: js.UndefOr[
+        IntelligentTieringConfiguration
+      ] = js.undefined
   ): PutBucketIntelligentTieringConfigurationCommandInput = {
     js.Dynamic
       .literal(
         Bucket = Bucket.asInstanceOf[js.Any],
         Id = Id.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any],
-        IntelligentTieringConfiguration = IntelligentTieringConfiguration.asInstanceOf[js.Any]
+        IntelligentTieringConfiguration =
+          IntelligentTieringConfiguration.asInstanceOf[js.Any]
       )
       .asInstanceOf[PutBucketIntelligentTieringConfigurationCommandInput]
   }
 }
 
 @js.native
-trait PutBucketIntelligentTieringConfigurationCommandOutput extends MetadataBearer
+trait PutBucketIntelligentTieringConfigurationCommandOutput
+    extends MetadataBearer
 
 @js.native
 trait PutBucketInventoryConfigurationCommandInput extends js.Object {
@@ -3049,18 +3110,23 @@ trait PutBucketInventoryConfigurationCommandOutput extends MetadataBearer
 trait PutBucketLifecycleConfigurationCommandInput extends js.Object {
   val Bucket: js.UndefOr[String] = js.native
   val ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.native
-  val LifecycleConfiguration: js.UndefOr[BucketLifecycleConfiguration] = js.native
+  val LifecycleConfiguration: js.UndefOr[BucketLifecycleConfiguration] =
+    js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
-  val TransitionDefaultMinimumObjectSize: js.UndefOr[TransitionDefaultMinimumObjectSize] = js.native
+  val TransitionDefaultMinimumObjectSize
+      : js.UndefOr[TransitionDefaultMinimumObjectSize] = js.native
 }
 
 object PutBucketLifecycleConfigurationCommandInput {
   def apply(
       Bucket: js.UndefOr[String] = js.undefined,
       ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.undefined,
-      LifecycleConfiguration: js.UndefOr[BucketLifecycleConfiguration] = js.undefined,
+      LifecycleConfiguration: js.UndefOr[BucketLifecycleConfiguration] =
+        js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined,
-      TransitionDefaultMinimumObjectSize: js.UndefOr[TransitionDefaultMinimumObjectSize] = js.undefined
+      TransitionDefaultMinimumObjectSize: js.UndefOr[
+        TransitionDefaultMinimumObjectSize
+      ] = js.undefined
   ): PutBucketLifecycleConfigurationCommandInput = {
     js.Dynamic
       .literal(
@@ -3068,7 +3134,8 @@ object PutBucketLifecycleConfigurationCommandInput {
         ChecksumAlgorithm = ChecksumAlgorithm.asInstanceOf[js.Any],
         LifecycleConfiguration = LifecycleConfiguration.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any],
-        TransitionDefaultMinimumObjectSize = TransitionDefaultMinimumObjectSize.asInstanceOf[js.Any]
+        TransitionDefaultMinimumObjectSize =
+          TransitionDefaultMinimumObjectSize.asInstanceOf[js.Any]
       )
       .asInstanceOf[PutBucketLifecycleConfigurationCommandInput]
   }
@@ -3076,7 +3143,8 @@ object PutBucketLifecycleConfigurationCommandInput {
 
 @js.native
 trait PutBucketLifecycleConfigurationCommandOutput extends MetadataBearer {
-  val TransitionDefaultMinimumObjectSize: js.UndefOr[TransitionDefaultMinimumObjectSize] = js.native
+  val TransitionDefaultMinimumObjectSize
+      : js.UndefOr[TransitionDefaultMinimumObjectSize] = js.native
 }
 
 @js.native
@@ -3143,7 +3211,8 @@ trait PutBucketMetricsConfigurationCommandOutput extends MetadataBearer
 @js.native
 trait PutBucketNotificationConfigurationCommandInput extends js.Object {
   val Bucket: js.UndefOr[String] = js.native
-  val NotificationConfiguration: js.UndefOr[NotificationConfiguration] = js.native
+  val NotificationConfiguration: js.UndefOr[NotificationConfiguration] =
+    js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
   val SkipDestinationValidation: js.UndefOr[Boolean] = js.native
 }
@@ -3151,16 +3220,19 @@ trait PutBucketNotificationConfigurationCommandInput extends js.Object {
 object PutBucketNotificationConfigurationCommandInput {
   def apply(
       Bucket: js.UndefOr[String] = js.undefined,
-      NotificationConfiguration: js.UndefOr[NotificationConfiguration] = js.undefined,
+      NotificationConfiguration: js.UndefOr[NotificationConfiguration] =
+        js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined,
       SkipDestinationValidation: js.UndefOr[Boolean] = js.undefined
   ): PutBucketNotificationConfigurationCommandInput = {
     js.Dynamic
       .literal(
         Bucket = Bucket.asInstanceOf[js.Any],
-        NotificationConfiguration = NotificationConfiguration.asInstanceOf[js.Any],
+        NotificationConfiguration =
+          NotificationConfiguration.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any],
-        SkipDestinationValidation = SkipDestinationValidation.asInstanceOf[js.Any]
+        SkipDestinationValidation =
+          SkipDestinationValidation.asInstanceOf[js.Any]
       )
       .asInstanceOf[PutBucketNotificationConfigurationCommandInput]
   }
@@ -3225,7 +3297,8 @@ object PutBucketPolicyCommandInput {
         Bucket = Bucket.asInstanceOf[js.Any],
         ContentMD5 = ContentMD5.asInstanceOf[js.Any],
         ChecksumAlgorithm = ChecksumAlgorithm.asInstanceOf[js.Any],
-        ConfirmRemoveSelfBucketAccess = ConfirmRemoveSelfBucketAccess.asInstanceOf[js.Any],
+        ConfirmRemoveSelfBucketAccess =
+          ConfirmRemoveSelfBucketAccess.asInstanceOf[js.Any],
         Policy = Policy.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any]
       )
@@ -3251,7 +3324,8 @@ object PutBucketReplicationCommandInput {
       Bucket: js.UndefOr[String] = js.undefined,
       ContentMD5: js.UndefOr[String] = js.undefined,
       ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.undefined,
-      ReplicationConfiguration: js.UndefOr[ReplicationConfiguration] = js.undefined,
+      ReplicationConfiguration: js.UndefOr[ReplicationConfiguration] =
+        js.undefined,
       Token: js.UndefOr[String] = js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined
   ): PutBucketReplicationCommandInput = {
@@ -3260,7 +3334,8 @@ object PutBucketReplicationCommandInput {
         Bucket = Bucket.asInstanceOf[js.Any],
         ContentMD5 = ContentMD5.asInstanceOf[js.Any],
         ChecksumAlgorithm = ChecksumAlgorithm.asInstanceOf[js.Any],
-        ReplicationConfiguration = ReplicationConfiguration.asInstanceOf[js.Any],
+        ReplicationConfiguration =
+          ReplicationConfiguration.asInstanceOf[js.Any],
         Token = Token.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any]
       )
@@ -3276,7 +3351,8 @@ trait PutBucketRequestPaymentCommandInput extends js.Object {
   val Bucket: js.UndefOr[String] = js.native
   val ContentMD5: js.UndefOr[String] = js.native
   val ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.native
-  val RequestPaymentConfiguration: js.UndefOr[RequestPaymentConfiguration] = js.native
+  val RequestPaymentConfiguration: js.UndefOr[RequestPaymentConfiguration] =
+    js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
 }
 
@@ -3285,7 +3361,8 @@ object PutBucketRequestPaymentCommandInput {
       Bucket: js.UndefOr[String] = js.undefined,
       ContentMD5: js.UndefOr[String] = js.undefined,
       ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.undefined,
-      RequestPaymentConfiguration: js.UndefOr[RequestPaymentConfiguration] = js.undefined,
+      RequestPaymentConfiguration: js.UndefOr[RequestPaymentConfiguration] =
+        js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined
   ): PutBucketRequestPaymentCommandInput = {
     js.Dynamic
@@ -3293,7 +3370,8 @@ object PutBucketRequestPaymentCommandInput {
         Bucket = Bucket.asInstanceOf[js.Any],
         ContentMD5 = ContentMD5.asInstanceOf[js.Any],
         ChecksumAlgorithm = ChecksumAlgorithm.asInstanceOf[js.Any],
-        RequestPaymentConfiguration = RequestPaymentConfiguration.asInstanceOf[js.Any],
+        RequestPaymentConfiguration =
+          RequestPaymentConfiguration.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any]
       )
       .asInstanceOf[PutBucketRequestPaymentCommandInput]
@@ -3351,7 +3429,8 @@ object PutBucketVersioningCommandInput {
       ContentMD5: js.UndefOr[String] = js.undefined,
       ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.undefined,
       MFA: js.UndefOr[String] = js.undefined,
-      VersioningConfiguration: js.UndefOr[VersioningConfiguration] = js.undefined,
+      VersioningConfiguration: js.UndefOr[VersioningConfiguration] =
+        js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined
   ): PutBucketVersioningCommandInput = {
     js.Dynamic
@@ -3504,7 +3583,8 @@ trait PutObjectCommandInput extends js.Object {
   val Tagging: js.UndefOr[String] = js.native
   val ObjectLockMode: js.UndefOr[ObjectLockMode] = js.native
   val ObjectLockRetainUntilDate: js.UndefOr[js.Date] = js.native
-  val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] = js.native
+  val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] =
+    js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
   val Body: js.UndefOr[js.Any] = js.native
 }
@@ -3549,7 +3629,8 @@ object PutObjectCommandInput {
       Tagging: js.UndefOr[String] = js.undefined,
       ObjectLockMode: js.UndefOr[ObjectLockMode] = js.undefined,
       ObjectLockRetainUntilDate: js.UndefOr[js.Date] = js.undefined,
-      ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] = js.undefined,
+      ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] =
+        js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined,
       Body: js.UndefOr[js.Any] = js.undefined
   ): PutObjectCommandInput = {
@@ -3592,8 +3673,10 @@ object PutObjectCommandInput {
         RequestPayer = RequestPayer.asInstanceOf[js.Any],
         Tagging = Tagging.asInstanceOf[js.Any],
         ObjectLockMode = ObjectLockMode.asInstanceOf[js.Any],
-        ObjectLockRetainUntilDate = ObjectLockRetainUntilDate.asInstanceOf[js.Any],
-        ObjectLockLegalHoldStatus = ObjectLockLegalHoldStatus.asInstanceOf[js.Any],
+        ObjectLockRetainUntilDate =
+          ObjectLockRetainUntilDate.asInstanceOf[js.Any],
+        ObjectLockLegalHoldStatus =
+          ObjectLockLegalHoldStatus.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any],
         Body = Body.asInstanceOf[js.Any]
       )
@@ -3679,7 +3762,8 @@ trait PutObjectLockConfigurationCommandInput extends js.Object {
 object PutObjectLockConfigurationCommandInput {
   def apply(
       Bucket: js.UndefOr[String] = js.undefined,
-      ObjectLockConfiguration: js.UndefOr[ObjectLockConfiguration] = js.undefined,
+      ObjectLockConfiguration: js.UndefOr[ObjectLockConfiguration] =
+        js.undefined,
       RequestPayer: js.UndefOr[RequestPayer] = js.undefined,
       Token: js.UndefOr[String] = js.undefined,
       ContentMD5: js.UndefOr[String] = js.undefined,
@@ -3737,7 +3821,8 @@ object PutObjectRetentionCommandInput {
         Retention = Retention.asInstanceOf[js.Any],
         RequestPayer = RequestPayer.asInstanceOf[js.Any],
         VersionId = VersionId.asInstanceOf[js.Any],
-        BypassGovernanceRetention = BypassGovernanceRetention.asInstanceOf[js.Any],
+        BypassGovernanceRetention =
+          BypassGovernanceRetention.asInstanceOf[js.Any],
         ContentMD5 = ContentMD5.asInstanceOf[js.Any],
         ChecksumAlgorithm = ChecksumAlgorithm.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any]
@@ -3799,7 +3884,8 @@ trait PutPublicAccessBlockCommandInput extends js.Object {
   val Bucket: js.UndefOr[String] = js.native
   val ContentMD5: js.UndefOr[String] = js.native
   val ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.native
-  val PublicAccessBlockConfiguration: js.UndefOr[PublicAccessBlockConfiguration] = js.native
+  val PublicAccessBlockConfiguration
+      : js.UndefOr[PublicAccessBlockConfiguration] = js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
 }
 
@@ -3808,7 +3894,9 @@ object PutPublicAccessBlockCommandInput {
       Bucket: js.UndefOr[String] = js.undefined,
       ContentMD5: js.UndefOr[String] = js.undefined,
       ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.undefined,
-      PublicAccessBlockConfiguration: js.UndefOr[PublicAccessBlockConfiguration] = js.undefined,
+      PublicAccessBlockConfiguration: js.UndefOr[
+        PublicAccessBlockConfiguration
+      ] = js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined
   ): PutPublicAccessBlockCommandInput = {
     js.Dynamic
@@ -3816,7 +3904,8 @@ object PutPublicAccessBlockCommandInput {
         Bucket = Bucket.asInstanceOf[js.Any],
         ContentMD5 = ContentMD5.asInstanceOf[js.Any],
         ChecksumAlgorithm = ChecksumAlgorithm.asInstanceOf[js.Any],
-        PublicAccessBlockConfiguration = PublicAccessBlockConfiguration.asInstanceOf[js.Any],
+        PublicAccessBlockConfiguration =
+          PublicAccessBlockConfiguration.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any]
       )
       .asInstanceOf[PutPublicAccessBlockCommandInput]
@@ -3864,8 +3953,10 @@ object RenameObjectCommandInput {
         RenameSource = RenameSource.asInstanceOf[js.Any],
         DestinationIfMatch = DestinationIfMatch.asInstanceOf[js.Any],
         DestinationIfNoneMatch = DestinationIfNoneMatch.asInstanceOf[js.Any],
-        DestinationIfModifiedSince = DestinationIfModifiedSince.asInstanceOf[js.Any],
-        DestinationIfUnmodifiedSince = DestinationIfUnmodifiedSince.asInstanceOf[js.Any],
+        DestinationIfModifiedSince =
+          DestinationIfModifiedSince.asInstanceOf[js.Any],
+        DestinationIfUnmodifiedSince =
+          DestinationIfUnmodifiedSince.asInstanceOf[js.Any],
         SourceIfMatch = SourceIfMatch.asInstanceOf[js.Any],
         SourceIfNoneMatch = SourceIfNoneMatch.asInstanceOf[js.Any],
         SourceIfModifiedSince = SourceIfModifiedSince.asInstanceOf[js.Any],
@@ -3877,8 +3968,7 @@ object RenameObjectCommandInput {
 }
 
 @js.native
-trait RenameObjectCommandOutput extends MetadataBearer {
-}
+trait RenameObjectCommandOutput extends MetadataBearer {}
 
 @js.native
 trait RestoreObjectCommandInput extends js.Object {
@@ -3973,15 +4063,18 @@ object SelectObjectContentCommandInput {
 
 @js.native
 trait SelectObjectContentCommandOutput extends MetadataBearer {
-  val Payload: js.UndefOr[AsyncIterable[SelectObjectContentEventStream]] = js.native
+  val Payload: js.UndefOr[AsyncIterable[SelectObjectContentEventStream]] =
+    js.native
 }
 
 @js.native
-trait UpdateBucketMetadataInventoryTableConfigurationCommandInput extends js.Object {
+trait UpdateBucketMetadataInventoryTableConfigurationCommandInput
+    extends js.Object {
   val Bucket: js.UndefOr[String] = js.native
   val ContentMD5: js.UndefOr[String] = js.native
   val ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.native
-  val InventoryTableConfiguration: js.UndefOr[InventoryTableConfigurationUpdates] = js.native
+  val InventoryTableConfiguration
+      : js.UndefOr[InventoryTableConfigurationUpdates] = js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
 }
 
@@ -3990,7 +4083,9 @@ object UpdateBucketMetadataInventoryTableConfigurationCommandInput {
       Bucket: js.UndefOr[String] = js.undefined,
       ContentMD5: js.UndefOr[String] = js.undefined,
       ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.undefined,
-      InventoryTableConfiguration: js.UndefOr[InventoryTableConfigurationUpdates] = js.undefined,
+      InventoryTableConfiguration: js.UndefOr[
+        InventoryTableConfigurationUpdates
+      ] = js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined
   ): UpdateBucketMetadataInventoryTableConfigurationCommandInput = {
     js.Dynamic
@@ -3998,7 +4093,8 @@ object UpdateBucketMetadataInventoryTableConfigurationCommandInput {
         Bucket = Bucket.asInstanceOf[js.Any],
         ContentMD5 = ContentMD5.asInstanceOf[js.Any],
         ChecksumAlgorithm = ChecksumAlgorithm.asInstanceOf[js.Any],
-        InventoryTableConfiguration = InventoryTableConfiguration.asInstanceOf[js.Any],
+        InventoryTableConfiguration =
+          InventoryTableConfiguration.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any]
       )
       .asInstanceOf[UpdateBucketMetadataInventoryTableConfigurationCommandInput]
@@ -4006,14 +4102,17 @@ object UpdateBucketMetadataInventoryTableConfigurationCommandInput {
 }
 
 @js.native
-trait UpdateBucketMetadataInventoryTableConfigurationCommandOutput extends MetadataBearer
+trait UpdateBucketMetadataInventoryTableConfigurationCommandOutput
+    extends MetadataBearer
 
 @js.native
-trait UpdateBucketMetadataJournalTableConfigurationCommandInput extends js.Object {
+trait UpdateBucketMetadataJournalTableConfigurationCommandInput
+    extends js.Object {
   val Bucket: js.UndefOr[String] = js.native
   val ContentMD5: js.UndefOr[String] = js.native
   val ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.native
-  val JournalTableConfiguration: js.UndefOr[JournalTableConfigurationUpdates] = js.native
+  val JournalTableConfiguration: js.UndefOr[JournalTableConfigurationUpdates] =
+    js.native
   val ExpectedBucketOwner: js.UndefOr[String] = js.native
 }
 
@@ -4022,7 +4121,8 @@ object UpdateBucketMetadataJournalTableConfigurationCommandInput {
       Bucket: js.UndefOr[String] = js.undefined,
       ContentMD5: js.UndefOr[String] = js.undefined,
       ChecksumAlgorithm: js.UndefOr[ChecksumAlgorithm] = js.undefined,
-      JournalTableConfiguration: js.UndefOr[JournalTableConfigurationUpdates] = js.undefined,
+      JournalTableConfiguration: js.UndefOr[JournalTableConfigurationUpdates] =
+        js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined
   ): UpdateBucketMetadataJournalTableConfigurationCommandInput = {
     js.Dynamic
@@ -4030,7 +4130,8 @@ object UpdateBucketMetadataJournalTableConfigurationCommandInput {
         Bucket = Bucket.asInstanceOf[js.Any],
         ContentMD5 = ContentMD5.asInstanceOf[js.Any],
         ChecksumAlgorithm = ChecksumAlgorithm.asInstanceOf[js.Any],
-        JournalTableConfiguration = JournalTableConfiguration.asInstanceOf[js.Any],
+        JournalTableConfiguration =
+          JournalTableConfiguration.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any]
       )
       .asInstanceOf[UpdateBucketMetadataJournalTableConfigurationCommandInput]
@@ -4038,7 +4139,8 @@ object UpdateBucketMetadataJournalTableConfigurationCommandInput {
 }
 
 @js.native
-trait UpdateBucketMetadataJournalTableConfigurationCommandOutput extends MetadataBearer
+trait UpdateBucketMetadataJournalTableConfigurationCommandOutput
+    extends MetadataBearer
 
 @js.native
 trait UpdateObjectEncryptionCommandInput extends js.Object {
@@ -4218,9 +4320,11 @@ object UploadPartCopyCommandInput {
         Bucket = Bucket.asInstanceOf[js.Any],
         CopySource = CopySource.asInstanceOf[js.Any],
         CopySourceIfMatch = CopySourceIfMatch.asInstanceOf[js.Any],
-        CopySourceIfModifiedSince = CopySourceIfModifiedSince.asInstanceOf[js.Any],
+        CopySourceIfModifiedSince =
+          CopySourceIfModifiedSince.asInstanceOf[js.Any],
         CopySourceIfNoneMatch = CopySourceIfNoneMatch.asInstanceOf[js.Any],
-        CopySourceIfUnmodifiedSince = CopySourceIfUnmodifiedSince.asInstanceOf[js.Any],
+        CopySourceIfUnmodifiedSince =
+          CopySourceIfUnmodifiedSince.asInstanceOf[js.Any],
         CopySourceRange = CopySourceRange.asInstanceOf[js.Any],
         Key = Key.asInstanceOf[js.Any],
         PartNumber = PartNumber.asInstanceOf[js.Any],
@@ -4228,12 +4332,16 @@ object UploadPartCopyCommandInput {
         SSECustomerAlgorithm = SSECustomerAlgorithm.asInstanceOf[js.Any],
         SSECustomerKey = SSECustomerKey.asInstanceOf[js.Any],
         SSECustomerKeyMD5 = SSECustomerKeyMD5.asInstanceOf[js.Any],
-        CopySourceSSECustomerAlgorithm = CopySourceSSECustomerAlgorithm.asInstanceOf[js.Any],
-        CopySourceSSECustomerKey = CopySourceSSECustomerKey.asInstanceOf[js.Any],
-        CopySourceSSECustomerKeyMD5 = CopySourceSSECustomerKeyMD5.asInstanceOf[js.Any],
+        CopySourceSSECustomerAlgorithm =
+          CopySourceSSECustomerAlgorithm.asInstanceOf[js.Any],
+        CopySourceSSECustomerKey =
+          CopySourceSSECustomerKey.asInstanceOf[js.Any],
+        CopySourceSSECustomerKeyMD5 =
+          CopySourceSSECustomerKeyMD5.asInstanceOf[js.Any],
         RequestPayer = RequestPayer.asInstanceOf[js.Any],
         ExpectedBucketOwner = ExpectedBucketOwner.asInstanceOf[js.Any],
-        ExpectedSourceBucketOwner = ExpectedSourceBucketOwner.asInstanceOf[js.Any]
+        ExpectedSourceBucketOwner =
+          ExpectedSourceBucketOwner.asInstanceOf[js.Any]
       )
       .asInstanceOf[UploadPartCopyCommandInput]
   }
@@ -4280,7 +4388,8 @@ trait WriteGetObjectResponseCommandInput extends js.Object {
   val MissingMeta: js.UndefOr[Int] = js.native
   val Metadata: js.UndefOr[js.Dictionary[String]] = js.native
   val ObjectLockMode: js.UndefOr[ObjectLockMode] = js.native
-  val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] = js.native
+  val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] =
+    js.native
   val ObjectLockRetainUntilDate: js.UndefOr[js.Date] = js.native
   val PartsCount: js.UndefOr[Int] = js.native
   val ReplicationStatus: js.UndefOr[ReplicationStatus] = js.native
@@ -4325,7 +4434,8 @@ object WriteGetObjectResponseCommandInput {
       MissingMeta: js.UndefOr[Int] = js.undefined,
       Metadata: js.UndefOr[js.Dictionary[String]] = js.undefined,
       ObjectLockMode: js.UndefOr[ObjectLockMode] = js.undefined,
-      ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] = js.undefined,
+      ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] =
+        js.undefined,
       ObjectLockRetainUntilDate: js.UndefOr[js.Date] = js.undefined,
       PartsCount: js.UndefOr[Int] = js.undefined,
       ReplicationStatus: js.UndefOr[ReplicationStatus] = js.undefined,
@@ -4369,8 +4479,10 @@ object WriteGetObjectResponseCommandInput {
         MissingMeta = MissingMeta.asInstanceOf[js.Any],
         Metadata = Metadata.asInstanceOf[js.Any],
         ObjectLockMode = ObjectLockMode.asInstanceOf[js.Any],
-        ObjectLockLegalHoldStatus = ObjectLockLegalHoldStatus.asInstanceOf[js.Any],
-        ObjectLockRetainUntilDate = ObjectLockRetainUntilDate.asInstanceOf[js.Any],
+        ObjectLockLegalHoldStatus =
+          ObjectLockLegalHoldStatus.asInstanceOf[js.Any],
+        ObjectLockRetainUntilDate =
+          ObjectLockRetainUntilDate.asInstanceOf[js.Any],
         PartsCount = PartsCount.asInstanceOf[js.Any],
         ReplicationStatus = ReplicationStatus.asInstanceOf[js.Any],
         RequestCharged = RequestCharged.asInstanceOf[js.Any],
@@ -4570,19 +4682,25 @@ object Tag {
 
 @js.native
 trait MetadataConfiguration extends js.Object {
-  val JournalTableConfiguration: js.UndefOr[JournalTableConfiguration] = js.native
-  val InventoryTableConfiguration: js.UndefOr[InventoryTableConfiguration] = js.native
+  val JournalTableConfiguration: js.UndefOr[JournalTableConfiguration] =
+    js.native
+  val InventoryTableConfiguration: js.UndefOr[InventoryTableConfiguration] =
+    js.native
 }
 
 object MetadataConfiguration {
   def apply(
-      JournalTableConfiguration: js.UndefOr[JournalTableConfiguration] = js.undefined,
-      InventoryTableConfiguration: js.UndefOr[InventoryTableConfiguration] = js.undefined
+      JournalTableConfiguration: js.UndefOr[JournalTableConfiguration] =
+        js.undefined,
+      InventoryTableConfiguration: js.UndefOr[InventoryTableConfiguration] =
+        js.undefined
   ): MetadataConfiguration = {
     js.Dynamic
       .literal(
-        JournalTableConfiguration = JournalTableConfiguration.asInstanceOf[js.Any],
-        InventoryTableConfiguration = InventoryTableConfiguration.asInstanceOf[js.Any]
+        JournalTableConfiguration =
+          JournalTableConfiguration.asInstanceOf[js.Any],
+        InventoryTableConfiguration =
+          InventoryTableConfiguration.asInstanceOf[js.Any]
       )
       .asInstanceOf[MetadataConfiguration]
   }
@@ -4591,13 +4709,16 @@ object MetadataConfiguration {
 @js.native
 trait JournalTableConfiguration extends js.Object {
   val RecordExpiration: js.UndefOr[RecordExpiration] = js.native
-  val EncryptionConfiguration: js.UndefOr[MetadataTableEncryptionConfiguration] = js.native
+  val EncryptionConfiguration
+      : js.UndefOr[MetadataTableEncryptionConfiguration] = js.native
 }
 
 object JournalTableConfiguration {
   def apply(
       RecordExpiration: js.UndefOr[RecordExpiration] = js.undefined,
-      EncryptionConfiguration: js.UndefOr[MetadataTableEncryptionConfiguration] = js.undefined
+      EncryptionConfiguration: js.UndefOr[
+        MetadataTableEncryptionConfiguration
+      ] = js.undefined
   ): JournalTableConfiguration = {
     js.Dynamic
       .literal(
@@ -4651,13 +4772,17 @@ object MetadataTableEncryptionConfiguration {
 @js.native
 trait InventoryTableConfiguration extends js.Object {
   val ConfigurationState: js.UndefOr[InventoryConfigurationState] = js.native
-  val EncryptionConfiguration: js.UndefOr[MetadataTableEncryptionConfiguration] = js.native
+  val EncryptionConfiguration
+      : js.UndefOr[MetadataTableEncryptionConfiguration] = js.native
 }
 
 object InventoryTableConfiguration {
   def apply(
-      ConfigurationState: js.UndefOr[InventoryConfigurationState] = js.undefined,
-      EncryptionConfiguration: js.UndefOr[MetadataTableEncryptionConfiguration] = js.undefined
+      ConfigurationState: js.UndefOr[InventoryConfigurationState] =
+        js.undefined,
+      EncryptionConfiguration: js.UndefOr[
+        MetadataTableEncryptionConfiguration
+      ] = js.undefined
   ): InventoryTableConfiguration = {
     js.Dynamic
       .literal(
@@ -4934,13 +5059,15 @@ object StorageClassAnalysis {
 
 @js.native
 trait StorageClassAnalysisDataExport extends js.Object {
-  val OutputSchemaVersion: js.UndefOr[StorageClassAnalysisSchemaVersion] = js.native
+  val OutputSchemaVersion: js.UndefOr[StorageClassAnalysisSchemaVersion] =
+    js.native
   val Destination: js.UndefOr[AnalyticsExportDestination] = js.native
 }
 
 object StorageClassAnalysisDataExport {
   def apply(
-      OutputSchemaVersion: js.UndefOr[StorageClassAnalysisSchemaVersion] = js.undefined,
+      OutputSchemaVersion: js.UndefOr[StorageClassAnalysisSchemaVersion] =
+        js.undefined,
       Destination: js.UndefOr[AnalyticsExportDestination] = js.undefined
   ): StorageClassAnalysisDataExport = {
     js.Dynamic
@@ -4959,7 +5086,8 @@ trait AnalyticsExportDestination extends js.Object {
 
 object AnalyticsExportDestination {
   def apply(
-      S3BucketDestination: js.UndefOr[AnalyticsS3BucketDestination] = js.undefined
+      S3BucketDestination: js.UndefOr[AnalyticsS3BucketDestination] =
+        js.undefined
   ): AnalyticsExportDestination = {
     js.Dynamic
       .literal(
@@ -5046,20 +5174,24 @@ object ServerSideEncryptionConfiguration {
 
 @js.native
 trait ServerSideEncryptionRule extends js.Object {
-  val ApplyServerSideEncryptionByDefault: js.UndefOr[ServerSideEncryptionByDefault] = js.native
+  val ApplyServerSideEncryptionByDefault
+      : js.UndefOr[ServerSideEncryptionByDefault] = js.native
   val BucketKeyEnabled: js.UndefOr[Boolean] = js.native
   val BlockedEncryptionTypes: js.UndefOr[BlockedEncryptionTypes] = js.native
 }
 
 object ServerSideEncryptionRule {
   def apply(
-      ApplyServerSideEncryptionByDefault: js.UndefOr[ServerSideEncryptionByDefault] = js.undefined,
+      ApplyServerSideEncryptionByDefault: js.UndefOr[
+        ServerSideEncryptionByDefault
+      ] = js.undefined,
       BucketKeyEnabled: js.UndefOr[Boolean] = js.undefined,
       BlockedEncryptionTypes: js.UndefOr[BlockedEncryptionTypes] = js.undefined
   ): ServerSideEncryptionRule = {
     js.Dynamic
       .literal(
-        ApplyServerSideEncryptionByDefault = ApplyServerSideEncryptionByDefault.asInstanceOf[js.Any],
+        ApplyServerSideEncryptionByDefault =
+          ApplyServerSideEncryptionByDefault.asInstanceOf[js.Any],
         BucketKeyEnabled = BucketKeyEnabled.asInstanceOf[js.Any],
         BlockedEncryptionTypes = BlockedEncryptionTypes.asInstanceOf[js.Any]
       )
@@ -5199,7 +5331,8 @@ trait InventoryConfiguration extends js.Object {
   val IsEnabled: js.UndefOr[Boolean] = js.native
   val Filter: js.UndefOr[InventoryFilter] = js.native
   val Id: js.UndefOr[String] = js.native
-  val IncludedObjectVersions: js.UndefOr[InventoryIncludedObjectVersions] = js.native
+  val IncludedObjectVersions: js.UndefOr[InventoryIncludedObjectVersions] =
+    js.native
   val OptionalFields: js.UndefOr[js.Array[InventoryOptionalField]] = js.native
   val Schedule: js.UndefOr[InventorySchedule] = js.native
 }
@@ -5210,8 +5343,10 @@ object InventoryConfiguration {
       IsEnabled: js.UndefOr[Boolean] = js.undefined,
       Filter: js.UndefOr[InventoryFilter] = js.undefined,
       Id: js.UndefOr[String] = js.undefined,
-      IncludedObjectVersions: js.UndefOr[InventoryIncludedObjectVersions] = js.undefined,
-      OptionalFields: js.UndefOr[js.Array[InventoryOptionalField]] = js.undefined,
+      IncludedObjectVersions: js.UndefOr[InventoryIncludedObjectVersions] =
+        js.undefined,
+      OptionalFields: js.UndefOr[js.Array[InventoryOptionalField]] =
+        js.undefined,
       Schedule: js.UndefOr[InventorySchedule] = js.undefined
   ): InventoryConfiguration = {
     js.Dynamic
@@ -5235,7 +5370,8 @@ trait InventoryDestination extends js.Object {
 
 object InventoryDestination {
   def apply(
-      S3BucketDestination: js.UndefOr[InventoryS3BucketDestination] = js.undefined
+      S3BucketDestination: js.UndefOr[InventoryS3BucketDestination] =
+        js.undefined
   ): InventoryDestination = {
     js.Dynamic
       .literal(
@@ -5295,8 +5431,7 @@ object InventoryEncryption {
 }
 
 @js.native
-trait SSES3 extends js.Object {
-}
+trait SSES3 extends js.Object {}
 
 @js.native
 trait SSEKMS extends js.Object {
@@ -5357,9 +5492,12 @@ trait LifecycleRule extends js.Object {
   val Filter: js.UndefOr[LifecycleRuleFilter] = js.native
   val Status: js.UndefOr[ExpirationStatus] = js.native
   val Transitions: js.UndefOr[js.Array[Transition]] = js.native
-  val NoncurrentVersionTransitions: js.UndefOr[js.Array[NoncurrentVersionTransition]] = js.native
-  val NoncurrentVersionExpiration: js.UndefOr[NoncurrentVersionExpiration] = js.native
-  val AbortIncompleteMultipartUpload: js.UndefOr[AbortIncompleteMultipartUpload] = js.native
+  val NoncurrentVersionTransitions
+      : js.UndefOr[js.Array[NoncurrentVersionTransition]] = js.native
+  val NoncurrentVersionExpiration: js.UndefOr[NoncurrentVersionExpiration] =
+    js.native
+  val AbortIncompleteMultipartUpload
+      : js.UndefOr[AbortIncompleteMultipartUpload] = js.native
 }
 
 object LifecycleRule {
@@ -5370,9 +5508,14 @@ object LifecycleRule {
       Filter: js.UndefOr[LifecycleRuleFilter] = js.undefined,
       Status: js.UndefOr[ExpirationStatus] = js.undefined,
       Transitions: js.UndefOr[js.Array[Transition]] = js.undefined,
-      NoncurrentVersionTransitions: js.UndefOr[js.Array[NoncurrentVersionTransition]] = js.undefined,
-      NoncurrentVersionExpiration: js.UndefOr[NoncurrentVersionExpiration] = js.undefined,
-      AbortIncompleteMultipartUpload: js.UndefOr[AbortIncompleteMultipartUpload] = js.undefined
+      NoncurrentVersionTransitions: js.UndefOr[
+        js.Array[NoncurrentVersionTransition]
+      ] = js.undefined,
+      NoncurrentVersionExpiration: js.UndefOr[NoncurrentVersionExpiration] =
+        js.undefined,
+      AbortIncompleteMultipartUpload: js.UndefOr[
+        AbortIncompleteMultipartUpload
+      ] = js.undefined
   ): LifecycleRule = {
     js.Dynamic
       .literal(
@@ -5382,9 +5525,12 @@ object LifecycleRule {
         Filter = Filter.asInstanceOf[js.Any],
         Status = Status.asInstanceOf[js.Any],
         Transitions = Transitions.asInstanceOf[js.Any],
-        NoncurrentVersionTransitions = NoncurrentVersionTransitions.asInstanceOf[js.Any],
-        NoncurrentVersionExpiration = NoncurrentVersionExpiration.asInstanceOf[js.Any],
-        AbortIncompleteMultipartUpload = AbortIncompleteMultipartUpload.asInstanceOf[js.Any]
+        NoncurrentVersionTransitions =
+          NoncurrentVersionTransitions.asInstanceOf[js.Any],
+        NoncurrentVersionExpiration =
+          NoncurrentVersionExpiration.asInstanceOf[js.Any],
+        AbortIncompleteMultipartUpload =
+          AbortIncompleteMultipartUpload.asInstanceOf[js.Any]
       )
       .asInstanceOf[LifecycleRule]
   }
@@ -5407,7 +5553,8 @@ object LifecycleExpiration {
       .literal(
         Date = Date.asInstanceOf[js.Any],
         Days = Days.asInstanceOf[js.Any],
-        ExpiredObjectDeleteMarker = ExpiredObjectDeleteMarker.asInstanceOf[js.Any]
+        ExpiredObjectDeleteMarker =
+          ExpiredObjectDeleteMarker.asInstanceOf[js.Any]
       )
       .asInstanceOf[LifecycleExpiration]
   }
@@ -5618,8 +5765,7 @@ object TargetObjectKeyFormat {
 }
 
 @js.native
-trait SimplePrefix extends js.Object {
-}
+trait SimplePrefix extends js.Object {}
 
 @js.native
 trait PartitionedPrefix extends js.Object {
@@ -5640,16 +5786,19 @@ object PartitionedPrefix {
 
 @js.native
 trait GetBucketMetadataConfigurationResult extends js.Object {
-  val MetadataConfigurationResult: js.UndefOr[MetadataConfigurationResult] = js.native
+  val MetadataConfigurationResult: js.UndefOr[MetadataConfigurationResult] =
+    js.native
 }
 
 object GetBucketMetadataConfigurationResult {
   def apply(
-      MetadataConfigurationResult: js.UndefOr[MetadataConfigurationResult] = js.undefined
+      MetadataConfigurationResult: js.UndefOr[MetadataConfigurationResult] =
+        js.undefined
   ): GetBucketMetadataConfigurationResult = {
     js.Dynamic
       .literal(
-        MetadataConfigurationResult = MetadataConfigurationResult.asInstanceOf[js.Any]
+        MetadataConfigurationResult =
+          MetadataConfigurationResult.asInstanceOf[js.Any]
       )
       .asInstanceOf[GetBucketMetadataConfigurationResult]
   }
@@ -5658,21 +5807,29 @@ object GetBucketMetadataConfigurationResult {
 @js.native
 trait MetadataConfigurationResult extends js.Object {
   val DestinationResult: js.UndefOr[DestinationResult] = js.native
-  val JournalTableConfigurationResult: js.UndefOr[JournalTableConfigurationResult] = js.native
-  val InventoryTableConfigurationResult: js.UndefOr[InventoryTableConfigurationResult] = js.native
+  val JournalTableConfigurationResult
+      : js.UndefOr[JournalTableConfigurationResult] = js.native
+  val InventoryTableConfigurationResult
+      : js.UndefOr[InventoryTableConfigurationResult] = js.native
 }
 
 object MetadataConfigurationResult {
   def apply(
       DestinationResult: js.UndefOr[DestinationResult] = js.undefined,
-      JournalTableConfigurationResult: js.UndefOr[JournalTableConfigurationResult] = js.undefined,
-      InventoryTableConfigurationResult: js.UndefOr[InventoryTableConfigurationResult] = js.undefined
+      JournalTableConfigurationResult: js.UndefOr[
+        JournalTableConfigurationResult
+      ] = js.undefined,
+      InventoryTableConfigurationResult: js.UndefOr[
+        InventoryTableConfigurationResult
+      ] = js.undefined
   ): MetadataConfigurationResult = {
     js.Dynamic
       .literal(
         DestinationResult = DestinationResult.asInstanceOf[js.Any],
-        JournalTableConfigurationResult = JournalTableConfigurationResult.asInstanceOf[js.Any],
-        InventoryTableConfigurationResult = InventoryTableConfigurationResult.asInstanceOf[js.Any]
+        JournalTableConfigurationResult =
+          JournalTableConfigurationResult.asInstanceOf[js.Any],
+        InventoryTableConfigurationResult =
+          InventoryTableConfigurationResult.asInstanceOf[js.Any]
       )
       .asInstanceOf[MetadataConfigurationResult]
   }
@@ -5761,7 +5918,8 @@ trait InventoryTableConfigurationResult extends js.Object {
 
 object InventoryTableConfigurationResult {
   def apply(
-      ConfigurationState: js.UndefOr[InventoryConfigurationState] = js.undefined,
+      ConfigurationState: js.UndefOr[InventoryConfigurationState] =
+        js.undefined,
       TableStatus: js.UndefOr[String] = js.undefined,
       Error: js.UndefOr[ErrorDetails] = js.undefined,
       TableName: js.UndefOr[String] = js.undefined,
@@ -5781,20 +5939,24 @@ object InventoryTableConfigurationResult {
 
 @js.native
 trait GetBucketMetadataTableConfigurationResult extends js.Object {
-  val MetadataTableConfigurationResult: js.UndefOr[MetadataTableConfigurationResult] = js.native
+  val MetadataTableConfigurationResult
+      : js.UndefOr[MetadataTableConfigurationResult] = js.native
   val Status: js.UndefOr[String] = js.native
   val Error: js.UndefOr[ErrorDetails] = js.native
 }
 
 object GetBucketMetadataTableConfigurationResult {
   def apply(
-      MetadataTableConfigurationResult: js.UndefOr[MetadataTableConfigurationResult] = js.undefined,
+      MetadataTableConfigurationResult: js.UndefOr[
+        MetadataTableConfigurationResult
+      ] = js.undefined,
       Status: js.UndefOr[String] = js.undefined,
       Error: js.UndefOr[ErrorDetails] = js.undefined
   ): GetBucketMetadataTableConfigurationResult = {
     js.Dynamic
       .literal(
-        MetadataTableConfigurationResult = MetadataTableConfigurationResult.asInstanceOf[js.Any],
+        MetadataTableConfigurationResult =
+          MetadataTableConfigurationResult.asInstanceOf[js.Any],
         Status = Status.asInstanceOf[js.Any],
         Error = Error.asInstanceOf[js.Any]
       )
@@ -5804,16 +5966,19 @@ object GetBucketMetadataTableConfigurationResult {
 
 @js.native
 trait MetadataTableConfigurationResult extends js.Object {
-  val S3TablesDestinationResult: js.UndefOr[S3TablesDestinationResult] = js.native
+  val S3TablesDestinationResult: js.UndefOr[S3TablesDestinationResult] =
+    js.native
 }
 
 object MetadataTableConfigurationResult {
   def apply(
-      S3TablesDestinationResult: js.UndefOr[S3TablesDestinationResult] = js.undefined
+      S3TablesDestinationResult: js.UndefOr[S3TablesDestinationResult] =
+        js.undefined
   ): MetadataTableConfigurationResult = {
     js.Dynamic
       .literal(
-        S3TablesDestinationResult = S3TablesDestinationResult.asInstanceOf[js.Any]
+        S3TablesDestinationResult =
+          S3TablesDestinationResult.asInstanceOf[js.Any]
       )
       .asInstanceOf[MetadataTableConfigurationResult]
   }
@@ -5998,8 +6163,7 @@ object LambdaFunctionConfiguration {
 }
 
 @js.native
-trait EventBridgeConfiguration extends js.Object {
-}
+trait EventBridgeConfiguration extends js.Object {}
 
 @js.native
 trait OwnershipControls extends js.Object {
@@ -6080,7 +6244,8 @@ trait ReplicationRule extends js.Object {
   val Filter: js.UndefOr[ReplicationRuleFilter] = js.native
   val Status: js.UndefOr[ReplicationRuleStatus] = js.native
   val SourceSelectionCriteria: js.UndefOr[SourceSelectionCriteria] = js.native
-  val ExistingObjectReplication: js.UndefOr[ExistingObjectReplication] = js.native
+  val ExistingObjectReplication: js.UndefOr[ExistingObjectReplication] =
+    js.native
   val Destination: js.UndefOr[Destination] = js.native
   val DeleteMarkerReplication: js.UndefOr[DeleteMarkerReplication] = js.native
 }
@@ -6092,10 +6257,13 @@ object ReplicationRule {
       Prefix: js.UndefOr[String] = js.undefined,
       Filter: js.UndefOr[ReplicationRuleFilter] = js.undefined,
       Status: js.UndefOr[ReplicationRuleStatus] = js.undefined,
-      SourceSelectionCriteria: js.UndefOr[SourceSelectionCriteria] = js.undefined,
-      ExistingObjectReplication: js.UndefOr[ExistingObjectReplication] = js.undefined,
+      SourceSelectionCriteria: js.UndefOr[SourceSelectionCriteria] =
+        js.undefined,
+      ExistingObjectReplication: js.UndefOr[ExistingObjectReplication] =
+        js.undefined,
       Destination: js.UndefOr[Destination] = js.undefined,
-      DeleteMarkerReplication: js.UndefOr[DeleteMarkerReplication] = js.undefined
+      DeleteMarkerReplication: js.UndefOr[DeleteMarkerReplication] =
+        js.undefined
   ): ReplicationRule = {
     js.Dynamic
       .literal(
@@ -6105,7 +6273,8 @@ object ReplicationRule {
         Filter = Filter.asInstanceOf[js.Any],
         Status = Status.asInstanceOf[js.Any],
         SourceSelectionCriteria = SourceSelectionCriteria.asInstanceOf[js.Any],
-        ExistingObjectReplication = ExistingObjectReplication.asInstanceOf[js.Any],
+        ExistingObjectReplication =
+          ExistingObjectReplication.asInstanceOf[js.Any],
         Destination = Destination.asInstanceOf[js.Any],
         DeleteMarkerReplication = DeleteMarkerReplication.asInstanceOf[js.Any]
       )
@@ -6243,8 +6412,10 @@ object Destination {
       Bucket: js.UndefOr[String] = js.undefined,
       Account: js.UndefOr[String] = js.undefined,
       StorageClass: js.UndefOr[StorageClass] = js.undefined,
-      AccessControlTranslation: js.UndefOr[AccessControlTranslation] = js.undefined,
-      EncryptionConfiguration: js.UndefOr[EncryptionConfiguration] = js.undefined,
+      AccessControlTranslation: js.UndefOr[AccessControlTranslation] =
+        js.undefined,
+      EncryptionConfiguration: js.UndefOr[EncryptionConfiguration] =
+        js.undefined,
       ReplicationTime: js.UndefOr[ReplicationTime] = js.undefined,
       Metrics: js.UndefOr[Metrics] = js.undefined
   ): Destination = {
@@ -6253,7 +6424,8 @@ object Destination {
         Bucket = Bucket.asInstanceOf[js.Any],
         Account = Account.asInstanceOf[js.Any],
         StorageClass = StorageClass.asInstanceOf[js.Any],
-        AccessControlTranslation = AccessControlTranslation.asInstanceOf[js.Any],
+        AccessControlTranslation =
+          AccessControlTranslation.asInstanceOf[js.Any],
         EncryptionConfiguration = EncryptionConfiguration.asInstanceOf[js.Any],
         ReplicationTime = ReplicationTime.asInstanceOf[js.Any],
         Metrics = Metrics.asInstanceOf[js.Any]
@@ -6457,7 +6629,8 @@ object Condition {
   ): Condition = {
     js.Dynamic
       .literal(
-        HttpErrorCodeReturnedEquals = HttpErrorCodeReturnedEquals.asInstanceOf[js.Any],
+        HttpErrorCodeReturnedEquals =
+          HttpErrorCodeReturnedEquals.asInstanceOf[js.Any],
         KeyPrefixEquals = KeyPrefixEquals.asInstanceOf[js.Any]
       )
       .asInstanceOf[Condition]
@@ -7254,7 +7427,8 @@ object CSVInput {
         RecordDelimiter = RecordDelimiter.asInstanceOf[js.Any],
         FieldDelimiter = FieldDelimiter.asInstanceOf[js.Any],
         QuoteCharacter = QuoteCharacter.asInstanceOf[js.Any],
-        AllowQuotedRecordDelimiter = AllowQuotedRecordDelimiter.asInstanceOf[js.Any]
+        AllowQuotedRecordDelimiter =
+          AllowQuotedRecordDelimiter.asInstanceOf[js.Any]
       )
       .asInstanceOf[CSVInput]
   }
@@ -7278,8 +7452,7 @@ object JSONInput {
 }
 
 @js.native
-trait ParquetInput extends js.Object {
-}
+trait ParquetInput extends js.Object {}
 
 @js.native
 trait OutputSerialization extends js.Object {
@@ -7485,13 +7658,17 @@ object ScanRange {
 @js.native
 trait InventoryTableConfigurationUpdates extends js.Object {
   val ConfigurationState: js.UndefOr[InventoryConfigurationState] = js.native
-  val EncryptionConfiguration: js.UndefOr[MetadataTableEncryptionConfiguration] = js.native
+  val EncryptionConfiguration
+      : js.UndefOr[MetadataTableEncryptionConfiguration] = js.native
 }
 
 object InventoryTableConfigurationUpdates {
   def apply(
-      ConfigurationState: js.UndefOr[InventoryConfigurationState] = js.undefined,
-      EncryptionConfiguration: js.UndefOr[MetadataTableEncryptionConfiguration] = js.undefined
+      ConfigurationState: js.UndefOr[InventoryConfigurationState] =
+        js.undefined,
+      EncryptionConfiguration: js.UndefOr[
+        MetadataTableEncryptionConfiguration
+      ] = js.undefined
   ): InventoryTableConfigurationUpdates = {
     js.Dynamic
       .literal(
@@ -7617,7 +7794,8 @@ sealed trait ObjectCannedACL extends js.Any
 object ObjectCannedACL {
   val Authenticated_read = "authenticated-read".asInstanceOf[ObjectCannedACL]
   val Aws_exec_read = "aws-exec-read".asInstanceOf[ObjectCannedACL]
-  val Bucket_owner_full_control = "bucket-owner-full-control".asInstanceOf[ObjectCannedACL]
+  val Bucket_owner_full_control =
+    "bucket-owner-full-control".asInstanceOf[ObjectCannedACL]
   val Bucket_owner_read = "bucket-owner-read".asInstanceOf[ObjectCannedACL]
   val Private = "private".asInstanceOf[ObjectCannedACL]
   val Public_read = "public-read".asInstanceOf[ObjectCannedACL]
@@ -7690,7 +7868,8 @@ object BucketNamespace {
 
 sealed trait DataRedundancy extends js.Any
 object DataRedundancy {
-  val SingleAvailabilityZone = "SingleAvailabilityZone".asInstanceOf[DataRedundancy]
+  val SingleAvailabilityZone =
+    "SingleAvailabilityZone".asInstanceOf[DataRedundancy]
   val SingleLocalZone = "SingleLocalZone".asInstanceOf[DataRedundancy]
 }
 
@@ -7745,7 +7924,8 @@ object BucketLocationConstraint {
 sealed trait ObjectOwnership extends js.Any
 object ObjectOwnership {
   val BucketOwnerEnforced = "BucketOwnerEnforced".asInstanceOf[ObjectOwnership]
-  val BucketOwnerPreferred = "BucketOwnerPreferred".asInstanceOf[ObjectOwnership]
+  val BucketOwnerPreferred =
+    "BucketOwnerPreferred".asInstanceOf[ObjectOwnership]
   val ObjectWriter = "ObjectWriter".asInstanceOf[ObjectOwnership]
 }
 
@@ -7797,8 +7977,10 @@ object IntelligentTieringStatus {
 
 sealed trait IntelligentTieringAccessTier extends js.Any
 object IntelligentTieringAccessTier {
-  val ARCHIVE_ACCESS = "ARCHIVE_ACCESS".asInstanceOf[IntelligentTieringAccessTier]
-  val DEEP_ARCHIVE_ACCESS = "DEEP_ARCHIVE_ACCESS".asInstanceOf[IntelligentTieringAccessTier]
+  val ARCHIVE_ACCESS =
+    "ARCHIVE_ACCESS".asInstanceOf[IntelligentTieringAccessTier]
+  val DEEP_ARCHIVE_ACCESS =
+    "DEEP_ARCHIVE_ACCESS".asInstanceOf[IntelligentTieringAccessTier]
 }
 
 sealed trait InventoryFormat extends js.Any
@@ -7817,19 +7999,27 @@ object InventoryIncludedObjectVersions {
 sealed trait InventoryOptionalField extends js.Any
 object InventoryOptionalField {
   val BucketKeyStatus = "BucketKeyStatus".asInstanceOf[InventoryOptionalField]
-  val ChecksumAlgorithm = "ChecksumAlgorithm".asInstanceOf[InventoryOptionalField]
+  val ChecksumAlgorithm =
+    "ChecksumAlgorithm".asInstanceOf[InventoryOptionalField]
   val ETag = "ETag".asInstanceOf[InventoryOptionalField]
   val EncryptionStatus = "EncryptionStatus".asInstanceOf[InventoryOptionalField]
-  val IntelligentTieringAccessTier = "IntelligentTieringAccessTier".asInstanceOf[InventoryOptionalField]
-  val IsMultipartUploaded = "IsMultipartUploaded".asInstanceOf[InventoryOptionalField]
+  val IntelligentTieringAccessTier =
+    "IntelligentTieringAccessTier".asInstanceOf[InventoryOptionalField]
+  val IsMultipartUploaded =
+    "IsMultipartUploaded".asInstanceOf[InventoryOptionalField]
   val LastModifiedDate = "LastModifiedDate".asInstanceOf[InventoryOptionalField]
-  val LifecycleExpirationDate = "LifecycleExpirationDate".asInstanceOf[InventoryOptionalField]
-  val ObjectAccessControlList = "ObjectAccessControlList".asInstanceOf[InventoryOptionalField]
-  val ObjectLockLegalHoldStatus = "ObjectLockLegalHoldStatus".asInstanceOf[InventoryOptionalField]
+  val LifecycleExpirationDate =
+    "LifecycleExpirationDate".asInstanceOf[InventoryOptionalField]
+  val ObjectAccessControlList =
+    "ObjectAccessControlList".asInstanceOf[InventoryOptionalField]
+  val ObjectLockLegalHoldStatus =
+    "ObjectLockLegalHoldStatus".asInstanceOf[InventoryOptionalField]
   val ObjectLockMode = "ObjectLockMode".asInstanceOf[InventoryOptionalField]
-  val ObjectLockRetainUntilDate = "ObjectLockRetainUntilDate".asInstanceOf[InventoryOptionalField]
+  val ObjectLockRetainUntilDate =
+    "ObjectLockRetainUntilDate".asInstanceOf[InventoryOptionalField]
   val ObjectOwner = "ObjectOwner".asInstanceOf[InventoryOptionalField]
-  val ReplicationStatus = "ReplicationStatus".asInstanceOf[InventoryOptionalField]
+  val ReplicationStatus =
+    "ReplicationStatus".asInstanceOf[InventoryOptionalField]
   val Size = "Size".asInstanceOf[InventoryOptionalField]
   val StorageClass = "StorageClass".asInstanceOf[InventoryOptionalField]
 }
@@ -7845,7 +8035,8 @@ object TransitionStorageClass {
   val DEEP_ARCHIVE = "DEEP_ARCHIVE".asInstanceOf[TransitionStorageClass]
   val GLACIER = "GLACIER".asInstanceOf[TransitionStorageClass]
   val GLACIER_IR = "GLACIER_IR".asInstanceOf[TransitionStorageClass]
-  val INTELLIGENT_TIERING = "INTELLIGENT_TIERING".asInstanceOf[TransitionStorageClass]
+  val INTELLIGENT_TIERING =
+    "INTELLIGENT_TIERING".asInstanceOf[TransitionStorageClass]
   val ONEZONE_IA = "ONEZONE_IA".asInstanceOf[TransitionStorageClass]
   val STANDARD_IA = "STANDARD_IA".asInstanceOf[TransitionStorageClass]
 }
@@ -7858,8 +8049,10 @@ object ExpirationStatus {
 
 sealed trait TransitionDefaultMinimumObjectSize extends js.Any
 object TransitionDefaultMinimumObjectSize {
-  val All_storage_classes_128K = "all_storage_classes_128K".asInstanceOf[TransitionDefaultMinimumObjectSize]
-  val Varies_by_storage_class = "varies_by_storage_class".asInstanceOf[TransitionDefaultMinimumObjectSize]
+  val All_storage_classes_128K =
+    "all_storage_classes_128K".asInstanceOf[TransitionDefaultMinimumObjectSize]
+  val Varies_by_storage_class =
+    "varies_by_storage_class".asInstanceOf[TransitionDefaultMinimumObjectSize]
 }
 
 sealed trait BucketLogsPermission extends js.Any
@@ -7885,31 +8078,41 @@ sealed trait Event extends js.Any
 object Event {
   val S3_IntelligentTiering = "s3:IntelligentTiering".asInstanceOf[Event]
   val S3_LifecycleExpiration_ = "s3:LifecycleExpiration:*".asInstanceOf[Event]
-  val S3_LifecycleExpiration_Delete = "s3:LifecycleExpiration:Delete".asInstanceOf[Event]
-  val S3_LifecycleExpiration_DeleteMarkerCreated = "s3:LifecycleExpiration:DeleteMarkerCreated".asInstanceOf[Event]
+  val S3_LifecycleExpiration_Delete =
+    "s3:LifecycleExpiration:Delete".asInstanceOf[Event]
+  val S3_LifecycleExpiration_DeleteMarkerCreated =
+    "s3:LifecycleExpiration:DeleteMarkerCreated".asInstanceOf[Event]
   val S3_LifecycleTransition = "s3:LifecycleTransition".asInstanceOf[Event]
   val S3S3ObjectAcl_Put = "s3:ObjectAcl:Put".asInstanceOf[Event]
   val S3S3ObjectCreated_ = "s3:ObjectCreated:*".asInstanceOf[Event]
-  val S3S3ObjectCreated_CompleteMultipartUpload = "s3:ObjectCreated:CompleteMultipartUpload".asInstanceOf[Event]
+  val S3S3ObjectCreated_CompleteMultipartUpload =
+    "s3:ObjectCreated:CompleteMultipartUpload".asInstanceOf[Event]
   val S3S3ObjectCreated_Copy = "s3:ObjectCreated:Copy".asInstanceOf[Event]
   val S3S3ObjectCreated_Post = "s3:ObjectCreated:Post".asInstanceOf[Event]
   val S3S3ObjectCreated_Put = "s3:ObjectCreated:Put".asInstanceOf[Event]
   val S3S3ObjectRemoved_ = "s3:ObjectRemoved:*".asInstanceOf[Event]
   val S3S3ObjectRemoved_Delete = "s3:ObjectRemoved:Delete".asInstanceOf[Event]
-  val S3S3ObjectRemoved_DeleteMarkerCreated = "s3:ObjectRemoved:DeleteMarkerCreated".asInstanceOf[Event]
+  val S3S3ObjectRemoved_DeleteMarkerCreated =
+    "s3:ObjectRemoved:DeleteMarkerCreated".asInstanceOf[Event]
   val S3S3ObjectRestore_ = "s3:ObjectRestore:*".asInstanceOf[Event]
-  val S3S3ObjectRestore_Completed = "s3:ObjectRestore:Completed".asInstanceOf[Event]
+  val S3S3ObjectRestore_Completed =
+    "s3:ObjectRestore:Completed".asInstanceOf[Event]
   val S3S3ObjectRestore_Delete = "s3:ObjectRestore:Delete".asInstanceOf[Event]
   val S3S3ObjectRestore_Post = "s3:ObjectRestore:Post".asInstanceOf[Event]
   val S3S3ObjectTagging_ = "s3:ObjectTagging:*".asInstanceOf[Event]
   val S3S3ObjectTagging_Delete = "s3:ObjectTagging:Delete".asInstanceOf[Event]
   val S3S3ObjectTagging_Put = "s3:ObjectTagging:Put".asInstanceOf[Event]
-  val S3_ReducedRedundancyLostObject = "s3:ReducedRedundancyLostObject".asInstanceOf[Event]
+  val S3_ReducedRedundancyLostObject =
+    "s3:ReducedRedundancyLostObject".asInstanceOf[Event]
   val S3_Replication_ = "s3:Replication:*".asInstanceOf[Event]
-  val S3_Replication_OperationFailedReplication = "s3:Replication:OperationFailedReplication".asInstanceOf[Event]
-  val S3_Replication_OperationMissedThreshold = "s3:Replication:OperationMissedThreshold".asInstanceOf[Event]
-  val S3_Replication_OperationNotTracked = "s3:Replication:OperationNotTracked".asInstanceOf[Event]
-  val S3_Replication_OperationReplicatedAfterThreshold = "s3:Replication:OperationReplicatedAfterThreshold".asInstanceOf[Event]
+  val S3_Replication_OperationFailedReplication =
+    "s3:Replication:OperationFailedReplication".asInstanceOf[Event]
+  val S3_Replication_OperationMissedThreshold =
+    "s3:Replication:OperationMissedThreshold".asInstanceOf[Event]
+  val S3_Replication_OperationNotTracked =
+    "s3:Replication:OperationNotTracked".asInstanceOf[Event]
+  val S3_Replication_OperationReplicatedAfterThreshold =
+    "s3:Replication:OperationReplicatedAfterThreshold".asInstanceOf[Event]
 }
 
 sealed trait FilterRuleName extends js.Any

@@ -7,9 +7,7 @@ import cats.effect._
 import models._
 import commands._
 
-class DeleteStreamTest
-    extends munit.CatsEffectSuite
-    with KinesisFixtures {
+class DeleteStreamTest extends munit.CatsEffectSuite with KinesisFixtures {
 
   ResourceFunFixture {
     clientR

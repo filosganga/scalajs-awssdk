@@ -45,11 +45,17 @@ object DescribeStreamCommand {
 
 @js.native
 @JSImport("@aws-sdk/client-kinesis", "DescribeStreamSummaryCommand")
-class DescribeStreamSummaryCommand(override val input: DescribeStreamSummaryCommandInput)
-    extends Command[DescribeStreamSummaryCommandInput, DescribeStreamSummaryCommandOutput]
+class DescribeStreamSummaryCommand(
+    override val input: DescribeStreamSummaryCommandInput
+) extends Command[
+      DescribeStreamSummaryCommandInput,
+      DescribeStreamSummaryCommandOutput
+    ]
 
 object DescribeStreamSummaryCommand {
-  def apply(input: DescribeStreamSummaryCommandInput): DescribeStreamSummaryCommand =
+  def apply(
+      input: DescribeStreamSummaryCommandInput
+  ): DescribeStreamSummaryCommand =
     new DescribeStreamSummaryCommand(
       input
     )

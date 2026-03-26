@@ -21,25 +21,24 @@ class PutObjectTest
       client <- clientR
       bucketName <- bucketR(client)
     } yield (client, bucketName)
-  }.test("PutObject should put a string body") {
-    case (client, bucketName) =>
-      val key = "test-put-string.txt"
-      val content = "Hello, S3!"
+  }.test("PutObject should put a string body") { case (client, bucketName) =>
+    val key = "test-put-string.txt"
+    val content = "Hello, S3!"
 
-      for {
-        result <- client.sendIO(
-          PutObjectCommand(
-            PutObjectCommandInput(
-              Bucket = bucketName,
-              Key = key,
-              Body = content,
-              ContentType = "text/plain"
-            )
+    for {
+      result <- client.sendIO(
+        PutObjectCommand(
+          PutObjectCommandInput(
+            Bucket = bucketName,
+            Key = key,
+            Body = content,
+            ContentType = "text/plain"
           )
         )
-      } yield {
-        assert(result.ETag.isDefined)
-      }
+      )
+    } yield {
+      assert(result.ETag.isDefined)
+    }
   }
 
   ResourceFunFixture {

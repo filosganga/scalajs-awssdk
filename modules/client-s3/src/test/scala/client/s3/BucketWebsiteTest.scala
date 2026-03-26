@@ -36,7 +36,10 @@ class BucketWebsiteTest
         )
       } yield {
         assert(result.IndexDocument.isDefined)
-        assertEquals(result.IndexDocument.get.Suffix.toOption, Some("index.html"))
+        assertEquals(
+          result.IndexDocument.get.Suffix.toOption,
+          Some("index.html")
+        )
       }
   }
 

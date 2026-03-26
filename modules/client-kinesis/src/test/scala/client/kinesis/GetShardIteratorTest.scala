@@ -5,9 +5,7 @@ package kinesis
 import models._
 import commands._
 
-class GetShardIteratorTest
-    extends munit.CatsEffectSuite
-    with KinesisFixtures {
+class GetShardIteratorTest extends munit.CatsEffectSuite with KinesisFixtures {
 
   ResourceFunFixture {
     for {

@@ -7,9 +7,7 @@ import cats.effect._
 import models._
 import commands._
 
-class ListShardsTest
-    extends munit.CatsEffectSuite
-    with KinesisFixtures {
+class ListShardsTest extends munit.CatsEffectSuite with KinesisFixtures {
 
   ResourceFunFixture {
     for {

@@ -10,9 +10,7 @@ import commands._
 import scalajs.js
 import scala.concurrent.duration._
 
-class GetRecordsTest
-    extends munit.CatsEffectSuite
-    with KinesisFixtures {
+class GetRecordsTest extends munit.CatsEffectSuite with KinesisFixtures {
 
   override def munitTimeout = 60.seconds
 
