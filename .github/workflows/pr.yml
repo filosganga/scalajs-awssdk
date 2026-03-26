@@ -1,13 +1,10 @@
-name: main
+name: pr
 
 on:
-  push:
-    branches:
-      - main
-      - release/*
+  pull_request:
 
 concurrency:
-  group: ${{ github.ref }}
+  group: pr-${{github.event.pull_request.id}}
 
 permissions:
   id-token: write
@@ -47,7 +44,7 @@ jobs:
           distribution: "corretto"
       - uses: coursier/setup-action@v1
         with:
-          apps: "sbt"
+          apps: sbt
       - uses: coursier/cache-action@v6
       - run: sbt "scalafmtCheckAll;Test/compile;Test/test"
       - uses: dorny/test-reporter@v1
@@ -60,27 +57,3 @@ jobs:
           name: unit-tests-reports
           path: "**/target/test-reports/*.xml"
           reporter: java-junit
-      - run: git fetch --tags
-      - run: git status
-      - name: Bump version and push tag
-        id: tag-version
-        uses: anothrNick/github-tag-action@1.61.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true
-          DEFAULT_BUMP: patch
-          TAG_CONTEXT: branch
-      - name: Create a GitHub Release
-        uses: ncipollo/release-action@v1
-        with:
-          tag: ${{ steps.tag-version.outputs.new_tag }}
-          name: ${{ steps.tag-version.outputs.new_version }}
-          body: ${{ steps.tag-version.outputs.changelog }}
-      - run: git fetch --tags
-      - run: echo $PGP_SECRET | base64 -d | gpg --import
-        env:
-          PGP_SECRET: ${{ secrets.PGP_SECRET }}
-      - run: sbt +publishSigned
-        env:
-          SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
-          SONATYPE_PASS: ${{ secrets.SONATYPE_PASS }}
