@@ -7,7 +7,7 @@ import scala.concurrent.duration._
 
 import cats.effect._
 import cats.effect.std.Env
-import cats.syntax.all._
+import cats.syntax.all.*
 
 import scalajs.js.JSConverters._
 import models._

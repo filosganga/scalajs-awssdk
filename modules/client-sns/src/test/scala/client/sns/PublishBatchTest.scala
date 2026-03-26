@@ -3,7 +3,7 @@ package client
 package sns
 
 import cats.effect.IO
-import cats.syntax.all._
+import cats.syntax.all.*
 
 import scalajs.js
 import models._

@@ -1,13 +1,9 @@
 version: "3.9"
 services:
-  dynamodb:
-    image: amazon/dynamodb-local:1.21.0
+  localstack:
+    image: localstack/localstack:3.4
     ports:
-      - "8000:8000"
-    command: "-jar DynamoDBLocal.jar -inMemory"
-
-  sns:
-    image: s12v/sns:0.4.1
-    ports:
-      - "9911:9911"
-    
+      - "4566:4566"
+    environment:
+      - SERVICES=s3,dynamodb,sns
+      - DEFAULT_REGION=eu-west-1

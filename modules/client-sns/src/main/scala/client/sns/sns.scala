@@ -115,7 +115,7 @@ object SNSClientConfig {
     ).view.filter { case (_, v) => !js.isUndefined(v) }.toList
 
     js.Dynamic.literal
-      .applyDynamic("apply")(properties: _*)
+      .applyDynamic("apply")(properties*)
       .asInstanceOf[SNSClientConfig]
 
   }

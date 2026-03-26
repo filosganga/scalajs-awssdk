@@ -1,15 +1,15 @@
-val munitV = "1.0.0-M8"
-val scalacheckEffectV = "2.0.0-M2"
-val munitCatsEffectV = "2.0.0-M3"
+val munitV = "1.2.4"
+val scalacheckEffectV = "2.1.0"
+val munitCatsEffectV = "2.2.0"
 val catsScalacheckV = "0.3.2"
-val catsEffectV = "3.5.1"
+val catsEffectV = "3.7.0"
+val fs2V = "3.13.0"
 
-val awsSdkJsV = "3.267.0"
+val awsSdkJsV = "3.370.0"
 
 Global / onChangedBuildSource := ReloadOnSourceChanges
 
-ThisBuild / scalaVersion := "3.3.0"
-ThisBuild / crossScalaVersions ++= List("2.13.10")
+ThisBuild / scalaVersion := "3.7.4"
 ThisBuild / organization := "com.filippodeluca"
 ThisBuild / organizationName := "Filippo De Luca"
 ThisBuild / dynverSeparator := "-"
@@ -72,7 +72,6 @@ val commonsSettings = List(
 val testSettings = List(
   libraryDependencies ++= List(
     "org.scalameta" %%% "munit" % munitV % Test,
-    "org.scalameta" %%% "munit-scalacheck" % munitV % Test,
     "org.typelevel" %%% "munit-cats-effect" % munitCatsEffectV % Test,
     "org.typelevel" %%% "cats-effect" % catsEffectV % Test,
     "org.typelevel" %%% "scalacheck-effect-munit" % scalacheckEffectV % Test,
@@ -128,7 +127,8 @@ lazy val clientS3 = project
     commonsSettings,
     testSettings,
     scalaJSUseMainModuleInitializer := false,
-    Compile / npmDependencies += "@aws-sdk/client-s3" -> awsSdkJsV
+    Compile / npmDependencies += "@aws-sdk/client-s3" -> awsSdkJsV,
+    libraryDependencies += "co.fs2" %%% "fs2-io" % fs2V % Test
   )
 
 lazy val clientSes = project

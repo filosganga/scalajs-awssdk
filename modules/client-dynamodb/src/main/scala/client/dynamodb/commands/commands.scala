@@ -44,6 +44,18 @@ object CreateTableCommand {
 }
 
 @js.native
+@JSImport("@aws-sdk/client-dynamodb", "DeleteItemCommand")
+class DeleteItemCommand(override val input: DeleteItemCommandInput)
+    extends Command[DeleteItemCommandInput, DeleteItemCommandOutput]
+
+object DeleteItemCommand {
+  def apply(input: DeleteItemCommandInput): DeleteItemCommand =
+    new DeleteItemCommand(
+      input
+    )
+}
+
+@js.native
 @JSImport("@aws-sdk/client-dynamodb", "DeleteTableCommand")
 class DeleteTableCommand(override val input: DeleteTableCommandInput)
     extends Command[DeleteTableCommandInput, DeleteTableCommandOutput]

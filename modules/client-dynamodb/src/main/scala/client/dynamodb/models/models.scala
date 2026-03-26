@@ -1091,7 +1091,7 @@ trait PutItemCommandInput extends js.Object {
   val ExpressionAttributeNames: js.UndefOr[js.Dictionary[String]] = js.native
   val ExpressionAttributeValues: js.UndefOr[js.Dictionary[AttributeValue]] =
     js.native
-  val ReturnConsumedCapacity: js.UndefOr[String] = js.native
+  val ReturnConsumedCapacity: js.UndefOr[ReturnConsumedCapacity] = js.native
 
   val ReturnItemCollectionMetrics: js.UndefOr[ReturnItemCollectionMetrics] =
     js.native
@@ -1181,6 +1181,66 @@ trait PutItemCommandOutput extends MetadataBearer {
 
   val ConsumedCapacity: js.UndefOr[ConsumedCapacity] = js.native
 
+  val ItemCollectionMetrics: js.UndefOr[ItemCollectionMetrics] = js.native
+}
+
+@js.native
+trait DeleteItemCommandInput extends js.Object {
+  val TableName: String = js.native
+  val Key: js.Dictionary[AttributeValue] = js.native
+
+  val ConditionExpression: js.UndefOr[String] = js.native
+  val ExpressionAttributeNames: js.UndefOr[js.Dictionary[String]] = js.native
+  val ExpressionAttributeValues: js.UndefOr[js.Dictionary[AttributeValue]] =
+    js.native
+  val ReturnConsumedCapacity: js.UndefOr[ReturnConsumedCapacity] = js.native
+
+  val ReturnItemCollectionMetrics: js.UndefOr[ReturnItemCollectionMetrics] =
+    js.native
+  val ReturnValues: js.UndefOr[ReturnValues] = js.native
+  val ReturnValuesOnConditionCheckFailure: js.UndefOr[String] = js.native
+}
+
+object DeleteItemCommandInput {
+
+  def apply(
+      TableName: String,
+      Key: js.Dictionary[AttributeValue],
+      ConditionExpression: js.UndefOr[String] = js.undefined,
+      ExpressionAttributeNames: js.UndefOr[js.Dictionary[String]] =
+        js.undefined,
+      ExpressionAttributeValues: js.UndefOr[js.Dictionary[AttributeValue]] =
+        js.undefined,
+      ReturnConsumedCapacity: js.UndefOr[ReturnConsumedCapacity] = js.undefined,
+      ReturnItemCollectionMetrics: js.UndefOr[ReturnItemCollectionMetrics] =
+        js.undefined,
+      ReturnValues: js.UndefOr[ReturnValues] = js.undefined,
+      ReturnValuesOnConditionCheckFailure: js.UndefOr[String] = js.undefined
+  ): DeleteItemCommandInput = {
+    js.Dynamic
+      .literal(
+        TableName = TableName,
+        Key = Key,
+        ConditionExpression = ConditionExpression.asInstanceOf[js.Any],
+        ExpressionAttributeNames =
+          ExpressionAttributeNames.asInstanceOf[js.Any],
+        ExpressionAttributeValues =
+          ExpressionAttributeValues.asInstanceOf[js.Any],
+        ReturnConsumedCapacity = ReturnConsumedCapacity.asInstanceOf[js.Any],
+        ReturnItemCollectionMetrics =
+          ReturnItemCollectionMetrics.asInstanceOf[js.Any],
+        ReturnValues = ReturnValues.asInstanceOf[js.Any],
+        ReturnValuesOnConditionCheckFailure =
+          ReturnValuesOnConditionCheckFailure.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[DeleteItemCommandInput]
+  }
+}
+
+@js.native
+trait DeleteItemCommandOutput extends MetadataBearer {
+  val Attributes: js.UndefOr[js.Dictionary[AttributeValue]] = js.native
+  val ConsumedCapacity: js.UndefOr[ConsumedCapacity] = js.native
   val ItemCollectionMetrics: js.UndefOr[ItemCollectionMetrics] = js.native
 }
 
