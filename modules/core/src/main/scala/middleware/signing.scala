@@ -1,9 +1,7 @@
 package com.filippodeluca.jsfacade.awssdk
 package middleware
 
-import com.filippodeluca.jsfacade.awssdk.types._
 import scalajs.js
-import scalajs.js.|
 
 object signing {
   import com.filippodeluca.jsfacade.awssdk.types._

@@ -1,7 +1,6 @@
 package com.filippodeluca.jsfacade.awssdk.types
 
 import scalajs.js
-import scalajs.js.|
 
 /** Authentication schemes represent a way that the service will authenticate
   * the customer’s identity.

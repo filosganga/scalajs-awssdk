@@ -3,7 +3,6 @@ package config
 
 import com.filippodeluca.jsfacade.awssdk.types.*
 import scalajs.js
-import scalajs.js.|
 
 object resolver {
 

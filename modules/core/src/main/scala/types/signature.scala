@@ -1,7 +1,6 @@
 package com.filippodeluca.jsfacade.awssdk.types
 
 import scalajs.js
-import scalajs.js.typedarray.Uint8Array
 
 @js.native
 trait SigningArguments extends js.Any {

@@ -65,8 +65,7 @@ ThisBuild / scmInfo := Some(
 
 val commonsSettings = List(
   scalacOptions -= "-Xfatal-warnings",
-  scalacOptions -= "-Wdead-code",
-  scalacOptions += "-Xsource:3"
+  scalacOptions -= "-Wdead-code"
 )
 
 val testSettings = List(

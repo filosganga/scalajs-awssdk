@@ -11,11 +11,12 @@ import com.filippodeluca.jsfacade.awssdk.types._
 import com.filippodeluca.jsfacade.awssdk.types.identity._
 import scalajs.js
 import scalajs.js._
+import scala.annotation.nowarn
 import scalajs.js.annotation.JSImport
 
 @js.native
 @JSImport("@aws-sdk/client-kinesis", "KinesisClient")
-class KinesisClient(configuration: KinesisClientConfig) extends js.Object {
+class KinesisClient(@nowarn configuration: KinesisClientConfig) extends js.Object {
   def destroy(): Unit = js.native
   def send[InputType, OutputType](
       command: Command[InputType, OutputType]

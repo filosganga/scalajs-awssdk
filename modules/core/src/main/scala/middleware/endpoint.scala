@@ -4,7 +4,6 @@ package middleware
 import com.filippodeluca.jsfacade.awssdk.config.resolver.UseFipsEndpoint
 import com.filippodeluca.jsfacade.awssdk.types.*
 import scalajs.js
-import scalajs.js.|
 
 object endpoint {
 

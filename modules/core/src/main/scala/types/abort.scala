@@ -1,7 +1,6 @@
 package com.filippodeluca.jsfacade.awssdk.types
 
 import scalajs.js
-import scalajs.js.|
 
 @js.native
 trait AbortHandler extends js.Any {

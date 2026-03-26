@@ -11,11 +11,12 @@ import com.filippodeluca.jsfacade.awssdk.types._
 import com.filippodeluca.jsfacade.awssdk.types.identity._
 import scalajs.js
 import scalajs.js._
+import scala.annotation.nowarn
 import scalajs.js.annotation.JSImport
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "S3Client")
-class S3Client(configuration: S3ClientConfig) extends js.Object {
+class S3Client(@nowarn configuration: S3ClientConfig) extends js.Object {
   def destroy(): Unit = js.native
   def send[InputType, OutputType](
       command: Command[InputType, OutputType]
