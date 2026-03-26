@@ -5,5 +5,5 @@ services:
     ports:
       - "4566:4566"
     environment:
-      - SERVICES=s3,dynamodb,sns
+      - SERVICES=s3,dynamodb,sns,kinesis
       - DEFAULT_REGION=eu-west-1
