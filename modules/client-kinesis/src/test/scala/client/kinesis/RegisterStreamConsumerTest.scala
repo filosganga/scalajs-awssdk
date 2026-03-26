@@ -2,12 +2,51 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package kinesis
 
+import cats.effect.IO
+import scala.concurrent.duration._
+import java.util.concurrent.TimeoutException
+
 import models._
 import commands._
 
 class RegisterStreamConsumerTest
     extends munit.CatsEffectSuite
     with KinesisFixtures {
+
+  private def waitForConsumerActive(
+      client: KinesisClient,
+      consumerArn: String,
+      timeout: FiniteDuration = 30.seconds
+  ): IO[Unit] = {
+    val pause = 2.seconds
+    val check = client
+      .sendIO(
+        DescribeStreamConsumerCommand(
+          DescribeStreamConsumerCommandInput(ConsumerARN = consumerArn)
+        )
+      )
+      .map(
+        _.ConsumerDescription.exists(
+          _.ConsumerStatus.exists(_ == ConsumerStatus.ACTIVE)
+        )
+      )
+
+    check.ifM(
+      IO.unit,
+      if (timeout <= Duration.Zero)
+        IO.raiseError(
+          new TimeoutException(
+            s"Consumer did not become active in time"
+          )
+        )
+      else
+        IO.sleep(pause) >> waitForConsumerActive(
+          client,
+          consumerArn,
+          timeout - pause
+        )
+    )
+  }
 
   ResourceFunFixture {
     for {
@@ -20,14 +59,12 @@ class RegisterStreamConsumerTest
     val consumerName = s"test-consumer-${new java.util.Random().nextInt.abs}"
 
     for {
-      // Get stream ARN
       summary <- client.sendIO(
         DescribeStreamSummaryCommand(
           DescribeStreamSummaryCommandInput(StreamName = streamName)
         )
       )
       streamArn = summary.StreamDescriptionSummary.get.StreamARN.get
-      // Register consumer
       registerResult <- client.sendIO(
         RegisterStreamConsumerCommand(
           RegisterStreamConsumerCommandInput(
@@ -44,7 +81,17 @@ class RegisterStreamConsumerTest
         )
         assert(registerResult.Consumer.get.ConsumerARN.isDefined)
       }
-      // Deregister consumer
+      consumerArn = registerResult.Consumer.get.ConsumerARN.get
+      _ <- waitForConsumerActive(client, consumerArn)
+      described <- client.sendIO(
+        DescribeStreamConsumerCommand(
+          DescribeStreamConsumerCommandInput(ConsumerARN = consumerArn)
+        )
+      )
+      _ = assertEquals(
+        described.ConsumerDescription.get.ConsumerStatus.toOption,
+        Some(ConsumerStatus.ACTIVE)
+      )
       _ <- client.sendIO(
         DeregisterStreamConsumerCommand(
           DeregisterStreamConsumerCommandInput(

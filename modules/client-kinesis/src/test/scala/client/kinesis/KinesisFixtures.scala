@@ -45,44 +45,48 @@ trait KinesisFixtures {
       }(c => IO(c.destroy()))
     }
 
+  def waitForStreamActive(
+      client: KinesisClient,
+      streamName: String,
+      timeout: FiniteDuration = 30.seconds
+  ): IO[Unit] = {
+    val pause = 2.seconds
+
+    val checkStreamIsActive = client
+      .sendIO(
+        DescribeStreamSummaryCommand(
+          DescribeStreamSummaryCommandInput(StreamName = streamName)
+        )
+      )
+      .map(
+        _.StreamDescriptionSummary.exists(
+          _.StreamStatus.exists(_ == StreamStatus.ACTIVE)
+        )
+      )
+
+    checkStreamIsActive.ifM(
+      IO.unit,
+      if (timeout <= Duration.Zero) {
+        IO.raiseError[Unit](
+          new TimeoutException(
+            s"Stream ${streamName} did not become active in time"
+          )
+        )
+      } else {
+        IO.sleep(pause) >> waitForStreamActive(
+          client,
+          streamName,
+          timeout - pause
+        )
+      }
+    )
+  }
+
   def streamR(client: KinesisClient, shardCount: Int = 1) = Resource
     .eval(IO { new java.util.Random().nextInt.abs })
     .map(id => s"test-stream-${id.toString}")
     .flatMap { streamName =>
       Resource.make {
-
-        def waitForStreamToBecomeActive(
-            timeout: FiniteDuration
-        ): IO[Unit] = {
-          val pause = 2.seconds
-
-          val checkStreamIsActive = client
-            .sendIO(
-              DescribeStreamSummaryCommand(
-                DescribeStreamSummaryCommandInput(StreamName = streamName)
-              )
-            )
-            .map(
-              _.StreamDescriptionSummary.exists(
-                _.StreamStatus.exists(_ == StreamStatus.ACTIVE)
-              )
-            )
-
-          checkStreamIsActive.ifM(
-            IO.unit,
-            if (timeout <= Duration.Zero) {
-              IO.raiseError[Unit](
-                new TimeoutException(
-                  s"Stream ${streamName} did not become active in time"
-                )
-              )
-            } else {
-              IO.sleep(pause) >> waitForStreamToBecomeActive(
-                timeout - pause
-              )
-            }
-          )
-        }
 
         val createStream = client
           .sendIO(
@@ -95,8 +99,9 @@ trait KinesisFixtures {
           )
           .as(streamName)
 
-        createStream >> waitForStreamToBecomeActive(
-          30.seconds
+        createStream >> waitForStreamActive(
+          client,
+          streamName
         ) >> streamName.pure[IO]
 
       } { streamName =>

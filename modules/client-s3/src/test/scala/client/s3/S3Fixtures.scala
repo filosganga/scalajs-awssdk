@@ -45,45 +45,69 @@ trait S3Fixtures {
 
   def emptyBucket(client: S3Client, bucketName: String): IO[Unit] = {
 
-    def deletePage(continuationToken: Option[String]): IO[Unit] = {
+    // Delete all object versions and delete markers (needed for versioned buckets)
+    def deleteVersionsPage(keyMarker: Option[String]): IO[Unit] = {
       client
         .sendIO(
-          ListObjectsV2Command(
-            ListObjectsV2CommandInput(
+          ListObjectVersionsCommand(
+            ListObjectVersionsCommandInput(
               Bucket = bucketName,
-              ContinuationToken = continuationToken.orUndefined
+              KeyMarker = keyMarker.orUndefined
             )
           )
         )
         .flatMap { result =>
-          val deleteObjects = result.Contents.toOption
+          val versions = result.Versions.toOption
             .map(_.toList)
             .getOrElse(List.empty)
-            .traverse_ { obj =>
-              obj.Key.toOption.traverse_ { key =>
+          val deleteMarkers = result.DeleteMarkers.toOption
+            .map(_.toList)
+            .getOrElse(List.empty)
+
+          val deleteAll = versions.traverse_ { v =>
+            (v.Key.toOption, v.VersionId.toOption).tupled.traverse_ {
+              case (key, versionId) =>
                 client
                   .sendIO(
                     DeleteObjectCommand(
                       DeleteObjectCommandInput(
                         Bucket = bucketName,
-                        Key = key
+                        Key = key,
+                        VersionId = versionId
                       )
                     )
                   )
                   .void
-              }
             }
+          } >> deleteMarkers.traverse_ { dm =>
+            (dm.Key.toOption, dm.VersionId.toOption).tupled.traverse_ {
+              case (key, versionId) =>
+                client
+                  .sendIO(
+                    DeleteObjectCommand(
+                      DeleteObjectCommandInput(
+                        Bucket = bucketName,
+                        Key = key,
+                        VersionId = versionId
+                      )
+                    )
+                  )
+                  .void
+            }
+          }
 
           val nextPage = result.IsTruncated.toOption
             .filter(identity)
-            .as(result.NextContinuationToken.toOption)
+            .as(result.NextKeyMarker.toOption)
             .flatten
 
-          deleteObjects >> nextPage.traverse_(token => deletePage(Some(token)))
+          deleteAll >> nextPage.traverse_(marker =>
+            deleteVersionsPage(Some(marker))
+          )
         }
     }
 
-    deletePage(None)
+    deleteVersionsPage(None)
   }
 
   def bucketR(client: S3Client) = Resource

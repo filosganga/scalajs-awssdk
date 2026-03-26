@@ -21,6 +21,7 @@ class DeleteStreamTest extends munit.CatsEffectSuite with KinesisFixtures {
           )
         )
       )
+      _ <- waitForStreamActive(client, streamName)
       result <- client.sendIO(
         DeleteStreamCommand(
           DeleteStreamCommandInput(StreamName = streamName)

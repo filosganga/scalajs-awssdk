@@ -21,6 +21,7 @@ class CreateStreamTest extends munit.CatsEffectSuite with KinesisFixtures {
           )
         )
       )
+      _ <- waitForStreamActive(client, streamName)
       summary <- client.sendIO(
         DescribeStreamSummaryCommand(
           DescribeStreamSummaryCommandInput(StreamName = streamName)

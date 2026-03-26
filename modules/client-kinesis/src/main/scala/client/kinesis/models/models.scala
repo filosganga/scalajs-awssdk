@@ -734,6 +734,43 @@ object DeregisterStreamConsumerCommandInput {
 trait DeregisterStreamConsumerCommandOutput extends MetadataBearer
 
 @js.native
+trait DescribeStreamConsumerCommandInput extends js.Object {
+  val StreamARN: js.UndefOr[String] = js.native
+  val ConsumerName: js.UndefOr[String] = js.native
+  val ConsumerARN: js.UndefOr[String] = js.native
+}
+
+object DescribeStreamConsumerCommandInput {
+  def apply(
+      StreamARN: js.UndefOr[String] = js.undefined,
+      ConsumerName: js.UndefOr[String] = js.undefined,
+      ConsumerARN: js.UndefOr[String] = js.undefined
+  ): DescribeStreamConsumerCommandInput = {
+    js.Dynamic
+      .literal(
+        StreamARN = StreamARN.asInstanceOf[js.Any],
+        ConsumerName = ConsumerName.asInstanceOf[js.Any],
+        ConsumerARN = ConsumerARN.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[DescribeStreamConsumerCommandInput]
+  }
+}
+
+@js.native
+trait DescribeStreamConsumerCommandOutput extends MetadataBearer {
+  val ConsumerDescription: js.UndefOr[ConsumerDescription] = js.native
+}
+
+@js.native
+trait ConsumerDescription extends js.Object {
+  val ConsumerName: js.UndefOr[String] = js.native
+  val ConsumerARN: js.UndefOr[String] = js.native
+  val ConsumerStatus: js.UndefOr[ConsumerStatus] = js.native
+  val ConsumerCreationTimestamp: js.UndefOr[js.Date] = js.native
+  val StreamARN: js.UndefOr[String] = js.native
+}
+
+@js.native
 trait SubscribeToShardCommandInput extends js.Object {
   val ConsumerARN: js.UndefOr[String] = js.native
   val ShardId: js.UndefOr[String] = js.native

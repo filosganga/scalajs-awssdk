@@ -186,3 +186,21 @@ object SubscribeToShardCommand {
       input
     )
 }
+
+@js.native
+@JSImport("@aws-sdk/client-kinesis", "DescribeStreamConsumerCommand")
+class DescribeStreamConsumerCommand(
+    override val input: DescribeStreamConsumerCommandInput
+) extends Command[
+      DescribeStreamConsumerCommandInput,
+      DescribeStreamConsumerCommandOutput
+    ]
+
+object DescribeStreamConsumerCommand {
+  def apply(
+      input: DescribeStreamConsumerCommandInput
+  ): DescribeStreamConsumerCommand =
+    new DescribeStreamConsumerCommand(
+      input
+    )
+}
