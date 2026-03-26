@@ -2,8 +2,6 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package dynamodb
 
-import cats.syntax.all.*
-
 import scalajs.js
 import models._
 import commands._

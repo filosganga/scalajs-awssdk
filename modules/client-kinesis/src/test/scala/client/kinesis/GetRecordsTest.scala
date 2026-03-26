@@ -2,17 +2,12 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package kinesis
 
-import cats.effect._
-
 import models._
 import commands._
 
 import scalajs.js
-import scala.concurrent.duration._
 
 class GetRecordsTest extends munit.CatsEffectSuite with KinesisFixtures {
-
-  override def munitTimeout = 60.seconds
 
   ResourceFunFixture {
     for {

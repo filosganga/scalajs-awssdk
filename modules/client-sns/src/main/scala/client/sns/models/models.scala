@@ -295,6 +295,7 @@ object CreateTopicCommandInput {
     .literal(
       Name = Name.asInstanceOf[js.Any],
       Attributes = Attributes.asInstanceOf[js.Any],
+      Tags = Tags.asInstanceOf[js.Any],
       DataProtectionPolicy = DataProtectionPolicy.asInstanceOf[js.Any]
     )
     .asInstanceOf[CreateTopicCommandInput]

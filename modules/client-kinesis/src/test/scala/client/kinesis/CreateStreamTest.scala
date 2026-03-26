@@ -2,8 +2,6 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package kinesis
 
-import cats.effect._
-
 import models._
 import commands._
 

@@ -2,8 +2,6 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package s3
 
-import cats.effect._
-
 import models._
 import commands._
 

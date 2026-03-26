@@ -9,13 +9,14 @@ import com.filippodeluca.jsfacade.awssdk.middleware.signing.AwsAuthInputConfig
 import com.filippodeluca.jsfacade.awssdk.middleware.userAgent.UserAgentInputConfig
 import com.filippodeluca.jsfacade.awssdk.types._
 import com.filippodeluca.jsfacade.awssdk.types.identity._
+import scala.annotation.nowarn
 import scalajs.js
 import scalajs.js._
 import scalajs.js.annotation.JSImport
 
 @js.native
 @JSImport("@aws-sdk/client-sns", "SNSClient")
-class SNSClient(configuration: SNSClientConfig) extends js.Object {
+class SNSClient(@nowarn configuration: SNSClientConfig) extends js.Object {
   def destroy(): Unit = js.native
   def send[InputType, OutputType](
       command: Command[InputType, OutputType]

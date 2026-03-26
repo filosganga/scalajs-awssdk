@@ -3,7 +3,6 @@ package client
 package s3
 
 import scalajs.js
-import scalajs.js.JSConverters._
 import models._
 import commands._
 
