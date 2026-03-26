@@ -78,3 +78,105 @@ object ListStreamsCommand {
       input
     )
 }
+
+@js.native
+@JSImport("@aws-sdk/client-kinesis", "PutRecordCommand")
+class PutRecordCommand(override val input: PutRecordCommandInput)
+    extends Command[PutRecordCommandInput, PutRecordCommandOutput]
+
+object PutRecordCommand {
+  def apply(input: PutRecordCommandInput): PutRecordCommand =
+    new PutRecordCommand(
+      input
+    )
+}
+
+@js.native
+@JSImport("@aws-sdk/client-kinesis", "PutRecordsCommand")
+class PutRecordsCommand(override val input: PutRecordsCommandInput)
+    extends Command[PutRecordsCommandInput, PutRecordsCommandOutput]
+
+object PutRecordsCommand {
+  def apply(input: PutRecordsCommandInput): PutRecordsCommand =
+    new PutRecordsCommand(
+      input
+    )
+}
+
+@js.native
+@JSImport("@aws-sdk/client-kinesis", "GetShardIteratorCommand")
+class GetShardIteratorCommand(override val input: GetShardIteratorCommandInput)
+    extends Command[GetShardIteratorCommandInput, GetShardIteratorCommandOutput]
+
+object GetShardIteratorCommand {
+  def apply(input: GetShardIteratorCommandInput): GetShardIteratorCommand =
+    new GetShardIteratorCommand(
+      input
+    )
+}
+
+@js.native
+@JSImport("@aws-sdk/client-kinesis", "GetRecordsCommand")
+class GetRecordsCommand(override val input: GetRecordsCommandInput)
+    extends Command[GetRecordsCommandInput, GetRecordsCommandOutput]
+
+object GetRecordsCommand {
+  def apply(input: GetRecordsCommandInput): GetRecordsCommand =
+    new GetRecordsCommand(
+      input
+    )
+}
+
+@js.native
+@JSImport("@aws-sdk/client-kinesis", "RegisterStreamConsumerCommand")
+class RegisterStreamConsumerCommand(
+    override val input: RegisterStreamConsumerCommandInput
+) extends Command[
+      RegisterStreamConsumerCommandInput,
+      RegisterStreamConsumerCommandOutput
+    ]
+
+object RegisterStreamConsumerCommand {
+  def apply(
+      input: RegisterStreamConsumerCommandInput
+  ): RegisterStreamConsumerCommand =
+    new RegisterStreamConsumerCommand(
+      input
+    )
+}
+
+@js.native
+@JSImport("@aws-sdk/client-kinesis", "DeregisterStreamConsumerCommand")
+class DeregisterStreamConsumerCommand(
+    override val input: DeregisterStreamConsumerCommandInput
+) extends Command[
+      DeregisterStreamConsumerCommandInput,
+      DeregisterStreamConsumerCommandOutput
+    ]
+
+object DeregisterStreamConsumerCommand {
+  def apply(
+      input: DeregisterStreamConsumerCommandInput
+  ): DeregisterStreamConsumerCommand =
+    new DeregisterStreamConsumerCommand(
+      input
+    )
+}
+
+@js.native
+@JSImport("@aws-sdk/client-kinesis", "SubscribeToShardCommand")
+class SubscribeToShardCommand(
+    override val input: SubscribeToShardCommandInput
+) extends Command[
+      SubscribeToShardCommandInput,
+      SubscribeToShardCommandOutput
+    ]
+
+object SubscribeToShardCommand {
+  def apply(
+      input: SubscribeToShardCommandInput
+  ): SubscribeToShardCommand =
+    new SubscribeToShardCommand(
+      input
+    )
+}

@@ -152,7 +152,8 @@ lazy val clientKinesis = project
     commonsSettings,
     testSettings,
     scalaJSUseMainModuleInitializer := false,
-    Compile / npmDependencies += "@aws-sdk/client-kinesis" -> awsSdkJsV
+    Compile / npmDependencies += "@aws-sdk/client-kinesis" -> awsSdkJsV,
+    libraryDependencies += "co.fs2" %%% "fs2-io" % fs2V
   )
 
 lazy val clientSns = project

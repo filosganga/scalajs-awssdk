@@ -485,6 +485,317 @@ object StreamSummary {
   }
 }
 
+@js.native
+trait PutRecordCommandInput extends js.Object {
+  val StreamName: js.UndefOr[String] = js.native
+  val Data: js.UndefOr[js.typedarray.Uint8Array] = js.native
+  val PartitionKey: js.UndefOr[String] = js.native
+  val ExplicitHashKey: js.UndefOr[String] = js.native
+  val SequenceNumberForOrdering: js.UndefOr[String] = js.native
+  val StreamARN: js.UndefOr[String] = js.native
+}
+
+object PutRecordCommandInput {
+  def apply(
+      StreamName: js.UndefOr[String] = js.undefined,
+      Data: js.UndefOr[js.typedarray.Uint8Array] = js.undefined,
+      PartitionKey: js.UndefOr[String] = js.undefined,
+      ExplicitHashKey: js.UndefOr[String] = js.undefined,
+      SequenceNumberForOrdering: js.UndefOr[String] = js.undefined,
+      StreamARN: js.UndefOr[String] = js.undefined
+  ): PutRecordCommandInput = {
+    js.Dynamic
+      .literal(
+        StreamName = StreamName.asInstanceOf[js.Any],
+        Data = Data.asInstanceOf[js.Any],
+        PartitionKey = PartitionKey.asInstanceOf[js.Any],
+        ExplicitHashKey = ExplicitHashKey.asInstanceOf[js.Any],
+        SequenceNumberForOrdering = SequenceNumberForOrdering.asInstanceOf[js.Any],
+        StreamARN = StreamARN.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[PutRecordCommandInput]
+  }
+}
+
+@js.native
+trait PutRecordCommandOutput extends MetadataBearer {
+  val ShardId: js.UndefOr[String] = js.native
+  val SequenceNumber: js.UndefOr[String] = js.native
+  val EncryptionType: js.UndefOr[EncryptionType] = js.native
+}
+
+@js.native
+trait PutRecordsCommandInput extends js.Object {
+  val Records: js.UndefOr[js.Array[PutRecordsRequestEntry]] = js.native
+  val StreamName: js.UndefOr[String] = js.native
+  val StreamARN: js.UndefOr[String] = js.native
+}
+
+object PutRecordsCommandInput {
+  def apply(
+      Records: js.UndefOr[js.Array[PutRecordsRequestEntry]] = js.undefined,
+      StreamName: js.UndefOr[String] = js.undefined,
+      StreamARN: js.UndefOr[String] = js.undefined
+  ): PutRecordsCommandInput = {
+    js.Dynamic
+      .literal(
+        Records = Records.asInstanceOf[js.Any],
+        StreamName = StreamName.asInstanceOf[js.Any],
+        StreamARN = StreamARN.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[PutRecordsCommandInput]
+  }
+}
+
+@js.native
+trait PutRecordsCommandOutput extends MetadataBearer {
+  val FailedRecordCount: js.UndefOr[Int] = js.native
+  val Records: js.UndefOr[js.Array[PutRecordsResultEntry]] = js.native
+  val EncryptionType: js.UndefOr[EncryptionType] = js.native
+}
+
+@js.native
+trait PutRecordsRequestEntry extends js.Object {
+  val Data: js.UndefOr[js.typedarray.Uint8Array] = js.native
+  val ExplicitHashKey: js.UndefOr[String] = js.native
+  val PartitionKey: js.UndefOr[String] = js.native
+}
+
+object PutRecordsRequestEntry {
+  def apply(
+      Data: js.UndefOr[js.typedarray.Uint8Array] = js.undefined,
+      ExplicitHashKey: js.UndefOr[String] = js.undefined,
+      PartitionKey: js.UndefOr[String] = js.undefined
+  ): PutRecordsRequestEntry = {
+    js.Dynamic
+      .literal(
+        Data = Data.asInstanceOf[js.Any],
+        ExplicitHashKey = ExplicitHashKey.asInstanceOf[js.Any],
+        PartitionKey = PartitionKey.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[PutRecordsRequestEntry]
+  }
+}
+
+@js.native
+trait PutRecordsResultEntry extends js.Object {
+  val SequenceNumber: js.UndefOr[String] = js.native
+  val ShardId: js.UndefOr[String] = js.native
+  val ErrorCode: js.UndefOr[String] = js.native
+  val ErrorMessage: js.UndefOr[String] = js.native
+}
+
+@js.native
+trait GetShardIteratorCommandInput extends js.Object {
+  val StreamName: js.UndefOr[String] = js.native
+  val ShardId: js.UndefOr[String] = js.native
+  val ShardIteratorType: js.UndefOr[ShardIteratorType] = js.native
+  val StartingSequenceNumber: js.UndefOr[String] = js.native
+  val Timestamp: js.UndefOr[js.Date] = js.native
+  val StreamARN: js.UndefOr[String] = js.native
+}
+
+object GetShardIteratorCommandInput {
+  def apply(
+      StreamName: js.UndefOr[String] = js.undefined,
+      ShardId: js.UndefOr[String] = js.undefined,
+      ShardIteratorType: js.UndefOr[ShardIteratorType] = js.undefined,
+      StartingSequenceNumber: js.UndefOr[String] = js.undefined,
+      Timestamp: js.UndefOr[js.Date] = js.undefined,
+      StreamARN: js.UndefOr[String] = js.undefined
+  ): GetShardIteratorCommandInput = {
+    js.Dynamic
+      .literal(
+        StreamName = StreamName.asInstanceOf[js.Any],
+        ShardId = ShardId.asInstanceOf[js.Any],
+        ShardIteratorType = ShardIteratorType.asInstanceOf[js.Any],
+        StartingSequenceNumber = StartingSequenceNumber.asInstanceOf[js.Any],
+        Timestamp = Timestamp.asInstanceOf[js.Any],
+        StreamARN = StreamARN.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[GetShardIteratorCommandInput]
+  }
+}
+
+@js.native
+trait GetShardIteratorCommandOutput extends MetadataBearer {
+  val ShardIterator: js.UndefOr[String] = js.native
+}
+
+@js.native
+trait GetRecordsCommandInput extends js.Object {
+  val ShardIterator: js.UndefOr[String] = js.native
+  val Limit: js.UndefOr[Int] = js.native
+  val StreamARN: js.UndefOr[String] = js.native
+}
+
+object GetRecordsCommandInput {
+  def apply(
+      ShardIterator: js.UndefOr[String] = js.undefined,
+      Limit: js.UndefOr[Int] = js.undefined,
+      StreamARN: js.UndefOr[String] = js.undefined
+  ): GetRecordsCommandInput = {
+    js.Dynamic
+      .literal(
+        ShardIterator = ShardIterator.asInstanceOf[js.Any],
+        Limit = Limit.asInstanceOf[js.Any],
+        StreamARN = StreamARN.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[GetRecordsCommandInput]
+  }
+}
+
+@js.native
+trait GetRecordsCommandOutput extends MetadataBearer {
+  val Records: js.UndefOr[js.Array[Record]] = js.native
+  val NextShardIterator: js.UndefOr[String] = js.native
+  val MillisBehindLatest: js.UndefOr[Double] = js.native
+  val ChildShards: js.UndefOr[js.Array[ChildShard]] = js.native
+}
+
+@js.native
+trait Record extends js.Object {
+  val SequenceNumber: js.UndefOr[String] = js.native
+  val ApproximateArrivalTimestamp: js.UndefOr[js.Date] = js.native
+  val Data: js.UndefOr[js.typedarray.Uint8Array] = js.native
+  val PartitionKey: js.UndefOr[String] = js.native
+  val EncryptionType: js.UndefOr[EncryptionType] = js.native
+}
+
+@js.native
+trait ChildShard extends js.Object {
+  val ShardId: js.UndefOr[String] = js.native
+  val ParentShards: js.UndefOr[js.Array[String]] = js.native
+  val HashKeyRange: js.UndefOr[HashKeyRange] = js.native
+}
+
+@js.native
+trait RegisterStreamConsumerCommandInput extends js.Object {
+  val StreamARN: js.UndefOr[String] = js.native
+  val ConsumerName: js.UndefOr[String] = js.native
+  val Tags: js.UndefOr[js.Dictionary[String]] = js.native
+}
+
+object RegisterStreamConsumerCommandInput {
+  def apply(
+      StreamARN: js.UndefOr[String] = js.undefined,
+      ConsumerName: js.UndefOr[String] = js.undefined,
+      Tags: js.UndefOr[js.Dictionary[String]] = js.undefined
+  ): RegisterStreamConsumerCommandInput = {
+    js.Dynamic
+      .literal(
+        StreamARN = StreamARN.asInstanceOf[js.Any],
+        ConsumerName = ConsumerName.asInstanceOf[js.Any],
+        Tags = Tags.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[RegisterStreamConsumerCommandInput]
+  }
+}
+
+@js.native
+trait RegisterStreamConsumerCommandOutput extends MetadataBearer {
+  val Consumer: js.UndefOr[Consumer] = js.native
+}
+
+@js.native
+trait Consumer extends js.Object {
+  val ConsumerName: js.UndefOr[String] = js.native
+  val ConsumerARN: js.UndefOr[String] = js.native
+  val ConsumerStatus: js.UndefOr[ConsumerStatus] = js.native
+  val ConsumerCreationTimestamp: js.UndefOr[js.Date] = js.native
+}
+
+@js.native
+trait DeregisterStreamConsumerCommandInput extends js.Object {
+  val StreamARN: js.UndefOr[String] = js.native
+  val ConsumerName: js.UndefOr[String] = js.native
+  val ConsumerARN: js.UndefOr[String] = js.native
+}
+
+object DeregisterStreamConsumerCommandInput {
+  def apply(
+      StreamARN: js.UndefOr[String] = js.undefined,
+      ConsumerName: js.UndefOr[String] = js.undefined,
+      ConsumerARN: js.UndefOr[String] = js.undefined
+  ): DeregisterStreamConsumerCommandInput = {
+    js.Dynamic
+      .literal(
+        StreamARN = StreamARN.asInstanceOf[js.Any],
+        ConsumerName = ConsumerName.asInstanceOf[js.Any],
+        ConsumerARN = ConsumerARN.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[DeregisterStreamConsumerCommandInput]
+  }
+}
+
+@js.native
+trait DeregisterStreamConsumerCommandOutput extends MetadataBearer
+
+@js.native
+trait SubscribeToShardCommandInput extends js.Object {
+  val ConsumerARN: js.UndefOr[String] = js.native
+  val ShardId: js.UndefOr[String] = js.native
+  val StartingPosition: js.UndefOr[StartingPosition] = js.native
+}
+
+object SubscribeToShardCommandInput {
+  def apply(
+      ConsumerARN: js.UndefOr[String] = js.undefined,
+      ShardId: js.UndefOr[String] = js.undefined,
+      StartingPosition: js.UndefOr[StartingPosition] = js.undefined
+  ): SubscribeToShardCommandInput = {
+    js.Dynamic
+      .literal(
+        ConsumerARN = ConsumerARN.asInstanceOf[js.Any],
+        ShardId = ShardId.asInstanceOf[js.Any],
+        StartingPosition = StartingPosition.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[SubscribeToShardCommandInput]
+  }
+}
+
+@js.native
+trait SubscribeToShardCommandOutput extends MetadataBearer {
+  val EventStream: js.UndefOr[AsyncIterable[SubscribeToShardEventStream]] =
+    js.native
+}
+
+@js.native
+trait StartingPosition extends js.Object {
+  val Type: js.UndefOr[ShardIteratorType] = js.native
+  val SequenceNumber: js.UndefOr[String] = js.native
+  val Timestamp: js.UndefOr[js.Date] = js.native
+}
+
+object StartingPosition {
+  def apply(
+      Type: js.UndefOr[ShardIteratorType] = js.undefined,
+      SequenceNumber: js.UndefOr[String] = js.undefined,
+      Timestamp: js.UndefOr[js.Date] = js.undefined
+  ): StartingPosition = {
+    js.Dynamic
+      .literal(
+        Type = Type.asInstanceOf[js.Any],
+        SequenceNumber = SequenceNumber.asInstanceOf[js.Any],
+        Timestamp = Timestamp.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[StartingPosition]
+  }
+}
+
+@js.native
+trait SubscribeToShardEventStream extends js.Object {
+  val SubscribeToShardEvent: js.UndefOr[SubscribeToShardEvent] = js.native
+}
+
+@js.native
+trait SubscribeToShardEvent extends js.Object {
+  val Records: js.UndefOr[js.Array[Record]] = js.native
+  val ContinuationSequenceNumber: js.UndefOr[String] = js.native
+  val MillisBehindLatest: js.UndefOr[Double] = js.native
+  val ChildShards: js.UndefOr[js.Array[ChildShard]] = js.native
+}
+
 // Enum types
 
 sealed trait StreamMode extends js.Any
@@ -527,4 +838,22 @@ object ShardFilterType {
   val AT_TRIM_HORIZON = "AT_TRIM_HORIZON".asInstanceOf[ShardFilterType]
   val FROM_TIMESTAMP = "FROM_TIMESTAMP".asInstanceOf[ShardFilterType]
   val FROM_TRIM_HORIZON = "FROM_TRIM_HORIZON".asInstanceOf[ShardFilterType]
+}
+
+sealed trait ShardIteratorType extends js.Any
+object ShardIteratorType {
+  val AFTER_SEQUENCE_NUMBER =
+    "AFTER_SEQUENCE_NUMBER".asInstanceOf[ShardIteratorType]
+  val AT_SEQUENCE_NUMBER =
+    "AT_SEQUENCE_NUMBER".asInstanceOf[ShardIteratorType]
+  val AT_TIMESTAMP = "AT_TIMESTAMP".asInstanceOf[ShardIteratorType]
+  val LATEST = "LATEST".asInstanceOf[ShardIteratorType]
+  val TRIM_HORIZON = "TRIM_HORIZON".asInstanceOf[ShardIteratorType]
+}
+
+sealed trait ConsumerStatus extends js.Any
+object ConsumerStatus {
+  val ACTIVE = "ACTIVE".asInstanceOf[ConsumerStatus]
+  val CREATING = "CREATING".asInstanceOf[ConsumerStatus]
+  val DELETING = "DELETING".asInstanceOf[ConsumerStatus]
 }
