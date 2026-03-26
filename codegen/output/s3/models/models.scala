@@ -7,73 +7,6 @@ import com.filippodeluca.jsfacade.awssdk.types.*
 import scalajs.js
 
 @js.native
-trait SdkStream extends js.Object {
-  def transformToByteArray(): js.Promise[js.typedarray.Uint8Array] = js.native
-  def transformToString(encoding: js.UndefOr[String] = js.undefined): js.Promise[String] = js.native
-}
-
-@js.native
-trait S3Object extends js.Object {
-  val Key: js.UndefOr[String] = js.native
-  val LastModified: js.UndefOr[js.Date] = js.native
-  val ETag: js.UndefOr[String] = js.native
-  val ChecksumAlgorithm: js.UndefOr[js.Array[ChecksumAlgorithm]] = js.native
-  val Size: js.UndefOr[Double] = js.native
-  val StorageClass: js.UndefOr[StorageClass] = js.native
-  val Owner: js.UndefOr[Owner] = js.native
-}
-
-@js.native
-trait S3Error extends js.Object {
-  val Key: js.UndefOr[String] = js.native
-  val VersionId: js.UndefOr[String] = js.native
-  val Code: js.UndefOr[String] = js.native
-  val Message: js.UndefOr[String] = js.native
-}
-
-@js.native
-trait MetricsFilter extends js.Object {
-  val Prefix: js.UndefOr[String] = js.native
-  val Tag: js.UndefOr[Tag] = js.native
-  val And: js.UndefOr[MetricsAndOperator] = js.native
-  val AccessPointArn: js.UndefOr[String] = js.native
-}
-
-@js.native
-trait MetricsAndOperator extends js.Object {
-  val Prefix: js.UndefOr[String] = js.native
-  val Tags: js.UndefOr[js.Array[Tag]] = js.native
-  val AccessPointArn: js.UndefOr[String] = js.native
-}
-
-@js.native
-trait AnalyticsFilter extends js.Object {
-  val Prefix: js.UndefOr[String] = js.native
-  val Tag: js.UndefOr[Tag] = js.native
-  val And: js.UndefOr[AnalyticsAndOperator] = js.native
-}
-
-@js.native
-trait AnalyticsAndOperator extends js.Object {
-  val Prefix: js.UndefOr[String] = js.native
-  val Tags: js.UndefOr[js.Array[Tag]] = js.native
-}
-
-@js.native
-trait NotificationConfiguration extends js.Object {
-  val TopicConfigurations: js.UndefOr[js.Array[TopicConfiguration]] = js.native
-  val QueueConfigurations: js.UndefOr[js.Array[QueueConfiguration]] = js.native
-  val LambdaFunctionConfigurations: js.UndefOr[js.Array[LambdaFunctionConfiguration]] = js.native
-  val EventBridgeConfiguration: js.UndefOr[EventBridgeConfiguration] = js.native
-}
-
-@js.native
-trait SelectObjectContentEventStream extends js.Object
-
-@js.native
-trait ObjectEncryption extends js.Object
-
-@js.native
 trait AbortMultipartUploadCommandInput extends js.Object {
   val Bucket: js.UndefOr[String] = js.native
   val Key: js.UndefOr[String] = js.native
@@ -1117,7 +1050,7 @@ object DeleteObjectsCommandInput {
 trait DeleteObjectsCommandOutput extends MetadataBearer {
   val Deleted: js.UndefOr[js.Array[DeletedObject]] = js.native
   val RequestCharged: js.UndefOr[RequestCharged] = js.native
-  val Errors: js.UndefOr[js.Array[S3Error]] = js.native
+  val Errors: js.UndefOr[js.Array[_Error]] = js.native
 }
 
 @js.native
@@ -1916,6 +1849,7 @@ object GetObjectCommandInput {
   }
 }
 
+// TODO: MissingMeta — number type for 'MissingMeta' — verify if Int or Double is appropriate
 // TODO: Body — streaming/binary type 'StreamingBlobPayloadOutputTypes' — consider using SdkStream, io.Readable, or a more specific type
 @js.native
 trait GetObjectCommandOutput extends MetadataBearer {
@@ -1932,7 +1866,7 @@ trait GetObjectCommandOutput extends MetadataBearer {
   val ChecksumSHA1: js.UndefOr[String] = js.native
   val ChecksumSHA256: js.UndefOr[String] = js.native
   val ChecksumType: js.UndefOr[ChecksumType] = js.native
-  val MissingMeta: js.UndefOr[Int] = js.native
+  val MissingMeta: js.UndefOr[Double] = js.native
   val VersionId: js.UndefOr[String] = js.native
   val CacheControl: js.UndefOr[String] = js.native
   val ContentDisposition: js.UndefOr[String] = js.native
@@ -1957,7 +1891,7 @@ trait GetObjectCommandOutput extends MetadataBearer {
   val ObjectLockMode: js.UndefOr[ObjectLockMode] = js.native
   val ObjectLockRetainUntilDate: js.UndefOr[js.Date] = js.native
   val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] = js.native
-  val Body: js.UndefOr[SdkStream] = js.native
+  val Body: js.UndefOr[js.Any] = js.native
 }
 
 @js.native
@@ -2252,6 +2186,7 @@ object HeadObjectCommandInput {
   }
 }
 
+// TODO: MissingMeta — number type for 'MissingMeta' — verify if Int or Double is appropriate
 @js.native
 trait HeadObjectCommandOutput extends MetadataBearer {
   val DeleteMarker: js.UndefOr[Boolean] = js.native
@@ -2268,7 +2203,7 @@ trait HeadObjectCommandOutput extends MetadataBearer {
   val ChecksumSHA256: js.UndefOr[String] = js.native
   val ChecksumType: js.UndefOr[ChecksumType] = js.native
   val ETag: js.UndefOr[String] = js.native
-  val MissingMeta: js.UndefOr[Int] = js.native
+  val MissingMeta: js.UndefOr[Double] = js.native
   val VersionId: js.UndefOr[String] = js.native
   val CacheControl: js.UndefOr[String] = js.native
   val ContentDisposition: js.UndefOr[String] = js.native
@@ -2419,9 +2354,10 @@ trait ListBucketMetricsConfigurationsCommandOutput extends MetadataBearer {
   val MetricsConfigurationList: js.UndefOr[js.Array[MetricsConfiguration]] = js.native
 }
 
+// TODO: MaxBuckets — number type for 'MaxBuckets' — verify if Int or Double is appropriate
 @js.native
 trait ListBucketsCommandInput extends js.Object {
-  val MaxBuckets: js.UndefOr[Int] = js.native
+  val MaxBuckets: js.UndefOr[Double] = js.native
   val ContinuationToken: js.UndefOr[String] = js.native
   val Prefix: js.UndefOr[String] = js.native
   val BucketRegion: js.UndefOr[String] = js.native
@@ -2429,7 +2365,7 @@ trait ListBucketsCommandInput extends js.Object {
 
 object ListBucketsCommandInput {
   def apply(
-      MaxBuckets: js.UndefOr[Int] = js.undefined,
+      MaxBuckets: js.UndefOr[Double] = js.undefined,
       ContinuationToken: js.UndefOr[String] = js.undefined,
       Prefix: js.UndefOr[String] = js.undefined,
       BucketRegion: js.UndefOr[String] = js.undefined
@@ -2453,6 +2389,7 @@ trait ListBucketsCommandOutput extends MetadataBearer {
   val Prefix: js.UndefOr[String] = js.native
 }
 
+// TODO: MaxDirectoryBuckets — number type for 'MaxDirectoryBuckets' — verify if Int or Double is appropriate
 @js.native
 trait ListDirectoryBucketsCommandInput extends js.Object {
   val ContinuationToken: js.UndefOr[String] = js.native
@@ -2645,7 +2582,7 @@ trait ListObjectsCommandOutput extends MetadataBearer {
   val IsTruncated: js.UndefOr[Boolean] = js.native
   val Marker: js.UndefOr[String] = js.native
   val NextMarker: js.UndefOr[String] = js.native
-  val Contents: js.UndefOr[js.Array[S3Object]] = js.native
+  val Contents: js.UndefOr[js.Array[_Object]] = js.native
   val Name: js.UndefOr[String] = js.native
   val Prefix: js.UndefOr[String] = js.native
   val Delimiter: js.UndefOr[String] = js.native
@@ -2705,7 +2642,7 @@ object ListObjectsV2CommandInput {
 @js.native
 trait ListObjectsV2CommandOutput extends MetadataBearer {
   val IsTruncated: js.UndefOr[Boolean] = js.native
-  val Contents: js.UndefOr[js.Array[S3Object]] = js.native
+  val Contents: js.UndefOr[js.Array[_Object]] = js.native
   val Name: js.UndefOr[String] = js.native
   val Prefix: js.UndefOr[String] = js.native
   val Delimiter: js.UndefOr[String] = js.native
@@ -3973,7 +3910,7 @@ object SelectObjectContentCommandInput {
 
 @js.native
 trait SelectObjectContentCommandOutput extends MetadataBearer {
-  val Payload: js.UndefOr[AsyncIterable[SelectObjectContentEventStream]] = js.native
+  val Payload: js.UndefOr[AsyncIterable<SelectObjectContentEventStream>] = js.native
 }
 
 @js.native
@@ -4251,6 +4188,8 @@ trait UploadPartCopyCommandOutput extends MetadataBearer {
   val RequestCharged: js.UndefOr[RequestCharged] = js.native
 }
 
+// TODO: StatusCode — number type for 'StatusCode' — verify if Int or Double is appropriate
+// TODO: MissingMeta — number type for 'MissingMeta' — verify if Int or Double is appropriate
 // TODO: Body — streaming/binary type 'StreamingBlobPayloadInputTypes' — consider using SdkStream, io.Readable, or a more specific type
 @js.native
 trait WriteGetObjectResponseCommandInput extends js.Object {
@@ -4277,7 +4216,7 @@ trait WriteGetObjectResponseCommandInput extends js.Object {
   val Expires: js.UndefOr[js.Date] = js.native
   val Expiration: js.UndefOr[String] = js.native
   val LastModified: js.UndefOr[js.Date] = js.native
-  val MissingMeta: js.UndefOr[Int] = js.native
+  val MissingMeta: js.UndefOr[Double] = js.native
   val Metadata: js.UndefOr[js.Dictionary[String]] = js.native
   val ObjectLockMode: js.UndefOr[ObjectLockMode] = js.native
   val ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] = js.native
@@ -4322,7 +4261,7 @@ object WriteGetObjectResponseCommandInput {
       Expires: js.UndefOr[js.Date] = js.undefined,
       Expiration: js.UndefOr[String] = js.undefined,
       LastModified: js.UndefOr[js.Date] = js.undefined,
-      MissingMeta: js.UndefOr[Int] = js.undefined,
+      MissingMeta: js.UndefOr[Double] = js.undefined,
       Metadata: js.UndefOr[js.Dictionary[String]] = js.undefined,
       ObjectLockMode: js.UndefOr[ObjectLockMode] = js.undefined,
       ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] = js.undefined,
@@ -4608,16 +4547,17 @@ object JournalTableConfiguration {
   }
 }
 
+// TODO: Days — number type for 'Days' — verify if Int or Double is appropriate
 @js.native
 trait RecordExpiration extends js.Object {
   val Expiration: js.UndefOr[ExpirationState] = js.native
-  val Days: js.UndefOr[Int] = js.native
+  val Days: js.UndefOr[Double] = js.native
 }
 
 object RecordExpiration {
   def apply(
       Expiration: js.UndefOr[ExpirationState] = js.undefined,
-      Days: js.UndefOr[Int] = js.undefined
+      Days: js.UndefOr[Double] = js.undefined
   ): RecordExpiration = {
     js.Dynamic
       .literal(
@@ -4995,6 +4935,7 @@ object AnalyticsS3BucketDestination {
   }
 }
 
+// TODO: MaxAgeSeconds — number type for 'MaxAgeSeconds' — verify if Int or Double is appropriate
 @js.native
 trait CORSRule extends js.Object {
   val ID: js.UndefOr[String] = js.native
@@ -5002,7 +4943,7 @@ trait CORSRule extends js.Object {
   val AllowedMethods: js.UndefOr[js.Array[String]] = js.native
   val AllowedOrigins: js.UndefOr[js.Array[String]] = js.native
   val ExposeHeaders: js.UndefOr[js.Array[String]] = js.native
-  val MaxAgeSeconds: js.UndefOr[Int] = js.native
+  val MaxAgeSeconds: js.UndefOr[Double] = js.native
 }
 
 object CORSRule {
@@ -5012,7 +4953,7 @@ object CORSRule {
       AllowedMethods: js.UndefOr[js.Array[String]] = js.undefined,
       AllowedOrigins: js.UndefOr[js.Array[String]] = js.undefined,
       ExposeHeaders: js.UndefOr[js.Array[String]] = js.undefined,
-      MaxAgeSeconds: js.UndefOr[Int] = js.undefined
+      MaxAgeSeconds: js.UndefOr[Double] = js.undefined
   ): CORSRule = {
     js.Dynamic
       .literal(
@@ -5173,15 +5114,16 @@ object IntelligentTieringAndOperator {
   }
 }
 
+// TODO: Days — number type for 'Days' — verify if Int or Double is appropriate
 @js.native
 trait Tiering extends js.Object {
-  val Days: js.UndefOr[Int] = js.native
+  val Days: js.UndefOr[Double] = js.native
   val AccessTier: js.UndefOr[IntelligentTieringAccessTier] = js.native
 }
 
 object Tiering {
   def apply(
-      Days: js.UndefOr[Int] = js.undefined,
+      Days: js.UndefOr[Double] = js.undefined,
       AccessTier: js.UndefOr[IntelligentTieringAccessTier] = js.undefined
   ): Tiering = {
     js.Dynamic
@@ -5390,17 +5332,18 @@ object LifecycleRule {
   }
 }
 
+// TODO: Days — number type for 'Days' — verify if Int or Double is appropriate
 @js.native
 trait LifecycleExpiration extends js.Object {
   val Date: js.UndefOr[js.Date] = js.native
-  val Days: js.UndefOr[Int] = js.native
+  val Days: js.UndefOr[Double] = js.native
   val ExpiredObjectDeleteMarker: js.UndefOr[Boolean] = js.native
 }
 
 object LifecycleExpiration {
   def apply(
       Date: js.UndefOr[js.Date] = js.undefined,
-      Days: js.UndefOr[Int] = js.undefined,
+      Days: js.UndefOr[Double] = js.undefined,
       ExpiredObjectDeleteMarker: js.UndefOr[Boolean] = js.undefined
   ): LifecycleExpiration = {
     js.Dynamic
@@ -5468,17 +5411,18 @@ object LifecycleRuleAndOperator {
   }
 }
 
+// TODO: Days — number type for 'Days' — verify if Int or Double is appropriate
 @js.native
 trait Transition extends js.Object {
   val Date: js.UndefOr[js.Date] = js.native
-  val Days: js.UndefOr[Int] = js.native
+  val Days: js.UndefOr[Double] = js.native
   val StorageClass: js.UndefOr[TransitionStorageClass] = js.native
 }
 
 object Transition {
   def apply(
       Date: js.UndefOr[js.Date] = js.undefined,
-      Days: js.UndefOr[Int] = js.undefined,
+      Days: js.UndefOr[Double] = js.undefined,
       StorageClass: js.UndefOr[TransitionStorageClass] = js.undefined
   ): Transition = {
     js.Dynamic
@@ -5491,18 +5435,20 @@ object Transition {
   }
 }
 
+// TODO: NoncurrentDays — number type for 'NoncurrentDays' — verify if Int or Double is appropriate
+// TODO: NewerNoncurrentVersions — number type for 'NewerNoncurrentVersions' — verify if Int or Double is appropriate
 @js.native
 trait NoncurrentVersionTransition extends js.Object {
-  val NoncurrentDays: js.UndefOr[Int] = js.native
+  val NoncurrentDays: js.UndefOr[Double] = js.native
   val StorageClass: js.UndefOr[TransitionStorageClass] = js.native
-  val NewerNoncurrentVersions: js.UndefOr[Int] = js.native
+  val NewerNoncurrentVersions: js.UndefOr[Double] = js.native
 }
 
 object NoncurrentVersionTransition {
   def apply(
-      NoncurrentDays: js.UndefOr[Int] = js.undefined,
+      NoncurrentDays: js.UndefOr[Double] = js.undefined,
       StorageClass: js.UndefOr[TransitionStorageClass] = js.undefined,
-      NewerNoncurrentVersions: js.UndefOr[Int] = js.undefined
+      NewerNoncurrentVersions: js.UndefOr[Double] = js.undefined
   ): NoncurrentVersionTransition = {
     js.Dynamic
       .literal(
@@ -5514,16 +5460,18 @@ object NoncurrentVersionTransition {
   }
 }
 
+// TODO: NoncurrentDays — number type for 'NoncurrentDays' — verify if Int or Double is appropriate
+// TODO: NewerNoncurrentVersions — number type for 'NewerNoncurrentVersions' — verify if Int or Double is appropriate
 @js.native
 trait NoncurrentVersionExpiration extends js.Object {
-  val NoncurrentDays: js.UndefOr[Int] = js.native
-  val NewerNoncurrentVersions: js.UndefOr[Int] = js.native
+  val NoncurrentDays: js.UndefOr[Double] = js.native
+  val NewerNoncurrentVersions: js.UndefOr[Double] = js.native
 }
 
 object NoncurrentVersionExpiration {
   def apply(
-      NoncurrentDays: js.UndefOr[Int] = js.undefined,
-      NewerNoncurrentVersions: js.UndefOr[Int] = js.undefined
+      NoncurrentDays: js.UndefOr[Double] = js.undefined,
+      NewerNoncurrentVersions: js.UndefOr[Double] = js.undefined
   ): NoncurrentVersionExpiration = {
     js.Dynamic
       .literal(
@@ -5534,14 +5482,15 @@ object NoncurrentVersionExpiration {
   }
 }
 
+// TODO: DaysAfterInitiation — number type for 'DaysAfterInitiation' — verify if Int or Double is appropriate
 @js.native
 trait AbortIncompleteMultipartUpload extends js.Object {
-  val DaysAfterInitiation: js.UndefOr[Int] = js.native
+  val DaysAfterInitiation: js.UndefOr[Double] = js.native
 }
 
 object AbortIncompleteMultipartUpload {
   def apply(
-      DaysAfterInitiation: js.UndefOr[Int] = js.undefined
+      DaysAfterInitiation: js.UndefOr[Double] = js.undefined
   ): AbortIncompleteMultipartUpload = {
     js.Dynamic
       .literal(
@@ -6072,10 +6021,11 @@ object ReplicationConfiguration {
   }
 }
 
+// TODO: Priority — number type for 'Priority' — verify if Int or Double is appropriate
 @js.native
 trait ReplicationRule extends js.Object {
   val ID: js.UndefOr[String] = js.native
-  val Priority: js.UndefOr[Int] = js.native
+  val Priority: js.UndefOr[Double] = js.native
   val Prefix: js.UndefOr[String] = js.native
   val Filter: js.UndefOr[ReplicationRuleFilter] = js.native
   val Status: js.UndefOr[ReplicationRuleStatus] = js.native
@@ -6088,7 +6038,7 @@ trait ReplicationRule extends js.Object {
 object ReplicationRule {
   def apply(
       ID: js.UndefOr[String] = js.undefined,
-      Priority: js.UndefOr[Int] = js.undefined,
+      Priority: js.UndefOr[Double] = js.undefined,
       Prefix: js.UndefOr[String] = js.undefined,
       Filter: js.UndefOr[ReplicationRuleFilter] = js.undefined,
       Status: js.UndefOr[ReplicationRuleStatus] = js.undefined,
@@ -6316,14 +6266,15 @@ object ReplicationTime {
   }
 }
 
+// TODO: Minutes — number type for 'Minutes' — verify if Int or Double is appropriate
 @js.native
 trait ReplicationTimeValue extends js.Object {
-  val Minutes: js.UndefOr[Int] = js.native
+  val Minutes: js.UndefOr[Double] = js.native
 }
 
 object ReplicationTimeValue {
   def apply(
-      Minutes: js.UndefOr[Int] = js.undefined
+      Minutes: js.UndefOr[Double] = js.undefined
   ): ReplicationTimeValue = {
     js.Dynamic
       .literal(
@@ -6646,18 +6597,20 @@ object ObjectLockRule {
   }
 }
 
+// TODO: Days — number type for 'Days' — verify if Int or Double is appropriate
+// TODO: Years — number type for 'Years' — verify if Int or Double is appropriate
 @js.native
 trait DefaultRetention extends js.Object {
   val Mode: js.UndefOr[ObjectLockRetentionMode] = js.native
-  val Days: js.UndefOr[Int] = js.native
-  val Years: js.UndefOr[Int] = js.native
+  val Days: js.UndefOr[Double] = js.native
+  val Years: js.UndefOr[Double] = js.native
 }
 
 object DefaultRetention {
   def apply(
       Mode: js.UndefOr[ObjectLockRetentionMode] = js.undefined,
-      Days: js.UndefOr[Int] = js.undefined,
-      Years: js.UndefOr[Int] = js.undefined
+      Days: js.UndefOr[Double] = js.undefined,
+      Years: js.UndefOr[Double] = js.undefined
   ): DefaultRetention = {
     js.Dynamic
       .literal(
@@ -7121,9 +7074,10 @@ object WebsiteConfiguration {
   }
 }
 
+// TODO: Days — number type for 'Days' — verify if Int or Double is appropriate
 @js.native
 trait RestoreRequest extends js.Object {
-  val Days: js.UndefOr[Int] = js.native
+  val Days: js.UndefOr[Double] = js.native
   val GlacierJobParameters: js.UndefOr[GlacierJobParameters] = js.native
   val Type: js.UndefOr[RestoreRequestType] = js.native
   val Tier: js.UndefOr[Tier] = js.native
@@ -7134,7 +7088,7 @@ trait RestoreRequest extends js.Object {
 
 object RestoreRequest {
   def apply(
-      Days: js.UndefOr[Int] = js.undefined,
+      Days: js.UndefOr[Double] = js.undefined,
       GlacierJobParameters: js.UndefOr[GlacierJobParameters] = js.undefined,
       Type: js.UndefOr[RestoreRequestType] = js.undefined,
       Tier: js.UndefOr[Tier] = js.undefined,
@@ -7462,16 +7416,18 @@ object RequestProgress {
   }
 }
 
+// TODO: Start — number type for 'Start' — verify if Int or Double is appropriate
+// TODO: End — number type for 'End' — verify if Int or Double is appropriate
 @js.native
 trait ScanRange extends js.Object {
-  val Start: js.UndefOr[Int] = js.native
-  val End: js.UndefOr[Int] = js.native
+  val Start: js.UndefOr[Double] = js.native
+  val End: js.UndefOr[Double] = js.native
 }
 
 object ScanRange {
   def apply(
-      Start: js.UndefOr[Int] = js.undefined,
-      End: js.UndefOr[Int] = js.undefined
+      Start: js.UndefOr[Double] = js.undefined,
+      End: js.UndefOr[Double] = js.undefined
   ): ScanRange = {
     js.Dynamic
       .literal(
@@ -7888,22 +7844,22 @@ object Event {
   val S3_LifecycleExpiration_Delete = "s3:LifecycleExpiration:Delete".asInstanceOf[Event]
   val S3_LifecycleExpiration_DeleteMarkerCreated = "s3:LifecycleExpiration:DeleteMarkerCreated".asInstanceOf[Event]
   val S3_LifecycleTransition = "s3:LifecycleTransition".asInstanceOf[Event]
-  val S3S3ObjectAcl_Put = "s3:ObjectAcl:Put".asInstanceOf[Event]
-  val S3S3ObjectCreated_ = "s3:ObjectCreated:*".asInstanceOf[Event]
-  val S3S3ObjectCreated_CompleteMultipartUpload = "s3:ObjectCreated:CompleteMultipartUpload".asInstanceOf[Event]
-  val S3S3ObjectCreated_Copy = "s3:ObjectCreated:Copy".asInstanceOf[Event]
-  val S3S3ObjectCreated_Post = "s3:ObjectCreated:Post".asInstanceOf[Event]
-  val S3S3ObjectCreated_Put = "s3:ObjectCreated:Put".asInstanceOf[Event]
-  val S3S3ObjectRemoved_ = "s3:ObjectRemoved:*".asInstanceOf[Event]
-  val S3S3ObjectRemoved_Delete = "s3:ObjectRemoved:Delete".asInstanceOf[Event]
-  val S3S3ObjectRemoved_DeleteMarkerCreated = "s3:ObjectRemoved:DeleteMarkerCreated".asInstanceOf[Event]
-  val S3S3ObjectRestore_ = "s3:ObjectRestore:*".asInstanceOf[Event]
-  val S3S3ObjectRestore_Completed = "s3:ObjectRestore:Completed".asInstanceOf[Event]
-  val S3S3ObjectRestore_Delete = "s3:ObjectRestore:Delete".asInstanceOf[Event]
-  val S3S3ObjectRestore_Post = "s3:ObjectRestore:Post".asInstanceOf[Event]
-  val S3S3ObjectTagging_ = "s3:ObjectTagging:*".asInstanceOf[Event]
-  val S3S3ObjectTagging_Delete = "s3:ObjectTagging:Delete".asInstanceOf[Event]
-  val S3S3ObjectTagging_Put = "s3:ObjectTagging:Put".asInstanceOf[Event]
+  val S3_ObjectAcl_Put = "s3:ObjectAcl:Put".asInstanceOf[Event]
+  val S3_ObjectCreated_ = "s3:ObjectCreated:*".asInstanceOf[Event]
+  val S3_ObjectCreated_CompleteMultipartUpload = "s3:ObjectCreated:CompleteMultipartUpload".asInstanceOf[Event]
+  val S3_ObjectCreated_Copy = "s3:ObjectCreated:Copy".asInstanceOf[Event]
+  val S3_ObjectCreated_Post = "s3:ObjectCreated:Post".asInstanceOf[Event]
+  val S3_ObjectCreated_Put = "s3:ObjectCreated:Put".asInstanceOf[Event]
+  val S3_ObjectRemoved_ = "s3:ObjectRemoved:*".asInstanceOf[Event]
+  val S3_ObjectRemoved_Delete = "s3:ObjectRemoved:Delete".asInstanceOf[Event]
+  val S3_ObjectRemoved_DeleteMarkerCreated = "s3:ObjectRemoved:DeleteMarkerCreated".asInstanceOf[Event]
+  val S3_ObjectRestore_ = "s3:ObjectRestore:*".asInstanceOf[Event]
+  val S3_ObjectRestore_Completed = "s3:ObjectRestore:Completed".asInstanceOf[Event]
+  val S3_ObjectRestore_Delete = "s3:ObjectRestore:Delete".asInstanceOf[Event]
+  val S3_ObjectRestore_Post = "s3:ObjectRestore:Post".asInstanceOf[Event]
+  val S3_ObjectTagging_ = "s3:ObjectTagging:*".asInstanceOf[Event]
+  val S3_ObjectTagging_Delete = "s3:ObjectTagging:Delete".asInstanceOf[Event]
+  val S3_ObjectTagging_Put = "s3:ObjectTagging:Put".asInstanceOf[Event]
   val S3_ReducedRedundancyLostObject = "s3:ReducedRedundancyLostObject".asInstanceOf[Event]
   val S3_Replication_ = "s3:Replication:*".asInstanceOf[Event]
   val S3_Replication_OperationFailedReplication = "s3:Replication:OperationFailedReplication".asInstanceOf[Event]

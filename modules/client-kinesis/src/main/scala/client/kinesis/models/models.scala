@@ -783,6 +783,12 @@ object StartingPosition {
   }
 }
 
+/** Tagged union for SubscribeToShard events. In the JS SDK this is a
+  * discriminated union that can also carry error variants
+  * (ResourceNotFoundException, KMSDisabledException, InternalFailureException,
+  * etc.). Only the happy-path SubscribeToShardEvent member is modeled here;
+  * error cases surface as failed promises / IO errors instead.
+  */
 @js.native
 trait SubscribeToShardEventStream extends js.Object {
   val SubscribeToShardEvent: js.UndefOr[SubscribeToShardEvent] = js.native
