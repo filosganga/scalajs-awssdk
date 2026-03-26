@@ -16,7 +16,8 @@ import scalajs.js.annotation.JSImport
 
 @js.native
 @JSImport("@aws-sdk/client-kinesis", "KinesisClient")
-class KinesisClient(@nowarn configuration: KinesisClientConfig) extends js.Object {
+class KinesisClient(@nowarn configuration: KinesisClientConfig)
+    extends js.Object {
   def destroy(): Unit = js.native
   def send[InputType, OutputType](
       command: Command[InputType, OutputType]

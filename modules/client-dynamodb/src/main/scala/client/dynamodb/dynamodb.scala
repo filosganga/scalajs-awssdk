@@ -16,7 +16,8 @@ import scalajs.js.annotation.JSImport
 
 @js.native
 @JSImport("@aws-sdk/client-dynamodb", "DynamoDBClient")
-class DynamoDBClient(@nowarn configuration: DynamoDBClientConfig) extends js.Object {
+class DynamoDBClient(@nowarn configuration: DynamoDBClientConfig)
+    extends js.Object {
   def destroy(): Unit = js.native
   def send[InputType, OutputType](
       command: Command[InputType, OutputType]

@@ -10,8 +10,8 @@ import scalajs.js.annotation.JSImport
 
 @js.native
 @JSImport("@aws-sdk/util-retry", "getDefaultRetryBackoffStrategy")
-val getDefaultRetryBackoffStrategy
-    : js.Function0[StandardRetryBackoffStrategy] = js.native
+val getDefaultRetryBackoffStrategy: js.Function0[StandardRetryBackoffStrategy] =
+  js.native
 
 @js.native
 trait RateLimiter extends js.Any {
@@ -25,9 +25,9 @@ trait RateLimiter extends js.Any {
   val getSendToken: js.Function0[js.Promise[Unit]] = js.native
 
   /** Updates the client sending rate based on response. If the response was
-    * successful, the capacity and fill rate are increased. If the response
-    * was a throttling response, the capacity and fill rate are decreased.
-    * Transient errors do not affect the rate limiter.
+    * successful, the capacity and fill rate are increased. If the response was
+    * a throttling response, the capacity and fill rate are decreased. Transient
+    * errors do not affect the rate limiter.
     */
   val updateClientSendingRate: js.Function1[js.Any, Unit] = js.native
 }
