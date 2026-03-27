@@ -49,6 +49,16 @@ jobs:
         with:
           apps: "sbt"
       - uses: coursier/cache-action@v6
+      - name: Wait for localstack to be ready
+        run: |
+          for i in $(seq 1 30); do
+            if curl -s http://localhost:4566/_localstack/health | grep -q '"kinesis": "available"'; then
+              echo "Localstack is ready"
+              break
+            fi
+            echo "Waiting for localstack... ($i/30)"
+            sleep 2
+          done
       - run: sbt "scalafmtCheckAll;Test/compile;Test/test"
       - uses: dorny/test-reporter@v1
         if: success() || failure()
