@@ -19,25 +19,16 @@ ThisBuild / semanticdbEnabled := true
 ThisBuild / semanticdbVersion := scalafixSemanticdb.revision
 ThisBuild / dynverSonatypeSnapshots := true
 
+ThisBuild / versionScheme := Some("semver-spec")
 ThisBuild / pomIncludeRepository := { _ => false }
-ThisBuild / publishTo := {
-  val nexus = "https://s01.oss.sonatype.org/"
-  if (isSnapshot.value)
-    Some("snapshots" at nexus + "content/repositories/snapshots")
-  else Some("releases" at nexus + "service/local/staging/deploy/maven2")
-}
 ThisBuild / publishMavenStyle := true
-ThisBuild / credentials ++= {
-  for {
-    usr <- sys.env.get("SONATYPE_USER")
-    password <- sys.env.get("SONATYPE_PASS")
-  } yield Credentials(
-    "Sonatype Nexus Repository Manager",
-    "s01.oss.sonatype.org",
-    usr,
-    password
-  )
-}.toList
+ThisBuild / publishTo := {
+  val centralSnapshots = "https://central.sonatype.com/repository/maven-snapshots/"
+  if (isSnapshot.value) Some("central-snapshots" at centralSnapshots)
+  else localStaging.value
+}
+// Credentials for central.sonatype.com are auto-read by sbt 1.11+ from
+// SONATYPE_USERNAME and SONATYPE_PASSWORD environment variables
 
 ThisBuild / developers := List(
   Developer(
@@ -55,6 +46,8 @@ ThisBuild / licenses := List(
 ThisBuild / homepage := Some(
   url("https://github.com/filosganga/scalajs-awssdk")
 )
+
+ThisBuild / description := "Scala.js facades for the AWS SDK for JavaScript v3"
 
 ThisBuild / scmInfo := Some(
   ScmInfo(
@@ -87,6 +80,10 @@ lazy val root = project
     clientSes,
     clientKinesis,
     clientSns
+  )
+  .settings(
+    publish / skip := true,
+    publishLocal / skip := true
   )
 
 lazy val core = project

@@ -1,16 +1,15 @@
-name: pr
-
-run-name: "pr-${{github.event.pull_request.number}}"
+name: release
 
 on:
-  pull_request:
+  workflow_dispatch:
 
 concurrency:
-  group: pr-${{ github.ref }}
-  cancel-in-progress: true
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
-  test:
+  release:
+    if: github.ref == 'refs/heads/main' || startsWith( github.ref, 'refs/heads/release/' )
     runs-on: ubuntu-latest
 
     services:
@@ -33,6 +32,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
+        with:
+          fetch-depth: "0"
       - name: Set up JDK
         uses: actions/setup-java@v5
         with:
@@ -40,19 +41,7 @@ jobs:
           distribution: "corretto"
       - uses: sbt/setup-sbt@v1
       - name: Restore dependencies
-        id: cache-restore
         uses: actions/cache/restore@v5
-        with:
-          path: |
-            ~/.ivy2/cache
-            ~/.sbt
-          key: sbt-${{ hashFiles('**/*.sbt', 'project/build.properties') }}
-      - name: Update dependencies
-        if: steps.cache-restore.outputs.cache-hit != 'true'
-        run: sbt +update
-      - name: Cache dependencies
-        uses: actions/cache/save@v5
-        if: steps.cache-restore.outputs.cache-hit != 'true'
         with:
           path: |
             ~/.ivy2/cache
@@ -70,3 +59,28 @@ jobs:
           done
       - name: Build and test
         run: sbt "scalafmtCheckAll;Test/compile;Test/test"
+      - run: git fetch --tags
+      - run: git status
+      - name: Bump version and push tag
+        id: tag-version
+        uses: anothrNick/github-tag-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+          DEFAULT_BUMP: patch
+          TAG_CONTEXT: branch
+      - name: Create a GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.tag-version.outputs.new_tag }}
+          name: ${{ steps.tag-version.outputs.new_version }}
+          body: ${{ steps.tag-version.outputs.changelog }}
+      - run: git fetch --tags
+      - run: echo $PGP_SECRET | base64 -d | gpg --import
+        env:
+          PGP_SECRET: ${{ secrets.PGP_SECRET }}
+      - name: Publish to Maven Central
+        run: sbt "+publishSigned; sonaUpload"
+        env:
+          SONATYPE_USERNAME: ${{ vars.SONATYPE_USERNAME }}
+          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
