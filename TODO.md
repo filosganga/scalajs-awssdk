@@ -5,12 +5,12 @@
 Already implemented: BatchGetItem, BatchWriteItem, CreateTable, DeleteItem,
 DeleteTable, DescribeTable, GetItem, PutItem, Query, Scan, UpdateItem
 
-### Bugs in existing commands (type mismatches)
-- [ ] `ScanCommandOutput.Items` — typed as `js.UndefOr[js.Dictionary[AttributeValue]]` (single map), should be `js.Array[js.Dictionary[AttributeValue]]`
-- [ ] `BatchGetItemCommandOutput.ConsumedCapacity` — typed as single `ConsumedCapacity`, should be `js.Array[ConsumedCapacity]`
-- [ ] `BatchWriteItemCommandOutput.ConsumedCapacity` — same, should be `js.Array[ConsumedCapacity]`
-- [ ] `BatchWriteItemCommandOutput.ItemCollectionMetrics` — values should be `js.Array[ItemCollectionMetrics]`, not single
-- [ ] `BatchWriteItemCommandOutput.UnprocessedKeys` — field name should be `UnprocessedItems`, type should be `js.Dictionary[js.Array[WriteRequest]]`
+### Bugs in existing commands (type mismatches) — FIXED
+- [x] `ScanCommandOutput.Items` — fixed to `js.Array[js.Dictionary[AttributeValue]]`
+- [x] `BatchGetItemCommandOutput.ConsumedCapacity` — fixed to `js.Array[ConsumedCapacity]`
+- [x] `BatchWriteItemCommandOutput.ConsumedCapacity` — fixed to `js.Array[ConsumedCapacity]`
+- [x] `BatchWriteItemCommandOutput.ItemCollectionMetrics` — fixed to `js.Dictionary[js.Array[ItemCollectionMetrics]]`
+- [x] `BatchWriteItemCommandOutput.UnprocessedKeys` — renamed to `UnprocessedItems`, fixed to `js.Dictionary[js.Array[WriteRequest]]`
 
 ### Missing fields in existing commands (non-legacy)
 - [ ] `CreateTableCommandInput` — missing: `DeletionProtectionEnabled` (Boolean), `WarmThroughput`, `ResourcePolicy` (String), `OnDemandThroughput`, `GlobalTableSourceArn` (String), `GlobalTableSettingsReplicationMode`

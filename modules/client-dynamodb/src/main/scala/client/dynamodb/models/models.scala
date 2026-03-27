@@ -868,7 +868,7 @@ object KeysAndAttributes {
 
 @js.native
 trait BatchGetItemCommandOutput extends MetadataBearer {
-  val ConsumedCapacity: js.UndefOr[ConsumedCapacity] = js.native
+  val ConsumedCapacity: js.UndefOr[js.Array[ConsumedCapacity]] = js.native
   val Responses
       : js.UndefOr[js.Dictionary[js.Array[js.Dictionary[AttributeValue]]]] =
     js.native
@@ -956,10 +956,11 @@ object DeleteRequest {
 
 @js.native
 trait BatchWriteItemCommandOutput extends MetadataBearer {
-  val ConsumedCapacity: js.UndefOr[ConsumedCapacity] = js.native
-  val ItemCollectionMetrics: js.UndefOr[js.Dictionary[ItemCollectionMetrics]] =
+  val ConsumedCapacity: js.UndefOr[js.Array[ConsumedCapacity]] = js.native
+  val ItemCollectionMetrics
+      : js.UndefOr[js.Dictionary[js.Array[ItemCollectionMetrics]]] = js.native
+  val UnprocessedItems: js.UndefOr[js.Dictionary[js.Array[WriteRequest]]] =
     js.native
-  val UnprocessedKeys: js.UndefOr[js.Dictionary[WriteRequest]] = js.native
 }
 
 @js.native

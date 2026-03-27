@@ -28,8 +28,8 @@ class BatchWriteItemTest
         "foo" -> AttributeValue.S("bar")
       )
 
-      val putItems = client
-        .sendIO(
+      for {
+        _ <- client.sendIO(
           BatchWriteItemCommand(
             BatchWriteItemCommandInput(
               js.Dictionary(
@@ -42,9 +42,7 @@ class BatchWriteItemTest
             )
           )
         )
-
-      val batchGetItems = client
-        .sendIO(
+        result <- client.sendIO(
           BatchGetItemCommand(
             BatchGetItemCommandInput(
               RequestItems = js.Dictionary(
@@ -59,20 +57,77 @@ class BatchWriteItemTest
             )
           )
         )
+      } yield {
+        val items = result.Responses.get(tableName)
+        assertEquals(items.toSet, Set(itemOne, itemTwo))
+      }
+  }
 
-      val result = (for {
-        _ <- putItems
-        result <- batchGetItems
-      } yield result.Responses.get)
+  ResourceFunFixture {
+    for {
+      client <- clientR
+      tableName <- simpleTableR(client, "id")
+    } yield (client, tableName)
+  }.test(
+    "BatchWriteItem should return ConsumedCapacity as an array when requested"
+  ) { case (client, tableName) =>
+    for {
+      writeResult <- client.sendIO(
+        BatchWriteItemCommand(
+          BatchWriteItemCommandInput(
+            RequestItems = js.Dictionary(
+              tableName ->
+                js.Array(
+                  WriteRequest.putRequest(
+                    PutRequest(
+                      js.Dictionary("id" -> AttributeValue.S("cap-test"))
+                    )
+                  )
+                )
+            ),
+            ReturnConsumedCapacity = ReturnConsumedCapacity.Total
+          )
+        )
+      )
+    } yield {
+      assert(writeResult.ConsumedCapacity.isDefined)
+      val capacities = writeResult.ConsumedCapacity.get
+      assert(capacities.length >= 1)
+      assert(capacities(0).TableName.isDefined)
+    }
+  }
 
-      result
-        .map { dict =>
-          dict(tableName)
+  ResourceFunFixture {
+    for {
+      client <- clientR
+      tableName <- simpleTableR(client, "id")
+    } yield (client, tableName)
+  }.test("BatchWriteItem should return UnprocessedItems (empty on success)") {
+    case (client, tableName) =>
+      for {
+        writeResult <- client.sendIO(
+          BatchWriteItemCommand(
+            BatchWriteItemCommandInput(
+              RequestItems = js.Dictionary(
+                tableName ->
+                  js.Array(
+                    WriteRequest.putRequest(
+                      PutRequest(
+                        js.Dictionary("id" -> AttributeValue.S("unproc-test"))
+                      )
+                    )
+                  )
+              )
+            )
+          )
+        )
+      } yield {
+        // On a successful write with no throttling, UnprocessedItems should
+        // be undefined or an empty dictionary
+        writeResult.UnprocessedItems.toOption.foreach { unprocessed =>
+          assertEquals(unprocessed.size, 0)
         }
-        .map { xs =>
-          assertEquals(xs.toSet, Set(itemOne, itemTwo))
-        }
-
+      }
   }
 
 }

@@ -272,7 +272,7 @@ trait ScanCommandOutput extends MetadataBearer {
     * in this array consists of an attribute name and the value for that
     * attribute.</p>
     */
-  val Items: js.UndefOr[js.Dictionary[AttributeValue]] = js.native
+  val Items: js.UndefOr[js.Array[js.Dictionary[AttributeValue]]] = js.native
 
   /** <p>The number of items in the response.</p> <p>If you set
     * <code>ScanFilter</code> in the request, then <code>Count</code> is the

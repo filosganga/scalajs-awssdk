@@ -28,28 +28,18 @@ class BatchGetItemTest
         "foo" -> AttributeValue.S("bar")
       )
 
-      val putItemOne = client
-        .sendIO(
+      for {
+        _ <- client.sendIO(
           PutItemCommand(
-            PutItemCommandInput(
-              TableName = tableName,
-              Item = itemOne
-            )
+            PutItemCommandInput(TableName = tableName, Item = itemOne)
           )
         )
-
-      val putItemTwo = client
-        .sendIO(
+        _ <- client.sendIO(
           PutItemCommand(
-            PutItemCommandInput(
-              TableName = tableName,
-              Item = itemTwo
-            )
+            PutItemCommandInput(TableName = tableName, Item = itemTwo)
           )
         )
-
-      val batchGetItems = client
-        .sendIO(
+        result <- client.sendIO(
           BatchGetItemCommand(
             BatchGetItemCommandInput(
               RequestItems = js.Dictionary(
@@ -64,21 +54,51 @@ class BatchGetItemTest
             )
           )
         )
+      } yield {
+        assert(result.Responses.isDefined)
+        val items = result.Responses.get(tableName)
+        assertEquals(items.toSet, Set(itemOne, itemTwo))
+      }
+  }
 
-      val result = (for {
-        _ <- putItemOne
-        _ <- putItemTwo
-        result <- batchGetItems
-      } yield result.Responses.get)
-
-      result
-        .map { dict =>
-          dict(tableName)
-        }
-        .map { xs =>
-          assertEquals(xs.toSet, Set(itemOne, itemTwo))
-        }
-
+  ResourceFunFixture {
+    for {
+      client <- clientR
+      tableName <- simpleTableR(client, "id")
+    } yield (client, tableName)
+  }.test(
+    "BatchGetItem should return ConsumedCapacity as an array when requested"
+  ) { case (client, tableName) =>
+    for {
+      _ <- client.sendIO(
+        PutItemCommand(
+          PutItemCommandInput(
+            TableName = tableName,
+            Item = js.Dictionary("id" -> AttributeValue.S("test"))
+          )
+        )
+      )
+      result <- client.sendIO(
+        BatchGetItemCommand(
+          BatchGetItemCommandInput(
+            RequestItems = js.Dictionary(
+              tableName -> KeysAndAttributes(
+                Keys = js.Array(
+                  js.Dictionary("id" -> AttributeValue.S("test"))
+                ),
+                ConsistentRead = true
+              )
+            ),
+            ReturnConsumedCapacity = ReturnConsumedCapacity.Total
+          )
+        )
+      )
+    } yield {
+      assert(result.ConsumedCapacity.isDefined)
+      val capacities = result.ConsumedCapacity.get
+      assert(capacities.length >= 1)
+      assert(capacities(0).TableName.isDefined)
+    }
   }
 
 }
