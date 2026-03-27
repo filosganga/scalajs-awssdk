@@ -4,7 +4,6 @@ package kinesis
 
 import models.*
 import commands.*
-
 import scalajs.js
 
 class PutRecordTest extends munit.CatsEffectSuite with KinesisFixtures {

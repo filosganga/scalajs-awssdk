@@ -2,6 +2,8 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package dynamodb
 
+import scala.annotation.unused
+
 import com.filippodeluca.jsfacade.awssdk.config.resolver.RegionInputConfig
 import com.filippodeluca.jsfacade.awssdk.middleware.endpoint.*
 import com.filippodeluca.jsfacade.awssdk.middleware.retry.RetryInputConfig
@@ -9,14 +11,13 @@ import com.filippodeluca.jsfacade.awssdk.middleware.signing.AwsAuthInputConfig
 import com.filippodeluca.jsfacade.awssdk.middleware.userAgent.UserAgentInputConfig
 import com.filippodeluca.jsfacade.awssdk.types.*
 import com.filippodeluca.jsfacade.awssdk.types.identity.*
-import scala.annotation.nowarn
 import scalajs.js
 import scalajs.js.*
 import scalajs.js.annotation.JSImport
 
 @js.native
 @JSImport("@aws-sdk/client-dynamodb", "DynamoDBClient")
-class DynamoDBClient(@nowarn configuration: DynamoDBClientConfig)
+class DynamoDBClient(@unused configuration: DynamoDBClientConfig)
     extends js.Object {
   def destroy(): Unit = js.native
   def send[InputType, OutputType](

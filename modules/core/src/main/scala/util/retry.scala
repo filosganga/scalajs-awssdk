@@ -2,7 +2,7 @@ package com.filippodeluca.jsfacade.awssdk
 package util
 package retry
 
-import scala.annotation.nowarn
+import scala.annotation.unused
 
 import com.filippodeluca.jsfacade.awssdk.types.*
 import scalajs.js
@@ -41,16 +41,14 @@ trait DefaultRateLimiterOptions extends js.Any {
   val smooth: js.UndefOr[Double] = js.native
 }
 
-@nowarn("msg=unused explicit parameter")
 @js.native
 @JSImport("@aws-sdk/util-retry", "DefaultRateLimiter")
-class DefaultRateLimiter(options: js.UndefOr[DefaultRateLimiterOptions])
+class DefaultRateLimiter(@unused options: js.UndefOr[DefaultRateLimiterOptions])
     extends RateLimiter
 
-@nowarn("msg=unused explicit parameter")
 @js.native
 @JSImport("@aws-sdk/util-retry", "StandardRetryStrategy")
-class StandardRetryStrategy(maxAttemptsProvider: Provider[Double])
+class StandardRetryStrategy(@unused maxAttemptsProvider: Provider[Double])
     extends RetryStrategyV2
 
 @js.native
@@ -58,10 +56,9 @@ trait AdaptiveRetryStrategyOptions extends js.Any {
   val rateLimiter: js.UndefOr[RateLimiter] = js.native
 }
 
-@nowarn("msg=unused explicit parameter")
 @js.native
 @JSImport("@aws-sdk/util-retry", "AdaptiveRetryStrategy")
 class AdaptiveRetryStrategy(
-    maxAttemptsProvider: Provider[Double],
-    options: js.UndefOr[AdaptiveRetryStrategyOptions]
+    @unused maxAttemptsProvider: Provider[Double],
+    @unused options: js.UndefOr[AdaptiveRetryStrategyOptions]
 ) extends RetryStrategyV2

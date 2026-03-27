@@ -4,7 +4,6 @@ package kinesis
 
 import models.*
 import commands.*
-
 import scalajs.js
 import scalajs.js.JSConverters.*
 

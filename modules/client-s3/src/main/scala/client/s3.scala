@@ -2,6 +2,8 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package s3
 
+import scala.annotation.unused
+
 import com.filippodeluca.jsfacade.awssdk.config.resolver.RegionInputConfig
 import com.filippodeluca.jsfacade.awssdk.middleware.endpoint.*
 import com.filippodeluca.jsfacade.awssdk.middleware.retry.RetryInputConfig
@@ -11,12 +13,11 @@ import com.filippodeluca.jsfacade.awssdk.types.*
 import com.filippodeluca.jsfacade.awssdk.types.identity.*
 import scalajs.js
 import scalajs.js.*
-import scala.annotation.nowarn
 import scalajs.js.annotation.JSImport
 
 @js.native
 @JSImport("@aws-sdk/client-s3", "S3Client")
-class S3Client(@nowarn configuration: S3ClientConfig) extends js.Object {
+class S3Client(@unused configuration: S3ClientConfig) extends js.Object {
   def destroy(): Unit = js.native
   def send[InputType, OutputType](
       command: Command[InputType, OutputType]

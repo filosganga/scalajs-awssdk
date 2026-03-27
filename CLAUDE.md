@@ -44,8 +44,8 @@ client/dynamodb/
 - **Scala 3 syntax only**: use `.*` for wildcard imports, never `._`. No curly
   braces for imports.
 - **No package objects**: use top-level definitions in a `package` instead.
-- `@js.native` constructor parameters that appear unused need `@nowarn` annotation
-  (they are required by Scala.js at runtime).
+- `@js.native` constructor parameters that appear unused need `@unused` annotation
+  from `scala.annotation.unused` (they are required by Scala.js at runtime).
 
 ## Facade pattern
 

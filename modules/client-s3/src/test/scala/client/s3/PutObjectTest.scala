@@ -3,13 +3,11 @@ package client
 package s3
 
 import cats.effect.*
+import fs2.{Stream as Fs2Stream, io}
 
 import scalajs.js
 import models.*
 import commands.*
-
-import fs2.{Stream => Fs2Stream}
-import fs2.io
 
 class PutObjectTest
     extends munit.CatsEffectSuite

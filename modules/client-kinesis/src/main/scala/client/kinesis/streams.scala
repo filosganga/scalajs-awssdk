@@ -6,8 +6,8 @@ import cats.effect.kernel.Async
 import cats.syntax.all.*
 import fs2.Stream
 
-import scalajs.js
 import com.filippodeluca.jsfacade.awssdk.types.AsyncIterable
+import scalajs.js
 
 object streams {
 

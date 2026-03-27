@@ -2,9 +2,10 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package kinesis
 
-import cats.effect.IO
-import scala.concurrent.duration.*
 import java.util.concurrent.TimeoutException
+import scala.concurrent.duration.*
+
+import cats.effect.IO
 
 import models.*
 import commands.*
