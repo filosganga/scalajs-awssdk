@@ -2,13 +2,13 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package sns
 
-import cats.effect._
+import cats.effect.*
 import cats.effect.std.Env
 import cats.syntax.all.*
 
-import scalajs.js.JSConverters._
-import models._
-import commands._
+import scalajs.js.JSConverters.*
+import models.*
+import commands.*
 
 trait SnsFixtures {
   self: munit.FunSuite =>

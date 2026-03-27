@@ -6,8 +6,8 @@ import cats.effect.IO
 import cats.syntax.all.*
 
 import scalajs.js
-import models._
-import commands._
+import models.*
+import commands.*
 
 class PublishTest extends munit.CatsEffectSuite with SnsFixtures {
 

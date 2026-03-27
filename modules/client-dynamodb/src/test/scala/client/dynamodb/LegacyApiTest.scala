@@ -124,8 +124,7 @@ class LegacyApiTest
             ScanFilter = js.Dictionary(
               "status" -> Condition(
                 ComparisonOperator = ComparisonOperator.EQ,
-                AttributeValueList =
-                  js.Array(AttributeValue.S("active"))
+                AttributeValueList = js.Array(AttributeValue.S("active"))
               )
             )
           )
@@ -171,8 +170,7 @@ class LegacyApiTest
               Expected = js.Dictionary(
                 "status" -> ExpectedAttributeValue(
                   ComparisonOperator = ComparisonOperator.EQ,
-                  AttributeValueList =
-                    js.Array(AttributeValue.S("deleted"))
+                  AttributeValueList = js.Array(AttributeValue.S("deleted"))
                 )
               )
             )

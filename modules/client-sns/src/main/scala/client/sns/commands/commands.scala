@@ -3,7 +3,7 @@ package client
 package sns
 package commands
 
-import com.filippodeluca.jsfacade.awssdk.client.sns.models._
+import com.filippodeluca.jsfacade.awssdk.client.sns.models.*
 import scalajs.js
 import scalajs.js.annotation.JSImport
 

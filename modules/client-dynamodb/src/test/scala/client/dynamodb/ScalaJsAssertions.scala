@@ -5,7 +5,7 @@ package dynamodb
 import cats.syntax.all.*
 
 import scalajs.js
-import models._
+import models.*
 
 trait ScalaJsAssertions {
   self: munit.Suite =>

@@ -2,12 +2,12 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package dynamodb
 
-import cats.effect._
+import cats.effect.*
 
 import scalajs.js
-import scalajs.js.JSConverters._
-import models._
-import commands._
+import scalajs.js.JSConverters.*
+import models.*
+import commands.*
 
 class CreateTableTest
     extends munit.CatsEffectSuite

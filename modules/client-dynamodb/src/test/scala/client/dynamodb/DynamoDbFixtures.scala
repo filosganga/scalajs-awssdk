@@ -3,15 +3,15 @@ package client
 package dynamodb
 
 import java.util.concurrent.TimeoutException
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 
-import cats.effect._
+import cats.effect.*
 import cats.effect.std.Env
 import cats.syntax.all.*
 
-import scalajs.js.JSConverters._
-import models._
-import commands._
+import scalajs.js.JSConverters.*
+import models.*
+import commands.*
 
 trait DynamoDbFixtures {
   self: munit.FunSuite =>
