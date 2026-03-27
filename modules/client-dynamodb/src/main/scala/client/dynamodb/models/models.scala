@@ -1074,6 +1074,7 @@ trait GetItemCommandInput extends js.Object {
   val ExpressionAttributeNames: js.UndefOr[js.Dictionary[String]] = js.native
   val ProjectionExpression: js.UndefOr[String] = js.native
   val ReturnConsumedCapacity: js.UndefOr[ReturnConsumedCapacity] = js.native
+  val AttributesToGet: js.UndefOr[js.Array[String]] = js.native
 }
 
 object GetItemCommandInput {
@@ -1085,7 +1086,8 @@ object GetItemCommandInput {
       ExpressionAttributeNames: js.UndefOr[js.Dictionary[String]] =
         js.undefined,
       ProjectionExpression: js.UndefOr[String] = js.undefined,
-      ReturnConsumedCapacity: js.UndefOr[ReturnConsumedCapacity] = js.undefined
+      ReturnConsumedCapacity: js.UndefOr[ReturnConsumedCapacity] = js.undefined,
+      AttributesToGet: js.UndefOr[js.Array[String]] = js.undefined
   ): GetItemCommandInput = {
     js.Dynamic
       .literal(
@@ -1095,7 +1097,8 @@ object GetItemCommandInput {
           ExpressionAttributeNames.asInstanceOf[js.Any],
         Key = Key,
         ProjectionExpression = ProjectionExpression.asInstanceOf[js.Any],
-        ReturnConsumedCapacity = ReturnConsumedCapacity.asInstanceOf[js.Any]
+        ReturnConsumedCapacity = ReturnConsumedCapacity.asInstanceOf[js.Any],
+        AttributesToGet = AttributesToGet.asInstanceOf[js.Any]
       )
       .asInstanceOf[GetItemCommandInput]
   }
@@ -1124,6 +1127,8 @@ trait PutItemCommandInput extends js.Object {
   val ReturnValuesOnConditionCheckFailure: js.UndefOr[
     ReturnValuesOnConditionCheckFailure
   ] = js.native
+  val Expected: js.UndefOr[js.Dictionary[ExpectedAttributeValue]] = js.native
+  val ConditionalOperator: js.UndefOr[ConditionalOperator] = js.native
 }
 
 object PutItemCommandInput {
@@ -1181,7 +1186,10 @@ object PutItemCommandInput {
       ReturnValues: js.UndefOr[ReturnValues] = js.undefined,
       ReturnValuesOnConditionCheckFailure: js.UndefOr[
         ReturnValuesOnConditionCheckFailure
-      ] = js.undefined
+      ] = js.undefined,
+      Expected: js.UndefOr[js.Dictionary[ExpectedAttributeValue]] =
+        js.undefined,
+      ConditionalOperator: js.UndefOr[ConditionalOperator] = js.undefined
   ): PutItemCommandInput = {
     js.Dynamic
       .literal(
@@ -1197,7 +1205,9 @@ object PutItemCommandInput {
           ReturnItemCollectionMetrics.asInstanceOf[js.Any],
         ReturnValues = ReturnValues.asInstanceOf[js.Any],
         ReturnValuesOnConditionCheckFailure =
-          ReturnValuesOnConditionCheckFailure.asInstanceOf[js.Any]
+          ReturnValuesOnConditionCheckFailure.asInstanceOf[js.Any],
+        Expected = Expected.asInstanceOf[js.Any],
+        ConditionalOperator = ConditionalOperator.asInstanceOf[js.Any]
       )
       .asInstanceOf[PutItemCommandInput]
   }
@@ -1234,6 +1244,8 @@ trait DeleteItemCommandInput extends js.Object {
   val ReturnValuesOnConditionCheckFailure: js.UndefOr[
     ReturnValuesOnConditionCheckFailure
   ] = js.native
+  val Expected: js.UndefOr[js.Dictionary[ExpectedAttributeValue]] = js.native
+  val ConditionalOperator: js.UndefOr[ConditionalOperator] = js.native
 }
 
 object DeleteItemCommandInput {
@@ -1252,7 +1264,10 @@ object DeleteItemCommandInput {
       ReturnValues: js.UndefOr[ReturnValues] = js.undefined,
       ReturnValuesOnConditionCheckFailure: js.UndefOr[
         ReturnValuesOnConditionCheckFailure
-      ] = js.undefined
+      ] = js.undefined,
+      Expected: js.UndefOr[js.Dictionary[ExpectedAttributeValue]] =
+        js.undefined,
+      ConditionalOperator: js.UndefOr[ConditionalOperator] = js.undefined
   ): DeleteItemCommandInput = {
     js.Dynamic
       .literal(
@@ -1268,7 +1283,9 @@ object DeleteItemCommandInput {
           ReturnItemCollectionMetrics.asInstanceOf[js.Any],
         ReturnValues = ReturnValues.asInstanceOf[js.Any],
         ReturnValuesOnConditionCheckFailure =
-          ReturnValuesOnConditionCheckFailure.asInstanceOf[js.Any]
+          ReturnValuesOnConditionCheckFailure.asInstanceOf[js.Any],
+        Expected = Expected.asInstanceOf[js.Any],
+        ConditionalOperator = ConditionalOperator.asInstanceOf[js.Any]
       )
       .asInstanceOf[DeleteItemCommandInput]
   }
@@ -1297,6 +1314,10 @@ trait QueryCommandInput extends js.Object {
   val Limit: js.UndefOr[Int] = js.native
   val ScanIndexForward: js.UndefOr[Boolean] = js.native
   val ReturnConsumedCapacity: js.UndefOr[ReturnConsumedCapacity] = js.native
+  val AttributesToGet: js.UndefOr[js.Array[String]] = js.native
+  val KeyConditions: js.UndefOr[js.Dictionary[Condition]] = js.native
+  val QueryFilter: js.UndefOr[js.Dictionary[Condition]] = js.native
+  val ConditionalOperator: js.UndefOr[ConditionalOperator] = js.native
 }
 
 object QueryCommandInput {
@@ -1317,7 +1338,11 @@ object QueryCommandInput {
         js.undefined,
       Limit: js.UndefOr[Int] = js.undefined,
       ScanIndexForward: js.UndefOr[Boolean] = js.undefined,
-      ReturnConsumedCapacity: js.UndefOr[ReturnConsumedCapacity] = js.undefined
+      ReturnConsumedCapacity: js.UndefOr[ReturnConsumedCapacity] = js.undefined,
+      AttributesToGet: js.UndefOr[js.Array[String]] = js.undefined,
+      KeyConditions: js.UndefOr[js.Dictionary[Condition]] = js.undefined,
+      QueryFilter: js.UndefOr[js.Dictionary[Condition]] = js.undefined,
+      ConditionalOperator: js.UndefOr[ConditionalOperator] = js.undefined
   ): QueryCommandInput = {
     js.Dynamic
       .literal(
@@ -1335,7 +1360,11 @@ object QueryCommandInput {
         ExclusiveStartKey = ExclusiveStartKey.asInstanceOf[js.Any],
         Limit = Limit.asInstanceOf[js.Any],
         ScanIndexForward = ScanIndexForward.asInstanceOf[js.Any],
-        ReturnConsumedCapacity = ReturnConsumedCapacity.asInstanceOf[js.Any]
+        ReturnConsumedCapacity = ReturnConsumedCapacity.asInstanceOf[js.Any],
+        AttributesToGet = AttributesToGet.asInstanceOf[js.Any],
+        KeyConditions = KeyConditions.asInstanceOf[js.Any],
+        QueryFilter = QueryFilter.asInstanceOf[js.Any],
+        ConditionalOperator = ConditionalOperator.asInstanceOf[js.Any]
       )
       .asInstanceOf[QueryCommandInput]
   }
@@ -1431,4 +1460,102 @@ object GlobalTableSettingsReplicationMode {
     "ENABLED".asInstanceOf[GlobalTableSettingsReplicationMode]
   val EnabledWithOverrides =
     "ENABLED_WITH_OVERRIDES".asInstanceOf[GlobalTableSettingsReplicationMode]
+}
+
+// Legacy types
+
+sealed trait ConditionalOperator extends js.Any
+object ConditionalOperator {
+  val And = "AND".asInstanceOf[ConditionalOperator]
+  val Or = "OR".asInstanceOf[ConditionalOperator]
+}
+
+sealed trait ComparisonOperator extends js.Any
+object ComparisonOperator {
+  val EQ = "EQ".asInstanceOf[ComparisonOperator]
+  val NE = "NE".asInstanceOf[ComparisonOperator]
+  val IN = "IN".asInstanceOf[ComparisonOperator]
+  val LE = "LE".asInstanceOf[ComparisonOperator]
+  val LT = "LT".asInstanceOf[ComparisonOperator]
+  val GE = "GE".asInstanceOf[ComparisonOperator]
+  val GT = "GT".asInstanceOf[ComparisonOperator]
+  val BETWEEN = "BETWEEN".asInstanceOf[ComparisonOperator]
+  val NOT_NULL = "NOT_NULL".asInstanceOf[ComparisonOperator]
+  val NULL = "NULL".asInstanceOf[ComparisonOperator]
+  val CONTAINS = "CONTAINS".asInstanceOf[ComparisonOperator]
+  val NOT_CONTAINS = "NOT_CONTAINS".asInstanceOf[ComparisonOperator]
+  val BEGINS_WITH = "BEGINS_WITH".asInstanceOf[ComparisonOperator]
+}
+
+sealed trait AttributeAction extends js.Any
+object AttributeAction {
+  val ADD = "ADD".asInstanceOf[AttributeAction]
+  val PUT = "PUT".asInstanceOf[AttributeAction]
+  val DELETE = "DELETE".asInstanceOf[AttributeAction]
+}
+
+@js.native
+trait ExpectedAttributeValue extends js.Object {
+  val Value: js.UndefOr[AttributeValue] = js.native
+  val Exists: js.UndefOr[Boolean] = js.native
+  val ComparisonOperator: js.UndefOr[ComparisonOperator] = js.native
+  val AttributeValueList: js.UndefOr[js.Array[AttributeValue]] = js.native
+}
+
+object ExpectedAttributeValue {
+  def apply(
+      Value: js.UndefOr[AttributeValue] = js.undefined,
+      Exists: js.UndefOr[Boolean] = js.undefined,
+      ComparisonOperator: js.UndefOr[ComparisonOperator] = js.undefined,
+      AttributeValueList: js.UndefOr[js.Array[AttributeValue]] = js.undefined
+  ): ExpectedAttributeValue = {
+    js.Dynamic
+      .literal(
+        Value = Value.asInstanceOf[js.Any],
+        Exists = Exists.asInstanceOf[js.Any],
+        ComparisonOperator = ComparisonOperator.asInstanceOf[js.Any],
+        AttributeValueList = AttributeValueList.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[ExpectedAttributeValue]
+  }
+}
+
+@js.native
+trait Condition extends js.Object {
+  val AttributeValueList: js.UndefOr[js.Array[AttributeValue]] = js.native
+  val ComparisonOperator: js.UndefOr[ComparisonOperator] = js.native
+}
+
+object Condition {
+  def apply(
+      ComparisonOperator: js.UndefOr[ComparisonOperator] = js.undefined,
+      AttributeValueList: js.UndefOr[js.Array[AttributeValue]] = js.undefined
+  ): Condition = {
+    js.Dynamic
+      .literal(
+        ComparisonOperator = ComparisonOperator.asInstanceOf[js.Any],
+        AttributeValueList = AttributeValueList.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[Condition]
+  }
+}
+
+@js.native
+trait AttributeValueUpdate extends js.Object {
+  val Value: js.UndefOr[AttributeValue] = js.native
+  val Action: js.UndefOr[AttributeAction] = js.native
+}
+
+object AttributeValueUpdate {
+  def apply(
+      Value: js.UndefOr[AttributeValue] = js.undefined,
+      Action: js.UndefOr[AttributeAction] = js.undefined
+  ): AttributeValueUpdate = {
+    js.Dynamic
+      .literal(
+        Value = Value.asInstanceOf[js.Any],
+        Action = Action.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[AttributeValueUpdate]
+  }
 }

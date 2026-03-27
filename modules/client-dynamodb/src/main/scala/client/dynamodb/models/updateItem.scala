@@ -197,6 +197,10 @@ trait UpdateItemCommandInput extends js.Object {
   val ReturnValuesOnConditionCheckFailure: js.UndefOr[
     ReturnValuesOnConditionCheckFailure
   ] = js.native
+  val AttributeUpdates: js.UndefOr[js.Dictionary[AttributeValueUpdate]] =
+    js.native
+  val Expected: js.UndefOr[js.Dictionary[ExpectedAttributeValue]] = js.native
+  val ConditionalOperator: js.UndefOr[ConditionalOperator] = js.native
 }
 
 object UpdateItemCommandInput {
@@ -215,7 +219,12 @@ object UpdateItemCommandInput {
         js.undefined,
       ReturnValuesOnConditionCheckFailure: js.UndefOr[
         ReturnValuesOnConditionCheckFailure
-      ] = js.undefined
+      ] = js.undefined,
+      AttributeUpdates: js.UndefOr[js.Dictionary[AttributeValueUpdate]] =
+        js.undefined,
+      Expected: js.UndefOr[js.Dictionary[ExpectedAttributeValue]] =
+        js.undefined,
+      ConditionalOperator: js.UndefOr[ConditionalOperator] = js.undefined
   ): UpdateItemCommandInput = js.Dynamic
     .literal(
       TableName = TableName.asInstanceOf[js.Any],
@@ -230,7 +239,10 @@ object UpdateItemCommandInput {
       ReturnItemCollectionMetrics =
         ReturnItemCollectionMetrics.asInstanceOf[js.Any],
       ReturnValuesOnConditionCheckFailure =
-        ReturnValuesOnConditionCheckFailure.asInstanceOf[js.Any]
+        ReturnValuesOnConditionCheckFailure.asInstanceOf[js.Any],
+      AttributeUpdates = AttributeUpdates.asInstanceOf[js.Any],
+      Expected = Expected.asInstanceOf[js.Any],
+      ConditionalOperator = ConditionalOperator.asInstanceOf[js.Any]
     )
     .asInstanceOf[UpdateItemCommandInput]
 }

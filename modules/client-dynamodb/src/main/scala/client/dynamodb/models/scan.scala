@@ -223,6 +223,9 @@ trait ScanCommandInput extends js.Object {
     * <code>ValidationException</code>.</p>
     */
   val ConsistentRead: js.UndefOr[Boolean] = js.native
+  val AttributesToGet: js.UndefOr[js.Array[String]] = js.native
+  val ScanFilter: js.UndefOr[js.Dictionary[Condition]] = js.native
+  val ConditionalOperator: js.UndefOr[ConditionalOperator] = js.native
 }
 
 object ScanCommandInput {
@@ -242,7 +245,10 @@ object ScanCommandInput {
       ExpressionAttributeValues: js.UndefOr[js.Dictionary[AttributeValue]] =
         js.undefined,
       ConsistentRead: js.UndefOr[Boolean] = js.undefined,
-      ReturnConsumedCapacity: js.UndefOr[ReturnConsumedCapacity] = js.undefined
+      ReturnConsumedCapacity: js.UndefOr[ReturnConsumedCapacity] = js.undefined,
+      AttributesToGet: js.UndefOr[js.Array[String]] = js.undefined,
+      ScanFilter: js.UndefOr[js.Dictionary[Condition]] = js.undefined,
+      ConditionalOperator: js.UndefOr[ConditionalOperator] = js.undefined
   ): ScanCommandInput = js.Dynamic
     .literal(
       TableName = TableName.asInstanceOf[js.Any],
@@ -258,7 +264,10 @@ object ScanCommandInput {
       ExpressionAttributeNames = ExpressionAttributeNames.asInstanceOf[js.Any],
       ExpressionAttributeValues =
         ExpressionAttributeValues.asInstanceOf[js.Any],
-      ConsistentRead = ConsistentRead.asInstanceOf[js.Any]
+      ConsistentRead = ConsistentRead.asInstanceOf[js.Any],
+      AttributesToGet = AttributesToGet.asInstanceOf[js.Any],
+      ScanFilter = ScanFilter.asInstanceOf[js.Any],
+      ConditionalOperator = ConditionalOperator.asInstanceOf[js.Any]
     )
     .asInstanceOf[ScanCommandInput]
 }

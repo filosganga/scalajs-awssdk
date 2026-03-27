@@ -18,13 +18,13 @@ DeleteTable, DescribeTable, GetItem, PutItem, Query, Scan, UpdateItem
 - [x] `UpdateItemCommandInput` — added: `ReturnValuesOnConditionCheckFailure`
 - [x] `DeleteItemCommandInput.ReturnValuesOnConditionCheckFailure` — fixed from `String` to enum type
 
-### Missing fields in existing commands (legacy, lower priority)
-- [ ] `GetItemCommandInput` — missing: `AttributesToGet` (string[])
-- [ ] `PutItemCommandInput` — missing: `Expected`, `ConditionalOperator`
-- [ ] `DeleteItemCommandInput` — missing: `Expected`, `ConditionalOperator`
-- [ ] `UpdateItemCommandInput` — missing: `AttributeUpdates`, `Expected`, `ConditionalOperator`
-- [ ] `QueryCommandInput` — missing: `AttributesToGet`, `KeyConditions`, `QueryFilter`, `ConditionalOperator`
-- [ ] `ScanCommandInput` — missing: `AttributesToGet`, `ScanFilter`, `ConditionalOperator`
+### Missing fields in existing commands (legacy, lower priority) — FIXED
+- [x] `GetItemCommandInput` — added: `AttributesToGet`
+- [x] `PutItemCommandInput` — added: `Expected`, `ConditionalOperator`
+- [x] `DeleteItemCommandInput` — added: `Expected`, `ConditionalOperator`
+- [x] `UpdateItemCommandInput` — added: `AttributeUpdates`, `Expected`, `ConditionalOperator`
+- [x] `QueryCommandInput` — added: `AttributesToGet`, `KeyConditions`, `QueryFilter`, `ConditionalOperator`
+- [x] `ScanCommandInput` — added: `AttributesToGet`, `ScanFilter`, `ConditionalOperator`
 
 ### Core Operations
 - [ ] TransactGetItems
