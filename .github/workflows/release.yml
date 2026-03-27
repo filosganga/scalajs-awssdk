@@ -75,6 +75,7 @@ jobs:
           tag: ${{ steps.tag-version.outputs.new_tag }}
           name: ${{ steps.tag-version.outputs.new_version }}
           body: ${{ steps.tag-version.outputs.changelog }}
+          skipIfReleaseExists: true
       - run: git fetch --tags
       - run: echo $PGP_SECRET | base64 -d | gpg --import
         env:
