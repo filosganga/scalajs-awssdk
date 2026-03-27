@@ -6,12 +6,51 @@ package models
 import com.filippodeluca.jsfacade.awssdk.types.*
 import scalajs.js
 
+/** Union type for S3 request bodies. The AWS SDK accepts String, Uint8Array,
+  * ArrayBuffer, or a Node.js Readable stream.
+  */
+type StreamingBlobInput =
+  String | js.typedarray.Uint8Array | js.typedarray.ArrayBuffer | Readable
+
+object StreamingBlobInput {
+
+  /** Convert any Readable-like object (e.g. `fs2.io.Readable`) to
+    * `StreamingBlobInput`. Safe because all Readable implementations are
+    * Node.js Readable streams at runtime.
+    */
+  def fromReadable[R <: js.Object](readable: R): StreamingBlobInput =
+    readable.asInstanceOf[Readable]
+}
+
+/** Facade for the AWS SDK's SdkStream mixin. At runtime this is a Node.js
+  * Readable stream enhanced with convenience methods. Extends `types.Readable`
+  * which is structurally compatible with `fs2.io.Readable`.
+  *
+  * To use with fs2:
+  * {{{
+  * import fs2.io
+  *
+  * val body: SdkStream = response.Body.get
+  * io.suspendReadableAndRead[IO, io.Readable]()(body.toReadable)
+  * }}}
+  */
 @js.native
-trait SdkStream extends js.Object {
+trait SdkStream extends Readable {
   def transformToByteArray(): js.Promise[js.typedarray.Uint8Array] = js.native
   def transformToString(
       encoding: js.UndefOr[String] = js.undefined
   ): js.Promise[String] = js.native
+  def transformToWebStream(): js.Any = js.native
+}
+
+object SdkStream {
+  extension (stream: SdkStream) {
+
+    /** Cast to `fs2.io.Readable` for use with `fs2.io.suspendReadableAndRead`.
+      * This is safe because SdkStream is a Node.js Readable at runtime.
+      */
+    def toReadable[R <: js.Object]: R = stream.asInstanceOf[R]
+  }
 }
 
 @js.native
@@ -1952,7 +1991,6 @@ object GetObjectCommandInput {
   }
 }
 
-// TODO: Body — streaming/binary type 'StreamingBlobPayloadOutputTypes' — consider using SdkStream, io.Readable, or a more specific type
 @js.native
 trait GetObjectCommandOutput extends MetadataBearer {
   val DeleteMarker: js.UndefOr[Boolean] = js.native
@@ -2151,11 +2189,10 @@ object GetObjectTorrentCommandInput {
   }
 }
 
-// TODO: Body — streaming/binary type 'StreamingBlobPayloadOutputTypes' — consider using SdkStream, io.Readable, or a more specific type
 @js.native
 trait GetObjectTorrentCommandOutput extends MetadataBearer {
   val RequestCharged: js.UndefOr[RequestCharged] = js.native
-  val Body: js.UndefOr[js.Any] = js.native
+  val Body: js.UndefOr[SdkStream] = js.native
 }
 
 @js.native
@@ -3542,7 +3579,6 @@ trait PutObjectAclCommandOutput extends MetadataBearer {
   val RequestCharged: js.UndefOr[RequestCharged] = js.native
 }
 
-// TODO: Body — streaming/binary type 'StreamingBlobPayloadInputTypes' — consider using SdkStream, io.Readable, or a more specific type
 @js.native
 trait PutObjectCommandInput extends js.Object {
   val ACL: js.UndefOr[ObjectCannedACL] = js.native
@@ -3632,7 +3668,7 @@ object PutObjectCommandInput {
       ObjectLockLegalHoldStatus: js.UndefOr[ObjectLockLegalHoldStatus] =
         js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined,
-      Body: js.UndefOr[js.Any] = js.undefined
+      Body: js.UndefOr[StreamingBlobInput] = js.undefined
   ): PutObjectCommandInput = {
     js.Dynamic
       .literal(
@@ -4185,7 +4221,6 @@ trait UpdateObjectEncryptionCommandOutput extends MetadataBearer {
   val RequestCharged: js.UndefOr[RequestCharged] = js.native
 }
 
-// TODO: Body — streaming/binary type 'StreamingBlobPayloadInputTypes' — consider using SdkStream, io.Readable, or a more specific type
 @js.native
 trait UploadPartCommandInput extends js.Object {
   val Bucket: js.UndefOr[String] = js.native
@@ -4227,7 +4262,7 @@ object UploadPartCommandInput {
       SSECustomerKeyMD5: js.UndefOr[String] = js.undefined,
       RequestPayer: js.UndefOr[RequestPayer] = js.undefined,
       ExpectedBucketOwner: js.UndefOr[String] = js.undefined,
-      Body: js.UndefOr[js.Any] = js.undefined
+      Body: js.UndefOr[StreamingBlobInput] = js.undefined
   ): UploadPartCommandInput = {
     js.Dynamic
       .literal(
@@ -4359,7 +4394,6 @@ trait UploadPartCopyCommandOutput extends MetadataBearer {
   val RequestCharged: js.UndefOr[RequestCharged] = js.native
 }
 
-// TODO: Body — streaming/binary type 'StreamingBlobPayloadInputTypes' — consider using SdkStream, io.Readable, or a more specific type
 @js.native
 trait WriteGetObjectResponseCommandInput extends js.Object {
   val RequestRoute: js.UndefOr[String] = js.native
@@ -4449,7 +4483,7 @@ object WriteGetObjectResponseCommandInput {
       TagCount: js.UndefOr[Int] = js.undefined,
       VersionId: js.UndefOr[String] = js.undefined,
       BucketKeyEnabled: js.UndefOr[Boolean] = js.undefined,
-      Body: js.UndefOr[js.Any] = js.undefined
+      Body: js.UndefOr[StreamingBlobInput] = js.undefined
   ): WriteGetObjectResponseCommandInput = {
     js.Dynamic
       .literal(

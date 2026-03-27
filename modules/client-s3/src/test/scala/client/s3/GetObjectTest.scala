@@ -49,7 +49,7 @@ class GetObjectTest
         getResult <- getObject
         body <- io
           .suspendReadableAndRead[IO, io.Readable]()(
-            getResult.Body.get.asInstanceOf[io.Readable]
+            getResult.Body.get.toReadable
           )
           .use { case (_, stream) =>
             stream.through(fs2.text.utf8.decode).compile.string
@@ -80,7 +80,7 @@ class GetObjectTest
               PutObjectCommandInput(
                 Bucket = bucketName,
                 Key = key,
-                Body = readable,
+                Body = StreamingBlobInput.fromReadable(readable),
                 ContentType = "text/plain"
               )
             )
@@ -100,7 +100,7 @@ class GetObjectTest
         )
         body <- io
           .suspendReadableAndRead[IO, io.Readable]()(
-            getResult.Body.get.asInstanceOf[io.Readable]
+            getResult.Body.get.toReadable
           )
           .use { case (_, stream) =>
             stream.through(fs2.text.utf8.decode).compile.string

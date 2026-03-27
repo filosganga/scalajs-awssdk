@@ -3,6 +3,15 @@ package com.filippodeluca.jsfacade.awssdk.types
 import scalajs.js
 import scalajs.js.annotation.JSName
 
+/** Minimal facade for Node.js stream.Readable. This is the base type for
+  * readable streams in Node.js. The AWS SDK v3 returns Readable streams for
+  * response bodies (e.g. GetObject). This trait is compatible with
+  * `fs2.io.Readable` — you can pass it directly to
+  * `fs2.io.suspendReadableAndRead`.
+  */
+@js.native
+trait Readable extends js.Object
+
 /** Facade for the JavaScript AsyncIterable protocol. An AsyncIterable is an
   * object that implements `[Symbol.asyncIterator]()`, returning an
   * AsyncIterator. This is used by AWS SDK v3 for event streams (e.g.
