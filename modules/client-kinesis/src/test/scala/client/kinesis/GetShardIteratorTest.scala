@@ -2,8 +2,8 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package kinesis
 
-import models._
-import commands._
+import models.*
+import commands.*
 
 class GetShardIteratorTest extends munit.CatsEffectSuite with KinesisFixtures {
 

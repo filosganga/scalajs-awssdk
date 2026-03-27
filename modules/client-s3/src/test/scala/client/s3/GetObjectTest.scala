@@ -2,11 +2,11 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package s3
 
-import cats.effect._
+import cats.effect.*
 
 import scalajs.js
-import models._
-import commands._
+import models.*
+import commands.*
 
 import fs2.{Stream => Fs2Stream}
 import fs2.io

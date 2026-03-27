@@ -3,9 +3,8 @@ package client
 package dynamodb
 
 import scalajs.js
-import scalajs.js.JSConverters._
-import models._
-import commands._
+import models.*
+import commands.*
 
 class LegacyApiTest
     extends munit.CatsEffectSuite

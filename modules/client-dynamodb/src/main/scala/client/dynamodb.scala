@@ -1,22 +1,23 @@
 package com.filippodeluca.jsfacade.awssdk
 package client
-package sns
+package dynamodb
 
 import com.filippodeluca.jsfacade.awssdk.config.resolver.RegionInputConfig
-import com.filippodeluca.jsfacade.awssdk.middleware.endpoint._
+import com.filippodeluca.jsfacade.awssdk.middleware.endpoint.*
 import com.filippodeluca.jsfacade.awssdk.middleware.retry.RetryInputConfig
 import com.filippodeluca.jsfacade.awssdk.middleware.signing.AwsAuthInputConfig
 import com.filippodeluca.jsfacade.awssdk.middleware.userAgent.UserAgentInputConfig
-import com.filippodeluca.jsfacade.awssdk.types._
-import com.filippodeluca.jsfacade.awssdk.types.identity._
+import com.filippodeluca.jsfacade.awssdk.types.*
+import com.filippodeluca.jsfacade.awssdk.types.identity.*
 import scala.annotation.nowarn
 import scalajs.js
-import scalajs.js._
+import scalajs.js.*
 import scalajs.js.annotation.JSImport
 
 @js.native
-@JSImport("@aws-sdk/client-sns", "SNSClient")
-class SNSClient(@nowarn configuration: SNSClientConfig) extends js.Object {
+@JSImport("@aws-sdk/client-dynamodb", "DynamoDBClient")
+class DynamoDBClient(@nowarn configuration: DynamoDBClientConfig)
+    extends js.Object {
   def destroy(): Unit = js.native
   def send[InputType, OutputType](
       command: Command[InputType, OutputType]
@@ -24,7 +25,7 @@ class SNSClient(@nowarn configuration: SNSClientConfig) extends js.Object {
 }
 
 @js.native
-@JSImport("@aws-sdk/client-sns", "Command")
+@JSImport("@aws-sdk/client-dynamodb", "Command")
 class Command[ClientInput, ClientOutput] extends js.Object {
   val input: ClientInput = js.native
 }
@@ -40,7 +41,7 @@ object DefaultsMode {
 }
 
 @js.native
-trait SNSClientConfig
+trait DynamoDBClientConfig
     extends js.Object
     with AwsAuthInputConfig
     with EndpointInputConfig
@@ -58,10 +59,11 @@ trait SNSClientConfig
 
   val logger: js.UndefOr[Logger] = js.native
 
+  // TODO https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/clients/client-dynamodb/interfaces/dynamodbclientconfig.html#requesthandler
   val requestHandler: js.UndefOr[js.Any] = js.native
 }
 
-object SNSClientConfig {
+object DynamoDBClientConfig {
   def apply(
       region: js.UndefOr[String | Provider[String]] = js.undefined,
       useFipsEndpoint: js.UndefOr[Boolean | Provider[Boolean]] = js.undefined,
@@ -90,7 +92,7 @@ object SNSClientConfig {
       signingRegion: js.UndefOr[String] = js.undefined,
       signingEscapePath: js.UndefOr[Boolean] = js.undefined,
       systemClockOffset: js.UndefOr[Int] = js.undefined
-  ): SNSClientConfig = {
+  ): DynamoDBClientConfig = {
 
     val properties = Map(
       "region" -> region.asInstanceOf[js.Any],
@@ -117,7 +119,7 @@ object SNSClientConfig {
 
     js.Dynamic.literal
       .applyDynamic("apply")(properties*)
-      .asInstanceOf[SNSClientConfig]
+      .asInstanceOf[DynamoDBClientConfig]
 
   }
 }

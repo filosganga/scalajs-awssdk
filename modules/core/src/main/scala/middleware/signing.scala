@@ -4,8 +4,8 @@ package middleware
 import scalajs.js
 
 object signing {
-  import com.filippodeluca.jsfacade.awssdk.types._
-  import com.filippodeluca.jsfacade.awssdk.types.identity._
+  import com.filippodeluca.jsfacade.awssdk.types.*
+  import com.filippodeluca.jsfacade.awssdk.types.identity.*
 
   @js.native
   trait AwsAuthInputConfig extends SigV4AuthInputConfig {

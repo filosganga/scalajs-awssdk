@@ -3,7 +3,7 @@ package client
 package sns
 package models
 
-import com.filippodeluca.jsfacade.awssdk.types._
+import com.filippodeluca.jsfacade.awssdk.types.*
 import scalajs.js
 import scalajs.js.typedarray.Uint8Array
 

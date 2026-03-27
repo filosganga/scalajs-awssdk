@@ -3,10 +3,10 @@ package client
 package kinesis
 
 import cats.effect.IO
-import scala.concurrent.duration._
+import scala.concurrent.duration.*
 
-import models._
-import commands._
+import models.*
+import commands.*
 
 import scalajs.js
 

@@ -2,8 +2,8 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package s3
 
-import models._
-import commands._
+import models.*
+import commands.*
 
 class DeleteBucketTest
     extends munit.CatsEffectSuite

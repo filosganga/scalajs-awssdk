@@ -3,8 +3,8 @@ package client
 package s3
 
 import scalajs.js
-import models._
-import commands._
+import models.*
+import commands.*
 
 class DeleteObjectsTest
     extends munit.CatsEffectSuite

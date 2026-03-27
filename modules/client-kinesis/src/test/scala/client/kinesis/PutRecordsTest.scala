@@ -2,11 +2,11 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package kinesis
 
-import models._
-import commands._
+import models.*
+import commands.*
 
 import scalajs.js
-import scalajs.js.JSConverters._
+import scalajs.js.JSConverters.*
 
 class PutRecordsTest extends munit.CatsEffectSuite with KinesisFixtures {
 

@@ -3,7 +3,7 @@ package client
 package kinesis
 package models
 
-import com.filippodeluca.jsfacade.awssdk.types._
+import com.filippodeluca.jsfacade.awssdk.types.*
 import scalajs.js
 
 @js.native

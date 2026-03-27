@@ -3,7 +3,7 @@ package client
 package kinesis
 package commands
 
-import com.filippodeluca.jsfacade.awssdk.client.kinesis.models._
+import com.filippodeluca.jsfacade.awssdk.client.kinesis.models.*
 import scalajs.js
 import scalajs.js.annotation.JSImport
 

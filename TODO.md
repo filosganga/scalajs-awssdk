@@ -26,12 +26,12 @@ DeleteTable, DescribeTable, GetItem, PutItem, Query, Scan, UpdateItem
 - [x] `QueryCommandInput` — added: `AttributesToGet`, `KeyConditions`, `QueryFilter`, `ConditionalOperator`
 - [x] `ScanCommandInput` — added: `AttributesToGet`, `ScanFilter`, `ConditionalOperator`
 
-### Core Operations
-- [ ] TransactGetItems
-- [ ] TransactWriteItems
-- [ ] ExecuteStatement
-- [ ] ExecuteTransaction
-- [ ] BatchExecuteStatement
+### Core Operations — DONE
+- [x] TransactGetItems
+- [x] TransactWriteItems
+- [x] ExecuteStatement
+- [x] ExecuteTransaction
+- [x] BatchExecuteStatement
 
 ### Table Management
 - [ ] UpdateTable

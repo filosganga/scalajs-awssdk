@@ -2,13 +2,13 @@ package com.filippodeluca.jsfacade.awssdk
 package client
 package s3
 
-import cats.effect._
+import cats.effect.*
 import cats.effect.std.Env
 import cats.syntax.all.*
 
-import scalajs.js.JSConverters._
-import models._
-import commands._
+import scalajs.js.JSConverters.*
+import models.*
+import commands.*
 
 trait S3Fixtures {
   self: munit.FunSuite =>

@@ -4,8 +4,8 @@ package s3
 
 import cats.effect.IO
 
-import models._
-import commands._
+import models.*
+import commands.*
 
 class CopyObjectTest
     extends munit.CatsEffectSuite

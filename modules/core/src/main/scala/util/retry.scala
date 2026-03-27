@@ -4,7 +4,7 @@ package retry
 
 import scala.annotation.nowarn
 
-import com.filippodeluca.jsfacade.awssdk.types._
+import com.filippodeluca.jsfacade.awssdk.types.*
 import scalajs.js
 import scalajs.js.annotation.JSImport
 
