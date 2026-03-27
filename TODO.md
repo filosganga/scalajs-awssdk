@@ -12,11 +12,11 @@ DeleteTable, DescribeTable, GetItem, PutItem, Query, Scan, UpdateItem
 - [x] `BatchWriteItemCommandOutput.ItemCollectionMetrics` — fixed to `js.Dictionary[js.Array[ItemCollectionMetrics]]`
 - [x] `BatchWriteItemCommandOutput.UnprocessedKeys` — renamed to `UnprocessedItems`, fixed to `js.Dictionary[js.Array[WriteRequest]]`
 
-### Missing fields in existing commands (non-legacy)
-- [ ] `CreateTableCommandInput` — missing: `DeletionProtectionEnabled` (Boolean), `WarmThroughput`, `ResourcePolicy` (String), `OnDemandThroughput`, `GlobalTableSourceArn` (String), `GlobalTableSettingsReplicationMode`
-- [ ] `PutItemCommandInput` — missing: `ReturnValuesOnConditionCheckFailure`
-- [ ] `UpdateItemCommandInput` — missing: `ReturnValuesOnConditionCheckFailure`
-- [ ] `DeleteItemCommandInput.ReturnValuesOnConditionCheckFailure` — typed as `String`, should use enum type
+### Missing fields in existing commands (non-legacy) — FIXED
+- [x] `CreateTableCommandInput` — added: `DeletionProtectionEnabled`, `WarmThroughput`, `ResourcePolicy`, `OnDemandThroughput`, `GlobalTableSourceArn`, `GlobalTableSettingsReplicationMode`
+- [x] `PutItemCommandInput` — added: `ReturnValuesOnConditionCheckFailure`
+- [x] `UpdateItemCommandInput` — added: `ReturnValuesOnConditionCheckFailure`
+- [x] `DeleteItemCommandInput.ReturnValuesOnConditionCheckFailure` — fixed from `String` to enum type
 
 ### Missing fields in existing commands (legacy, lower priority)
 - [ ] `GetItemCommandInput` — missing: `AttributesToGet` (string[])

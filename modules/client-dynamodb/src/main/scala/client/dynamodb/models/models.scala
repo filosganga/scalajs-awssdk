@@ -983,6 +983,14 @@ trait CreateTableCommandInput extends js.Object {
   val TableName: String = js.native
 
   val Tags: js.UndefOr[js.Array[Tag]] = js.native
+  val DeletionProtectionEnabled: js.UndefOr[Boolean] = js.native
+  val WarmThroughput: js.UndefOr[WarmThroughput] = js.native
+  val ResourcePolicy: js.UndefOr[String] = js.native
+  val OnDemandThroughput: js.UndefOr[OnDemandThroughput] = js.native
+  val GlobalTableSourceArn: js.UndefOr[String] = js.native
+  val GlobalTableSettingsReplicationMode: js.UndefOr[
+    GlobalTableSettingsReplicationMode
+  ] = js.native
 }
 
 object CreateTableCommandInput {
@@ -999,7 +1007,15 @@ object CreateTableCommandInput {
       StreamSpecification: js.UndefOr[StreamSpecification] = js.undefined,
       SSESpecification: js.UndefOr[SSESpecification] = js.undefined,
       TableClass: js.UndefOr[TableClass] = js.undefined,
-      Tags: js.UndefOr[js.Array[Tag]] = js.undefined
+      Tags: js.UndefOr[js.Array[Tag]] = js.undefined,
+      DeletionProtectionEnabled: js.UndefOr[Boolean] = js.undefined,
+      WarmThroughput: js.UndefOr[WarmThroughput] = js.undefined,
+      ResourcePolicy: js.UndefOr[String] = js.undefined,
+      OnDemandThroughput: js.UndefOr[OnDemandThroughput] = js.undefined,
+      GlobalTableSourceArn: js.UndefOr[String] = js.undefined,
+      GlobalTableSettingsReplicationMode: js.UndefOr[
+        GlobalTableSettingsReplicationMode
+      ] = js.undefined
   ): CreateTableCommandInput = js.Dynamic
     .literal(
       TableName = TableName,
@@ -1012,7 +1028,15 @@ object CreateTableCommandInput {
       StreamSpecification = StreamSpecification.asInstanceOf[js.Any],
       TableClass = TableClass.asInstanceOf[js.Any],
       SSESpecification = SSESpecification.asInstanceOf[js.Any],
-      Tags = Tags.asInstanceOf[js.Any]
+      Tags = Tags.asInstanceOf[js.Any],
+      DeletionProtectionEnabled =
+        DeletionProtectionEnabled.asInstanceOf[js.Any],
+      WarmThroughput = WarmThroughput.asInstanceOf[js.Any],
+      ResourcePolicy = ResourcePolicy.asInstanceOf[js.Any],
+      OnDemandThroughput = OnDemandThroughput.asInstanceOf[js.Any],
+      GlobalTableSourceArn = GlobalTableSourceArn.asInstanceOf[js.Any],
+      GlobalTableSettingsReplicationMode =
+        GlobalTableSettingsReplicationMode.asInstanceOf[js.Any]
     )
     .asInstanceOf[CreateTableCommandInput]
 }
@@ -1097,6 +1121,9 @@ trait PutItemCommandInput extends js.Object {
   val ReturnItemCollectionMetrics: js.UndefOr[ReturnItemCollectionMetrics] =
     js.native
   val ReturnValues: js.UndefOr[ReturnValues] = js.native
+  val ReturnValuesOnConditionCheckFailure: js.UndefOr[
+    ReturnValuesOnConditionCheckFailure
+  ] = js.native
 }
 
 object PutItemCommandInput {
@@ -1151,7 +1178,10 @@ object PutItemCommandInput {
       ReturnConsumedCapacity: js.UndefOr[ReturnConsumedCapacity] = js.undefined,
       ReturnItemCollectionMetrics: js.UndefOr[ReturnItemCollectionMetrics] =
         js.undefined,
-      ReturnValues: js.UndefOr[ReturnValues] = js.undefined
+      ReturnValues: js.UndefOr[ReturnValues] = js.undefined,
+      ReturnValuesOnConditionCheckFailure: js.UndefOr[
+        ReturnValuesOnConditionCheckFailure
+      ] = js.undefined
   ): PutItemCommandInput = {
     js.Dynamic
       .literal(
@@ -1165,7 +1195,9 @@ object PutItemCommandInput {
         ReturnConsumedCapacity = ReturnConsumedCapacity.asInstanceOf[js.Any],
         ReturnItemCollectionMetrics =
           ReturnItemCollectionMetrics.asInstanceOf[js.Any],
-        ReturnValues = ReturnValues.asInstanceOf[js.Any]
+        ReturnValues = ReturnValues.asInstanceOf[js.Any],
+        ReturnValuesOnConditionCheckFailure =
+          ReturnValuesOnConditionCheckFailure.asInstanceOf[js.Any]
       )
       .asInstanceOf[PutItemCommandInput]
   }
@@ -1199,7 +1231,9 @@ trait DeleteItemCommandInput extends js.Object {
   val ReturnItemCollectionMetrics: js.UndefOr[ReturnItemCollectionMetrics] =
     js.native
   val ReturnValues: js.UndefOr[ReturnValues] = js.native
-  val ReturnValuesOnConditionCheckFailure: js.UndefOr[String] = js.native
+  val ReturnValuesOnConditionCheckFailure: js.UndefOr[
+    ReturnValuesOnConditionCheckFailure
+  ] = js.native
 }
 
 object DeleteItemCommandInput {
@@ -1216,7 +1250,9 @@ object DeleteItemCommandInput {
       ReturnItemCollectionMetrics: js.UndefOr[ReturnItemCollectionMetrics] =
         js.undefined,
       ReturnValues: js.UndefOr[ReturnValues] = js.undefined,
-      ReturnValuesOnConditionCheckFailure: js.UndefOr[String] = js.undefined
+      ReturnValuesOnConditionCheckFailure: js.UndefOr[
+        ReturnValuesOnConditionCheckFailure
+      ] = js.undefined
   ): DeleteItemCommandInput = {
     js.Dynamic
       .literal(
@@ -1337,4 +1373,62 @@ trait DescribeTableCommandOutput extends MetadataBearer {
   /** <p>The properties of the table.</p>
     */
   val Table: js.UndefOr[TableDescription] = js.native
+}
+
+@js.native
+trait WarmThroughput extends js.Object {
+  val ReadUnitsPerSecond: js.UndefOr[Int] = js.native
+  val WriteUnitsPerSecond: js.UndefOr[Int] = js.native
+}
+
+object WarmThroughput {
+  def apply(
+      ReadUnitsPerSecond: js.UndefOr[Int] = js.undefined,
+      WriteUnitsPerSecond: js.UndefOr[Int] = js.undefined
+  ): WarmThroughput = {
+    js.Dynamic
+      .literal(
+        ReadUnitsPerSecond = ReadUnitsPerSecond.asInstanceOf[js.Any],
+        WriteUnitsPerSecond = WriteUnitsPerSecond.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[WarmThroughput]
+  }
+}
+
+@js.native
+trait OnDemandThroughput extends js.Object {
+  val MaxReadRequestUnits: js.UndefOr[Int] = js.native
+  val MaxWriteRequestUnits: js.UndefOr[Int] = js.native
+}
+
+object OnDemandThroughput {
+  def apply(
+      MaxReadRequestUnits: js.UndefOr[Int] = js.undefined,
+      MaxWriteRequestUnits: js.UndefOr[Int] = js.undefined
+  ): OnDemandThroughput = {
+    js.Dynamic
+      .literal(
+        MaxReadRequestUnits = MaxReadRequestUnits.asInstanceOf[js.Any],
+        MaxWriteRequestUnits = MaxWriteRequestUnits.asInstanceOf[js.Any]
+      )
+      .asInstanceOf[OnDemandThroughput]
+  }
+}
+
+sealed trait ReturnValuesOnConditionCheckFailure extends js.Any
+object ReturnValuesOnConditionCheckFailure {
+  val AllOld =
+    "ALL_OLD".asInstanceOf[ReturnValuesOnConditionCheckFailure]
+  val None =
+    "NONE".asInstanceOf[ReturnValuesOnConditionCheckFailure]
+}
+
+sealed trait GlobalTableSettingsReplicationMode extends js.Any
+object GlobalTableSettingsReplicationMode {
+  val Disabled =
+    "DISABLED".asInstanceOf[GlobalTableSettingsReplicationMode]
+  val Enabled =
+    "ENABLED".asInstanceOf[GlobalTableSettingsReplicationMode]
+  val EnabledWithOverrides =
+    "ENABLED_WITH_OVERRIDES".asInstanceOf[GlobalTableSettingsReplicationMode]
 }

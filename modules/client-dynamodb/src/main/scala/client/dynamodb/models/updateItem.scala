@@ -194,6 +194,9 @@ trait UpdateItemCommandInput extends js.Object {
     */
   val ExpressionAttributeValues: js.UndefOr[js.Dictionary[AttributeValue]] =
     js.native
+  val ReturnValuesOnConditionCheckFailure: js.UndefOr[
+    ReturnValuesOnConditionCheckFailure
+  ] = js.native
 }
 
 object UpdateItemCommandInput {
@@ -209,7 +212,10 @@ object UpdateItemCommandInput {
       ReturnValues: js.UndefOr[ReturnValue] = js.undefined,
       ReturnConsumedCapacity: js.UndefOr[ReturnConsumedCapacity] = js.undefined,
       ReturnItemCollectionMetrics: js.UndefOr[ReturnItemCollectionMetrics] =
-        js.undefined
+        js.undefined,
+      ReturnValuesOnConditionCheckFailure: js.UndefOr[
+        ReturnValuesOnConditionCheckFailure
+      ] = js.undefined
   ): UpdateItemCommandInput = js.Dynamic
     .literal(
       TableName = TableName.asInstanceOf[js.Any],
@@ -222,7 +228,9 @@ object UpdateItemCommandInput {
       ReturnValues = ReturnValues.asInstanceOf[js.Any],
       ReturnConsumedCapacity = ReturnConsumedCapacity.asInstanceOf[js.Any],
       ReturnItemCollectionMetrics =
-        ReturnItemCollectionMetrics.asInstanceOf[js.Any]
+        ReturnItemCollectionMetrics.asInstanceOf[js.Any],
+      ReturnValuesOnConditionCheckFailure =
+        ReturnValuesOnConditionCheckFailure.asInstanceOf[js.Any]
     )
     .asInstanceOf[UpdateItemCommandInput]
 }
